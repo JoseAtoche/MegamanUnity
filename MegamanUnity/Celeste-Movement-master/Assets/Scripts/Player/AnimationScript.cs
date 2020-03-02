@@ -23,15 +23,27 @@ public class AnimationScript : MonoBehaviour
     {
         anim.SetBool("onGround", coll.onGround);
         anim.SetBool("onWall", coll.onWall);
-        anim.SetBool("onRightWall", coll.onRightWall);
-        anim.SetBool("wallGrab", move.wallGrab);
+        // anim.SetBool("onRightWall", coll.onRightWall);
+        //anim.SetBool("wallGrab", move.wallGrab);
         anim.SetBool("wallSlide", move.wallSlide);
-        anim.SetBool("canMove", move.canMove);
+        //anim.SetBool("canMove", move.canMove);
         anim.SetBool("isDashing", move.isDashing);
+
+        Debug.Log(move.shoot);
+        anim.SetBool("Shoot", move.shoot);
+        move.shoot = false;
+
+        anim.SetBool("BigAttack", move.bigAtack);
+        anim.SetBool("OnLeader", move.onleader);
+        anim.SetBool("upattack", move.upattack);
+
+
+
+
 
     }
 
-    public void SetHorizontalMovement(float x,float y, float yVel)
+    public void SetHorizontalMovement(float x, float y, float yVel)
     {
         anim.SetFloat("HorizontalAxis", x);
         anim.SetFloat("VerticalAxis", y);
