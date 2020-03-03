@@ -359,14 +359,14 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1398
+  randomSeed: -1345023424
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -419,7 +419,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 90
+      scalar: 60
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -535,7 +535,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -851,7 +851,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10000
+    maxNumParticles: 3000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -912,7 +912,7 @@ ParticleSystem:
     enabled: 1
     type: 8
     angle: 0
-    length: 100
+    length: 20
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0
     donutRadius: 0.2
@@ -997,7 +997,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 8
+      value: 9
       mode: 0
       spread: 0
       speed:
@@ -1116,7 +1116,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 500
+      scalar: 900
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4949,7 +4949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128411831}
   m_LocalRotation: {x: -0.70720196, y: 0.0022643902, z: 0.70700437, w: 0.002265023}
-  m_LocalPosition: {x: 48.61, y: -0.07, z: -3}
+  m_LocalPosition: {x: 21.1, y: -1, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4965,6 +4965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 263538917}
   - component: {fileID: 263538916}
+  - component: {fileID: 263538918}
   m_Layer: 0
   m_Name: Fondo
   m_TagString: Untagged
@@ -5034,6 +5035,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &263538918
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263538915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a87df96c78c3a2f418e8d070f00e6a9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &289567628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5167,6 +5187,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 2610303242571530179, guid: 7911b1c376aeb89408273155392b2d5f, type: 2}
     value: {fileID: 543273196}
+  - key: {fileID: -5280125516722714478, guid: 7911b1c376aeb89408273155392b2d5f, type: 2}
+    value: {fileID: 263538918}
   m_ExposedReferences:
     m_References:
     - ba0ae9315e90fee43ad536a71d4f936c: {fileID: 1756619125}
