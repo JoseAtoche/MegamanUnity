@@ -7,9 +7,10 @@ public class BulletControl : MonoBehaviour
 
     public Rigidbody2D bulletRB;
     public float bulletSpeed;
-    public float  bulletLife; 
+    public float bulletLife;
 
-        void Awake() {
+    void Awake()
+    {
 
         bulletRB = GetComponent<Rigidbody2D>();
 
@@ -21,14 +22,15 @@ public class BulletControl : MonoBehaviour
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Movement movimiento = player.GetComponent<Movement>();
-        if (movimiento.side == -1)
+        if ((movimiento.side == -1 && !movimiento.wallSlide) || (movimiento.side == 1 && movimiento.wallSlide))
         {
-
             bulletRB.velocity = new Vector2(-bulletSpeed, bulletRB.velocity.y);
 
 
         }
-        else {
+        if ((movimiento.side == 1 && !movimiento.wallSlide) || (movimiento.side == -1 && movimiento.wallSlide))
+        {
+
 
             bulletRB.velocity = new Vector2(bulletSpeed, bulletRB.velocity.y);
 

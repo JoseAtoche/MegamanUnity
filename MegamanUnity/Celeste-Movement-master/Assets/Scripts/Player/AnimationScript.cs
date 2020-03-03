@@ -29,7 +29,6 @@ public class AnimationScript : MonoBehaviour
         //anim.SetBool("canMove", move.canMove);
         anim.SetBool("isDashing", move.isDashing);
 
-        Debug.Log(move.shoot);
         anim.SetBool("Shoot", move.shoot);
         move.shoot = false;
 

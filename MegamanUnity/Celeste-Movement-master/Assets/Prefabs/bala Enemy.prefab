@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletRB: {fileID: 2034930537153372652}
-  bulletSpeed: 15
+  bulletSpeed: 0.5
   bulletLife: 1
 --- !u!1001 &8054396685159611608
 PrefabInstance:
