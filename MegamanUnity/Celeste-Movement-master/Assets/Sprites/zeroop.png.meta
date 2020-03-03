@@ -1,0 +1,821 @@
+fileFormatVersion: 2
+guid: 3de6bc917354ea14fbef19f2afcb724e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6361326242987551184
+    second: zeroop_0
+  - first:
+      213: 1967317586531229771
+    second: zeroop_1
+  - first:
+      213: 2652121517528455190
+    second: zeroop_2
+  - first:
+      213: -7720529830511207044
+    second: zeroop_3
+  - first:
+      213: 4037900537141110483
+    second: zeroop_4
+  - first:
+      213: -6743015467999652122
+    second: zeroop_5
+  - first:
+      213: -5755103066748110577
+    second: zeroop_6
+  - first:
+      213: 8704146060081809023
+    second: zeroop_7
+  - first:
+      213: 6722339067197108182
+    second: zeroop_8
+  - first:
+      213: -8393076230439950078
+    second: zeroop_9
+  - first:
+      213: 217252780693334747
+    second: zeroop_10
+  - first:
+      213: -7273233698648090776
+    second: zeroop_11
+  - first:
+      213: -5659306677988255110
+    second: zeroop_12
+  - first:
+      213: -3789627529126000737
+    second: zeroop_13
+  - first:
+      213: -3098691757918994522
+    second: zeroop_14
+  - first:
+      213: 560316137184021839
+    second: zeroop_15
+  - first:
+      213: 380547390405605679
+    second: zeroop_16
+  - first:
+      213: -2949418853179524254
+    second: zeroop_17
+  - first:
+      213: 8404792635913701650
+    second: zeroop_18
+  - first:
+      213: 1334177703124540422
+    second: zeroop_19
+  - first:
+      213: -2749989060252441472
+    second: zeroop_20
+  - first:
+      213: -994756823793063733
+    second: zeroop_21
+  - first:
+      213: -7667900272451939810
+    second: zeroop_22
+  - first:
+      213: 7047927116641528155
+    second: zeroop_23
+  - first:
+      213: -4660424339982689817
+    second: zeroop_24
+  - first:
+      213: 8347733440527117080
+    second: zeroop_25
+  - first:
+      213: -282423758842186470
+    second: zeroop_26
+  - first:
+      213: 2317107576641589812
+    second: zeroop_27
+  - first:
+      213: -9100840038083671213
+    second: zeroop_28
+  - first:
+      213: -2904367614106362818
+    second: zeroop_29
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: zeroop_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12594d7349e4eaf439aa10090894e6c7
+      internalID: 6361326242987551184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659598f0b60d4f346a06d6ae557f62d0
+      internalID: 1967317586531229771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40064269c6d1da64991bcd97cb634f76
+      internalID: 2652121517528455190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d0b7aea83bf134b8c10fdf34533734
+      internalID: -7720529830511207044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8289a14519318b84294dacbb71940c73
+      internalID: 4037900537141110483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c685ae752c2819b458e0bf9ff3dc3c13
+      internalID: -6743015467999652122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cecb0e91781e7c94ca61eef8cf51f263
+      internalID: -5755103066748110577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02d63dc866a43a438cd3729b9cd5c95
+      internalID: 8704146060081809023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0b560ab4b46f24e8f36ac93ba03fa7
+      internalID: 6722339067197108182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e83c06cf9617024f833437cccc01d77
+      internalID: -8393076230439950078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_10
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02dc2baf0aee3c428ceb0b7dad7ce5e
+      internalID: 217252780693334747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_11
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e891ed104f81e4d9f23d271f1dc8cf
+      internalID: -7273233698648090776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f34eed7440a724988f25fd033c7679
+      internalID: -5659306677988255110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_13
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcab14ba2128d79469f8aab035849c21
+      internalID: -3789627529126000737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_14
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3069f9b62bb5563438431a6933ab278b
+      internalID: -3098691757918994522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_15
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 52
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d2da4d1ea6e8f4f818c57f9b740348
+      internalID: 560316137184021839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74eeac11cf3692346b4cc5b25daa6dbe
+      internalID: 380547390405605679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_17
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d8c1ce40687a8489beae064c563dfa
+      internalID: -2949418853179524254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_18
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ea80fb9a62bb941b56d29e035ecfda
+      internalID: 8404792635913701650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_19
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb705ee51e62b5c4c9790b640f863dc5
+      internalID: 1334177703124540422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_20
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca68c67ce8f6080429f5c9794689e13e
+      internalID: -2749989060252441472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_21
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59bb79809b80a83428d32cd5927679ae
+      internalID: -994756823793063733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_22
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b6b254f3da93949bd0f97b4e25c798
+      internalID: -7667900272451939810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_23
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829b56782a880504d8cc0db2794f3e4e
+      internalID: 7047927116641528155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_24
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ca45d66fe81104e8047d41ae0f6a86
+      internalID: -4660424339982689817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_25
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9f1c2c86a53834c8dc67630d282251
+      internalID: 8347733440527117080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_26
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61229de081a083d4fa132183bee8ac37
+      internalID: -282423758842186470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_27
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34706717862dff7448e35f67302b3188
+      internalID: 2317107576641589812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_28
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d6505dea448d442ae9b072e74ce45a
+      internalID: -9100840038083671213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeroop_29
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85644993258291429284653d8bc42bf
+      internalID: -2904367614106362818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0082525be99c0304aa799d75913d9e10
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
