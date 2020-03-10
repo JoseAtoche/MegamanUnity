@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
             if (collision.gameObject.tag == "Enemy")
             { StopAllCoroutines();
             invulnerable = true;
-            Invoke("UndoInvincible", 1);
+            Invoke("UndoInvincible", 2);
             vida--;
             StartCoroutine(FlashSprite());
 
