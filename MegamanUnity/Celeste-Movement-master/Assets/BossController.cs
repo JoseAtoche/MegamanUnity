@@ -138,9 +138,18 @@ public class BossController : MonoBehaviour
 
         anim.SetBool("guillotine", true);
     }
-
-
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //PlayerController player = collision.GetComponent<PlayerController>();
+        //if (player != null)
+        //{
+        //    if (!player.invulnerable)
+        //    {
+        //        player.vida = player.vida - 10;
+        //    }
+        //}
+    }
+    
 
 
 

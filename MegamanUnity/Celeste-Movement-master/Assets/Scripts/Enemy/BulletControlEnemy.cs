@@ -26,4 +26,18 @@ public class BulletControlEnemy : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, posicioninicial, bulletSpeed);
         Destroy(gameObject, bulletLife);
     }
+
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        PlayerController player = hitInfo.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.vida = player.vida - 1;
+        }
+
+        //  Instantiate(impactEffect, transform.position, transform.rotation);
+
+        Destroy(gameObject);
+    }
+
 }
