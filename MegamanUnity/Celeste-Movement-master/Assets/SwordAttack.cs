@@ -21,7 +21,7 @@ public class SwordAttack : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
 
-        if (GameObject.Find("Player").GetComponent<Movement>().ataque > 0)
+        if (GameObject.FindObjectOfType<Movement>().ataque > 0)
         {
 
 

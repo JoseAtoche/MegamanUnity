@@ -66,7 +66,7 @@ public class AnimationScript : MonoBehaviour
         }
 
 
-        if (Time.time > tiempodeespera + 0.01)
+        if (Time.time > tiempodeespera + 0.03)
         {
 
 

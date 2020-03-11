@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,96 +14,127 @@ public class BossController : MonoBehaviour
     Color color;
     public SpriteRenderer spriteRenderer;
 
+
+
+
+    public float introDuration = 1.0f;
+
+    public float thornadusDuration = 1.0f;
+    public float evilWaltzDuration = 1.0f;
+    public float scytheDuration = 1.0f;
+    public float quartetBurstDuration = 1.0f;
+    public float guillotineDuration = 1.0f;
+    public float nocturneDuration = 1.0f;
+
+    float fixedSpeed;
+    Vector3 final;
+
+
+    public float time = 0;
+
+    public enum State
+    {
+        INTRO,
+        THORNADUS,
+        WALTZ,
+        SCYTHE,
+        BURST,
+        NOCTURNE,
+        GUILLOTINE
+    }
+
+    public State state = State.THORNADUS;
     void Start()
     {
         anim = GetComponent<Animator>();
+        fixedSpeed = velocidad * Time.deltaTime;
     }
 
     // Update is called once per frame
     void Update()
     {
         heartBar.value = heart;
-        //  int aleatorio = Random.Range(1, 8);
-        switch (1)
+
+
+
+
+        time += Time.deltaTime;
+
+        switch (state)
         {
-            case 1:
-                thornadus();
-
-                //flotar();
+            case State.INTRO:
+                // do intro stuff
+                intro();
                 break;
-            case 2:
-                thornadus();
 
-                // levantarse();
-                break;
-            case 3:
+            case State.THORNADUS:
                 thornadus();
                 break;
-            case 4:
-                thornadus();
+            case State.WALTZ:
 
-                // evilWaltz();
+                evilWaltz();
                 break;
-            case 5:
-                thornadus();
+            case State.SCYTHE:
 
-                // scythe();
+                scythe();
                 break;
-            case 6:
-                thornadus();
+            case State.BURST:
 
-                // quartetBurst();
+                quartetBurst();
                 break;
-            case 7:
-                thornadus();
+            case State.NOCTURNE:
 
-                // hailNocturne();
+                hailNocturne();
                 break;
-            case 8:
-                thornadus();
+            case State.GUILLOTINE:
 
-                //guillotine();
+                guillotine();
                 break;
 
 
 
 
         }
-
-
-
-
-    }
-
-
-    void flotar()
-    {
-
-
-
-
-
-        anim.SetBool("floatPrometheus", true);
-    }
-    void levantarse()
-    {
-
-
-
-
-        anim.SetBool("getup", true);
-    }
-    void thornadus()
-    {
-
-
-        float fixedSpeed = velocidad * Time.deltaTime;
-        Vector3 final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
-
-
         transform.position = Vector3.MoveTowards(transform.position, final, fixedSpeed);
 
-        anim.SetBool("thornadus", true);
+
+
+    }
+
+
+    void intro()
+    {
+
+        if (time >= introDuration)
+        {
+            //anim.SetBool("floatPrometheus", true);
+            //state = State.INTRO;
+            //time -= introDuration;
+        }
+
+
+
+
+
+
+    }
+
+    void thornadus()
+    {
+        if (time >= thornadusDuration)
+        {
+
+            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+
+
+
+
+            anim.SetBool("thornadus", true);
+            state = State.THORNADUS;
+            time -= thornadusDuration;
+        }
+
+
     }
     void evilWaltz()
     {
@@ -144,49 +174,50 @@ public class BossController : MonoBehaviour
     }
 
 
-    //void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (!invulnerable)
-    //    {
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!invulnerable)
+        {
 
 
-    //        if (collision.gameObject.tag == "Jugador")
-    //        {
-    //            StopAllCoroutines();
-    //            invulnerable = true;
-    //            Invoke("UndoInvincible", 2);
-    //            heart--;
-    //            StartCoroutine(FlashSprite());
+            if (collision.gameObject.tag == "Jugador")
+            {
+
+                StopAllCoroutines();
+                invulnerable = true;
+                Invoke("UndoInvincible", 2);
+                heart--;
+                StartCoroutine(FlashSprite());
 
 
-    //        }
+            }
 
 
-    //    }
+        }
 
-    //}
-
-
+    }
 
 
-    //IEnumerator FlashSprite()
-    //{
-    //    while (true)
-    //    {
-    //        spriteRenderer.enabled = false;
-    //        yield return new WaitForSeconds(.02f);
-    //        spriteRenderer.enabled = true;
-    //        yield return new WaitForSeconds(.02f);
-    //    }
-    //}
 
 
-    //void UndoInvincible()
-    //{
-    //    invulnerable = false;
-    //    StopAllCoroutines();
-    //    spriteRenderer.enabled = true;
-    //}
+    IEnumerator FlashSprite()
+    {
+        while (true)
+        {
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(.02f);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(.02f);
+        }
+    }
+
+
+    void UndoInvincible()
+    {
+        invulnerable = false;
+        StopAllCoroutines();
+        spriteRenderer.enabled = true;
+    }
 }
 
 
