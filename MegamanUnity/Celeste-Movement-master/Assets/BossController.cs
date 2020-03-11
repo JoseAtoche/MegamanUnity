@@ -11,6 +11,10 @@ public class BossController : MonoBehaviour
     public float velocidad;
     public Slider heartBar;
 
+    public bool invulnerable;
+    Color color;
+    public SpriteRenderer spriteRenderer;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -138,20 +142,53 @@ public class BossController : MonoBehaviour
 
         anim.SetBool("guillotine", true);
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        //PlayerController player = collision.GetComponent<PlayerController>();
-        //if (player != null)
-        //{
-        //    if (!player.invulnerable)
-        //    {
-        //        player.vida = player.vida - 10;
-        //    }
-        //}
-    }
-    
+
+
+    //void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (!invulnerable)
+    //    {
+
+
+    //        if (collision.gameObject.tag == "Jugador")
+    //        {
+    //            StopAllCoroutines();
+    //            invulnerable = true;
+    //            Invoke("UndoInvincible", 2);
+    //            heart--;
+    //            StartCoroutine(FlashSprite());
+
+
+    //        }
+
+
+    //    }
+
+    //}
 
 
 
 
+    //IEnumerator FlashSprite()
+    //{
+    //    while (true)
+    //    {
+    //        spriteRenderer.enabled = false;
+    //        yield return new WaitForSeconds(.02f);
+    //        spriteRenderer.enabled = true;
+    //        yield return new WaitForSeconds(.02f);
+    //    }
+    //}
+
+
+    //void UndoInvincible()
+    //{
+    //    invulnerable = false;
+    //    StopAllCoroutines();
+    //    spriteRenderer.enabled = true;
+    //}
 }
+
+
+
+

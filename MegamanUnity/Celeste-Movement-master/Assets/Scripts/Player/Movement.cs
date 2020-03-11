@@ -1,8 +1,7 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class Movement : MonoBehaviour
 {
@@ -57,6 +56,15 @@ public class Movement : MonoBehaviour
     public Boolean shoot = false;
     public Boolean onleader = false;
     public Boolean upattack = false;
+    public int ataque = 0;
+    private float tiempo_espera_espada = 0;
+
+
+    public GameObject colliderderecha;
+    public GameObject colliderizquierda;
+
+
+
 
 
 
@@ -84,25 +92,25 @@ public class Movement : MonoBehaviour
 
 
 
-        //Si está en colision con la pared, y pusas shift y puedes moverte
-        if (coll.onWall && Input.GetButton("Fire3") && canMove)
-        {
+        ////Si está en colision con la pared, y pusas shift y puedes moverte
+        //if (coll.onWall && Input.GetButton("Fire3") && canMove)
+        //{
 
 
-            //Si el lado no es con el que colisionas, cambio de lado
-            if (side != coll.wallSide)
-                anim.Flip(side * -1);
-            wallGrab = true;
-            wallSlide = false;
-        }
+        //    //Si el lado no es con el que colisionas, cambio de lado
+        //    if (side != coll.wallSide)
+        //        anim.Flip(side * -1);
+        //    wallGrab = true;
+        //    wallSlide = false;
+        //}
 
 
-        //Si presiono shift y no estoy contra la pared ni puedo moverme todo a false
-        if (Input.GetButtonUp("Fire3") || !coll.onWall || !canMove)
-        {
-            wallGrab = false;
-            wallSlide = false;
-        }
+        ////Si presiono shift y no estoy contra la pared ni puedo moverme todo a false
+        //if (Input.GetButtonUp("Fire3") || !coll.onWall || !canMove)
+        //{
+        //    wallGrab = false;
+        //    wallSlide = false;
+        //}
 
 
         //Si colisiono con el suelo y no estoy dasheando
@@ -133,7 +141,7 @@ public class Movement : MonoBehaviour
         //Si colisiono con la pared pero no con el suelo
         if (coll.onWall && !coll.onGround)
         {
-            //Dar la vuelta a al hroa de los muros
+            //Dar la vuelta a al hora de los muros
 
             if (Time.time > nextFireTime)
             {
@@ -175,7 +183,7 @@ public class Movement : MonoBehaviour
 
             if (coll.onGround)
             {
-
+                //upattack=false;
                 Jump(Vector2.up, false);
             }
             if (coll.onWall && !coll.onGround)
@@ -212,12 +220,22 @@ public class Movement : MonoBehaviour
             anim.Flip(side);
             derecha = true;
 
+            //Establece los Collider del Golpe
+            colliderderecha.SetActive(true);
+            colliderizquierda.SetActive(false);
+
         }
         if (x < 0)
         {
             derecha = false;
             side = -1;
             anim.Flip(side);
+
+
+            //Establece los Collider del Golpe
+
+            colliderderecha.SetActive(false);
+            colliderizquierda.SetActive(true);
 
 
 
@@ -242,7 +260,53 @@ public class Movement : MonoBehaviour
 
             }
         }
+
+        if (Input.GetButtonDown("Fire3") && Input.GetKeyDown(KeyCode.W))
+        {
+            upattack = true;
+
+
+
+
+
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            switch (ataque)
+            {
+                case 0: ataque = 1; break;
+                case 1: ataque = 2; break;
+                case 2: ataque = 3; break;
+                case 3: ataque = 0; break;
+
+
+
+            }
+            tiempo_espera_espada = Time.time + cooldown;
+
+
+
+
+        }
+        else if (Time.time > tiempo_espera_espada - 0.3)
+        {
+
+            ataque = 0;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
     }
+
 
 
 

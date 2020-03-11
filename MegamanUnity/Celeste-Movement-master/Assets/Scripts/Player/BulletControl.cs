@@ -56,11 +56,12 @@ public class BulletControl : MonoBehaviour
         if (enemy != null)
         {
             enemy.heart = enemy.heart - 1;
+            Destroy(gameObject);
         }
 
         //  Instantiate(impactEffect, transform.position, transform.rotation);
 
-        Destroy(gameObject);
+       ;
     }
 
 }

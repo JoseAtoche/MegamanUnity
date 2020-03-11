@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AnimationScript : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class AnimationScript : MonoBehaviour
     private Collision coll;
     [HideInInspector]
     public SpriteRenderer sr;
+    private float tiempodeespera;
 
     void Start()
     {
@@ -35,6 +34,9 @@ public class AnimationScript : MonoBehaviour
         anim.SetBool("BigAttack", move.bigAtack);
         anim.SetBool("OnLeader", move.onleader);
         anim.SetBool("upattack", move.upattack);
+        anim.SetInteger("ataque", move.ataque);
+
+
 
 
 
@@ -47,6 +49,32 @@ public class AnimationScript : MonoBehaviour
         anim.SetFloat("HorizontalAxis", x);
         anim.SetFloat("VerticalAxis", y);
         anim.SetFloat("VerticalVelocity", yVel);
+
+
+
+
+
+
+
+
+
+        if (x != 0)
+        {
+
+            anim.SetBool("Moviendose", true);
+            tiempodeespera = Time.time;
+        }
+
+
+        if (Time.time > tiempodeespera + 0.01)
+        {
+
+
+
+            anim.SetBool("Moviendose", false);
+
+
+        }
     }
 
     public void SetTrigger(string trigger)

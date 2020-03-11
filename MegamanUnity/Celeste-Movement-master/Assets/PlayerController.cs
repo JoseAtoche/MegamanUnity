@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public Slider heartBar;
     public bool invulnerable;
     Color color;
-    public  SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
 
 
@@ -34,21 +33,24 @@ public class PlayerController : MonoBehaviour
     {
         if (!invulnerable)
         {
+
+
             if (collision.gameObject.tag == "Enemy")
-            { StopAllCoroutines();
-            invulnerable = true;
-            Invoke("UndoInvincible", 2);
-            vida--;
-            StartCoroutine(FlashSprite());
+            {
+                StopAllCoroutines();
+                invulnerable = true;
+                Invoke("UndoInvincible", 2);
+                vida--;
+                StartCoroutine(FlashSprite());
 
-            
-           }
 
-           
+            }
+
+
         }
 
     }
- 
+
 
 
     IEnumerator FlashSprite()
