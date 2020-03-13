@@ -32,7 +32,7 @@ public class AnimationScript : MonoBehaviour
         move.shoot = false;
 
         anim.SetBool("BigAttack", move.bigAtack);
-        anim.SetBool("OnLeader", move.onleader);
+        /// anim.SetBool("OnLeader", move.onleader);
         anim.SetBool("upattack", move.upattack);
         anim.SetInteger("ataque", move.ataque);
 

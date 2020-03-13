@@ -19,12 +19,12 @@ public class BossController : MonoBehaviour
 
     public float introDuration = 1.0f;
 
-    public float thornadusDuration = 1.0f;
-    public float evilWaltzDuration = 1.0f;
-    public float scytheDuration = 1.0f;
-    public float quartetBurstDuration = 1.0f;
-    public float guillotineDuration = 1.0f;
-    public float nocturneDuration = 1.0f;
+    public float thornadusDuration = 4.0f;
+    public float evilWaltzDuration = 4.0f;
+    public float scytheDuration = 4.0f;
+    public float quartetBurstDuration = 5.0f;
+    public float guillotineDuration = 4.0f;
+    public float nocturneDuration = 4.0f;
 
     float fixedSpeed;
     Vector3 final;
@@ -96,6 +96,22 @@ public class BossController : MonoBehaviour
 
         }
         transform.position = Vector3.MoveTowards(transform.position, final, fixedSpeed);
+        if (time == 0f)
+        {
+            anim.SetBool("thornadus", false);
+            anim.SetBool("guillotine", false);
+            anim.SetBool("burst", false);
+            anim.SetBool("fall", false);
+            anim.SetBool("waltz", false);
+            anim.SetBool("nocturne", false);
+
+
+
+
+
+            aleatorio();
+
+        }
 
 
 
@@ -138,39 +154,95 @@ public class BossController : MonoBehaviour
     }
     void evilWaltz()
     {
+        if (time >= guillotineDuration)
+        {
+
+            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
 
 
 
+            anim.SetBool("waltz", true);
 
-        anim.SetBool("guillotine", true);
+            state = State.GUILLOTINE;
+            time -= guillotineDuration;
+
+        }
+
+
+
     }
     void scythe()
     {
 
+        if (time >= scytheDuration)
+        {
+
+            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
 
 
 
-        anim.SetBool("fall", true);
+            anim.SetBool("fall", true);
+            state = State.SCYTHE;
+            time -= scytheDuration;
+
+        }
+
+
+
+
+
     }
     void quartetBurst()
     {
+        if (time >= quartetBurstDuration)
+        {
+
+            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+
+
+
+            anim.SetBool("burst", true);
+            state = State.BURST;
+            time -= quartetBurstDuration;
+
+        }
 
 
 
 
-        anim.SetBool("burst", true);
     }
     void hailNocturne()
     {
+        if (time >= nocturneDuration)
+        {
+
+            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
 
 
-        anim.SetBool("nocturne", true);
+
+            anim.SetBool("nocturne", true);
+            state = State.NOCTURNE;
+            time -= nocturneDuration;
+
+        }
+
+
     }
     void guillotine()
     {
+        if (time >= guillotineDuration)
+        {
+
+            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
 
 
-        anim.SetBool("guillotine", true);
+
+            anim.SetBool("guillotine", true);
+            state = State.GUILLOTINE;
+            time -= guillotineDuration;
+        }
+
+
     }
 
 
@@ -218,6 +290,48 @@ public class BossController : MonoBehaviour
         StopAllCoroutines();
         spriteRenderer.enabled = true;
     }
+
+
+
+    void aleatorio()
+    {
+        switch (Random.Range(0, 6))
+        {
+
+            case 0:
+                state = State.BURST;
+
+                break;
+            case 1:
+                state = State.GUILLOTINE;
+
+                break;
+            case 2:
+                state = State.NOCTURNE;
+
+                break;
+            case 3:
+                state = State.SCYTHE;
+
+                break;
+            case 4:
+                state = State.THORNADUS;
+
+                break;
+            case 5:
+                state = State.WALTZ;
+
+                break;
+        }
+
+
+
+
+
+
+
+    }
+
 }
 
 
