@@ -62,6 +62,7 @@ public class Movement : MonoBehaviour
 
     public GameObject colliderderecha;
     public GameObject colliderizquierda;
+    public bool permitodash = false;
 
 
 
@@ -190,10 +191,11 @@ public class Movement : MonoBehaviour
                 WallJump();
         }
 
-        if (Input.GetButtonDown("Fire1") && !hasDashed)
+        if (Input.GetButtonDown("Fire1") && !hasDashed || permitodash && Input.GetButtonDown("Fire1"))
         {
             if (xRaw != 0 || yRaw != 0)
                 Dash(xRaw, yRaw);
+            permitodash = false;
         }
 
         if (coll.onGround && !groundTouch)

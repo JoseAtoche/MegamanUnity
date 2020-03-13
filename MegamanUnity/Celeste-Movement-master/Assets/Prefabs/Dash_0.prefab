@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2080857348095493107}
   - component: {fileID: 2080857348095493104}
   - component: {fileID: 8266462968765568735}
+  - component: {fileID: 1132138101}
   m_Layer: 0
   m_Name: Dash_0
   m_TagString: Untagged
@@ -113,3 +114,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f65f16a38aa06e4c8c8fe4c1ec85ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1132138101
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080857348095493105}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.6, y: 0.97}
+    newSize: {x: 0.6, y: 0.97}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.78}
+  m_EdgeRadius: 0

@@ -20,9 +20,9 @@ public class DashItem : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
 
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().isDashing == true)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().permitodash == false)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().isDashing = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().permitodash = true;
 
 
             }
