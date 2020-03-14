@@ -45,7 +45,10 @@ public class Entity_life : MonoBehaviour
                 entity_jugador.StopAllCoroutines();
                 entity_jugador.invulnerable = true;
                 entity_jugador.Invoke("UndoInvincible", 2);
-                entity_jugador.vida -= 3;
+
+                if (vida <= 50) { entity_jugador.vida -= 6; } else { entity_jugador.vida -= 3; }
+
+
                 entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
 
 
@@ -68,7 +71,18 @@ public class Entity_life : MonoBehaviour
                 StopAllCoroutines();
                 invulnerable = true;
                 Invoke("UndoInvincible", 2);
-                vida -= 5;
+
+
+                Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
+                if (entity_jugador.vida <= 50)
+                {
+                    vida -= 8;
+                }
+                else
+                {
+                    vida -= 5;
+                }
+
                 StartCoroutine(FlashSprite());
 
             }

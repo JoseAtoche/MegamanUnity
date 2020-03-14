@@ -55,7 +55,19 @@ public class BulletControl : MonoBehaviour
         Entity_life enemy = hitInfo.GetComponent<Entity_life>();
         if (enemy != null)
         {
-            enemy.vida = enemy.vida - 1;
+            if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50)
+            {
+
+                enemy.vida = enemy.vida - 3;
+            }
+            else
+            {
+                enemy.vida = enemy.vida - 1;
+
+            }
+
+
+
             Destroy(gameObject);
         }
 
