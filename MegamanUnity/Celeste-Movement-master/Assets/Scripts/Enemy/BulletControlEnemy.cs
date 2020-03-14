@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletControlEnemy : MonoBehaviour
 {
@@ -10,6 +8,8 @@ public class BulletControlEnemy : MonoBehaviour
     public float bulletSpeed;
     public float bulletLife;
     Vector3 posicioninicial;
+
+
     void Awake()
     {
         bulletRB = GetComponent<Rigidbody2D>();
@@ -29,15 +29,33 @@ public class BulletControlEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Entity_life player = hitInfo.GetComponent<Entity_life>();
-        if (player != null)
+
+
+
+
+        if (hitInfo == GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BoxCollider2D>())
         {
-            player.vida = player.vida - 1;
+            Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
+            if (!entity_jugador.invulnerable)
+            {
+
+                entity_jugador.StopAllCoroutines();
+                entity_jugador.invulnerable = true;
+                entity_jugador.Invoke("UndoInvincible", 2);
+                entity_jugador.vida -= 1;
+                entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
+                Destroy(gameObject);
+
+
+
+            }
+
+
+
         }
 
-        //  Instantiate(impactEffect, transform.position, transform.rotation);
 
-        Destroy(gameObject);
+
     }
 
 }

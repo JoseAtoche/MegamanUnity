@@ -30,6 +30,8 @@ public class BossController : MonoBehaviour
 
     public float time = 0;
 
+
+
     public enum State
     {
         INTRO,
@@ -44,6 +46,8 @@ public class BossController : MonoBehaviour
     public State state = State.THORNADUS;
     void Start()
     {
+
+
         anim = GetComponent<Animator>();
         fixedSpeed = velocidad * Time.deltaTime;
     }
@@ -53,7 +57,12 @@ public class BossController : MonoBehaviour
     {
         heartBar.value = scriptvida.vida;
 
+        if (scriptvida.vida < 50)
+        {
 
+            Dash();
+
+        }
 
 
         time += Time.deltaTime;
@@ -283,6 +292,27 @@ public class BossController : MonoBehaviour
 
 
 
+
+
+    }
+
+
+    private void Dash()
+    {
+
+
+        GetComponentInChildren<GhostBoss>().ShowGhost();
+
+
+
+    }
+
+    IEnumerator DashWait()
+    {
+
+
+
+        yield return new WaitForSeconds(.3f);
 
 
     }

@@ -63,6 +63,7 @@ public class Movement : MonoBehaviour
     public GameObject colliderderecha;
     public GameObject colliderizquierda;
     public bool permitodash = false;
+    public GameObject GhostFuerza;
 
 
 
@@ -81,6 +82,24 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+        if (GameObject.FindObjectOfType<PlayerController>().scriptvida.vida <= 50)
+        {
+            GhostFuerza.SetActive(true);
+            Fuerza();
+        }
+        else
+        {
+
+            GhostFuerza.SetActive(false);
+
+
+
+        }
+
+
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         float xRaw = Input.GetAxisRaw("Horizontal");
@@ -339,6 +358,18 @@ public class Movement : MonoBehaviour
         GetComponent<BetterJumping>().enabled = true;
         wallJumped = false;
         isDashing = false;
+    }
+
+    private void Fuerza()
+    {
+        //Camera.main.transform.DOComplete();
+        //Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
+        //FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+        FindObjectOfType<GhostForce>().ShowGhost();
+
+
+
+
     }
 
     IEnumerator GroundDash()

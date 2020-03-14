@@ -6,8 +6,12 @@ public class Entity_life : MonoBehaviour
 
 
     public int vida = 100;
-    private bool invulnerable;
+    public bool invulnerable;
     public SpriteRenderer spriteRenderer;
+
+    public Collider2D colisionreal;
+    public Collider2D colisionespadaizquierda;
+    public Collider2D colisionespadaderecha;
 
 
     // Start is called before the first frame update
@@ -24,30 +28,26 @@ public class Entity_life : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (!invulnerable)
+
+
+
+
+
+        //Colision del nuevo personaje
+        //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
+        //De esta forma le hará daño a el JUGADOR
+        if (collision == colisionreal.GetComponent<BoxCollider2D>())
         {
-
-
-            if (collision.gameObject.tag == "Player")
+            Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
+            if (!entity_jugador.invulnerable)
             {
 
-                StopAllCoroutines();
-                invulnerable = true;
-                Invoke("UndoInvincible", 2);
-                vida -= 5;
-                StartCoroutine(FlashSprite());
+                entity_jugador.StopAllCoroutines();
+                entity_jugador.invulnerable = true;
+                entity_jugador.Invoke("UndoInvincible", 2);
+                entity_jugador.vida -= 3;
+                entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
 
-
-            }
-
-            if (collision.gameObject.tag == "Enemy")
-            {
-
-                StopAllCoroutines();
-                invulnerable = true;
-                Invoke("UndoInvincible", 2);
-                vida -= 3;
-                StartCoroutine(FlashSprite());
 
 
             }
@@ -56,12 +56,36 @@ public class Entity_life : MonoBehaviour
 
         }
 
+
+        //El enemigo detectará si ha entrado en el collider de las espadas del jugador
+        //Y SI ESTÁ ATACANDO, RECIBIRÁ DAÑO
+
+        if ((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() || collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>()) && GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0)
+        {
+            if (!invulnerable)
+            {
+
+                StopAllCoroutines();
+                invulnerable = true;
+                Invoke("UndoInvincible", 2);
+                vida -= 5;
+                StartCoroutine(FlashSprite());
+
+            }
+
+
+        }
+
+
+
+
+
     }
 
 
 
 
-    IEnumerator FlashSprite()
+    public IEnumerator FlashSprite()
     {
         while (true)
         {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-public class GhostTrail : MonoBehaviour
+public class GhostForce : MonoBehaviour
 {
     private Movement move;
     private AnimationScript anim;
