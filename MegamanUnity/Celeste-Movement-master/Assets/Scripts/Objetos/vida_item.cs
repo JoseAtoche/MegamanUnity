@@ -21,9 +21,9 @@ public class vida : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
 
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().vida < 100)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida < 100)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().vida = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().vida + 10;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida = GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida + 10;
 
 
             }

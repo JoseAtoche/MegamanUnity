@@ -6,15 +6,13 @@ public class BossController : MonoBehaviour
 {
     // Start is called before the first frame update
     private Animator anim;
-    public int heart = 100;
+
     public float velocidad;
     public Slider heartBar;
 
     public bool invulnerable;
-    Color color;
-    public SpriteRenderer spriteRenderer;
 
-
+    public Entity_life scriptvida;
 
 
     public float introDuration = 1.0f;
@@ -53,7 +51,7 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        heartBar.value = heart;
+        heartBar.value = scriptvida.vida;
 
 
 
@@ -140,7 +138,7 @@ public class BossController : MonoBehaviour
         if (time >= thornadusDuration)
         {
 
-            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+            final = new Vector3(transform.position.x, transform.position.y + 300, transform.position.z);
 
 
 
@@ -154,7 +152,7 @@ public class BossController : MonoBehaviour
     }
     void evilWaltz()
     {
-        if (time >= guillotineDuration)
+        if (time >= evilWaltzDuration)
         {
 
             final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
@@ -233,7 +231,7 @@ public class BossController : MonoBehaviour
         if (time >= guillotineDuration)
         {
 
-            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+            final = new Vector3(transform.position.x + 100, transform.position.y, transform.position.z);
 
 
 
@@ -246,50 +244,7 @@ public class BossController : MonoBehaviour
     }
 
 
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        if (!invulnerable)
-        {
 
-
-            if (collision.gameObject.tag == "Jugador")
-            {
-
-                StopAllCoroutines();
-                invulnerable = true;
-                Invoke("UndoInvincible", 2);
-                heart--;
-                StartCoroutine(FlashSprite());
-
-
-            }
-
-
-        }
-
-    }
-
-
-
-
-    IEnumerator FlashSprite()
-    {
-        while (true)
-        {
-            spriteRenderer.enabled = false;
-            yield return new WaitForSeconds(.02f);
-            spriteRenderer.enabled = true;
-            yield return new WaitForSeconds(.02f);
-        }
-    }
-
-
-    void UndoInvincible()
-    {
-        invulnerable = false;
-        StopAllCoroutines();
-        spriteRenderer.enabled = true;
-    }
 
 
 

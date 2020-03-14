@@ -29,7 +29,7 @@ public class BulletControlEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        PlayerController player = hitInfo.GetComponent<PlayerController>();
+        Entity_life player = hitInfo.GetComponent<Entity_life>();
         if (player != null)
         {
             player.vida = player.vida - 1;

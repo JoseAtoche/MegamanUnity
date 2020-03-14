@@ -1,21 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class Entity_life : MonoBehaviour
 {
-    public int vida = 100;
-    public Slider heartBar;
-    public bool invulnerable;
-    Color color;
-    public SpriteRenderer spriteRenderer;
 
+
+    public int vida = 100;
+    private bool invulnerable;
+    public SpriteRenderer spriteRenderer;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        heartBar.maxValue = vida;
 
     }
 
@@ -23,11 +20,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        heartBar.value = vida;
-
     }
-
-
 
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -35,21 +28,36 @@ public class PlayerController : MonoBehaviour
         {
 
 
-            if (collision.gameObject.tag == "Enemy")
+            if (collision.gameObject.tag == "Player")
             {
+
                 StopAllCoroutines();
                 invulnerable = true;
                 Invoke("UndoInvincible", 2);
-                vida--;
+                vida -= 5;
+                StartCoroutine(FlashSprite());
+
+
+            }
+
+            if (collision.gameObject.tag == "Enemy")
+            {
+
+                StopAllCoroutines();
+                invulnerable = true;
+                Invoke("UndoInvincible", 2);
+                vida -= 3;
                 StartCoroutine(FlashSprite());
 
 
             }
 
 
+
         }
 
     }
+
 
 
 

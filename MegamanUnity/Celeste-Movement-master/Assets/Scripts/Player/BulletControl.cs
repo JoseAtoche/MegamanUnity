@@ -52,10 +52,10 @@ public class BulletControl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        BossController enemy = hitInfo.GetComponent<BossController>();
+        Entity_life enemy = hitInfo.GetComponent<Entity_life>();
         if (enemy != null)
         {
-            enemy.heart = enemy.heart - 1;
+            enemy.vida = enemy.vida - 1;
             Destroy(gameObject);
         }
 

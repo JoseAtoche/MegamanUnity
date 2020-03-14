@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 803271080}
   - component: {fileID: 6285770683875156607}
   - component: {fileID: 1131028505889191690}
+  - component: {fileID: 6563359751017498714}
   m_Layer: 0
   m_Name: prometheusBoss
   m_TagString: Enemy
@@ -117,10 +118,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: 100
-  velocidad: 0
+  velocidad: 2
   heartBar: {fileID: 0}
   invulnerable: 0
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 6563359751405468145}
+  introDuration: 1
+  thornadusDuration: 4
+  evilWaltzDuration: 4
+  scytheDuration: 4
+  quartetBurstDuration: 5
+  guillotineDuration: 4
+  nocturneDuration: 4
+  time: 0
+  state: 1
 --- !u!61 &803271080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -194,3 +204,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.45692483, y: 0.57999486}
   m_EdgeRadius: 0
+--- !u!114 &6563359751017498714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563359751405468159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c0d4c717850584b9b707f5bacd6a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

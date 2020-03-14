@@ -93,25 +93,6 @@ public class Movement : MonoBehaviour
 
 
 
-        ////Si está en colision con la pared, y pusas shift y puedes moverte
-        //if (coll.onWall && Input.GetButton("Fire3") && canMove)
-        //{
-
-
-        //    //Si el lado no es con el que colisionas, cambio de lado
-        //    if (side != coll.wallSide)
-        //        anim.Flip(side * -1);
-        //    wallGrab = true;
-        //    wallSlide = false;
-        //}
-
-
-        ////Si presiono shift y no estoy contra la pared ni puedo moverme todo a false
-        //if (Input.GetButtonUp("Fire3") || !coll.onWall || !canMove)
-        //{
-        //    wallGrab = false;
-        //    wallSlide = false;
-        //}
 
 
         //Si colisiono con el suelo y no estoy dasheando
