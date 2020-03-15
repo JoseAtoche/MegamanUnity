@@ -24,6 +24,9 @@ public class Movement : MonoBehaviour
     public float dashSpeed = 20;
     public float cooldown = 2;
     private float nextFireTime = 0;
+    private float cooldownsonido = 0;
+
+
 
     [Space]
     [Header("Booleans")]
@@ -47,23 +50,50 @@ public class Movement : MonoBehaviour
     public ParticleSystem wallJumpParticle;
     public ParticleSystem slideParticle;
 
-    Quaternion quaterion = new Quaternion(0, 0, 0, 0);
 
-    Vector3 vector = new Vector3();
+    [Space]
+    [Header("Controladores")]
+    public GameObject colliderderecha;
+    public GameObject colliderizquierda;
+    public bool permitodash = false;
+    public GameObject GhostFuerza;
+    public int ataque = 0;
 
+    [Space]
+    [Header("De ataques y lugar")]
     public Boolean derecha;
     public Boolean bigAtack = false;
     public Boolean shoot = false;
     public Boolean onleader = false;
     public Boolean upattack = false;
-    public int ataque = 0;
+
+
+    [Space]
+    [Header("Sonidos")]
+    public AudioClip ataque1;
+    public AudioClip ataque2;
+    public AudioClip ataque3;
+    public AudioClip dash;
+    public AudioClip disparo;
+    public AudioClip muerte;
+    public AudioClip saltopared;
+    public AudioClip suelo;
+
+
+    AudioSource audioSource;
+
+
+
+
+
+    Quaternion quaterion = new Quaternion(0, 0, 0, 0);
+
+    Vector3 vector = new Vector3();
+
+
+
     private float tiempo_espera_espada = 0;
 
-
-    public GameObject colliderderecha;
-    public GameObject colliderizquierda;
-    public bool permitodash = false;
-    public GameObject GhostFuerza;
 
 
 
@@ -73,6 +103,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         derecha = true;
         coll = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
@@ -84,22 +115,31 @@ public class Movement : MonoBehaviour
     {
 
 
-
-        if (GameObject.FindObjectOfType<PlayerController>().scriptvida.vida <= 50)
+        //Esto es un potenciador cuando mi vida es menor a 50
+        if (GameObject.FindObjectOfType<PlayerController>().scriptvida.vida < 50)
         {
             GhostFuerza.SetActive(true);
             Fuerza();
         }
         else
         {
-
             GhostFuerza.SetActive(false);
-
 
 
         }
 
+        if (GameObject.FindObjectOfType<PlayerController>().scriptvida.vida > -10 && GameObject.FindObjectOfType<PlayerController>().scriptvida.vida <= 0)
+        {
 
+            audioSource.PlayOneShot(muerte);
+            GameObject.FindObjectOfType<PlayerController>().scriptvida.vida = -15;
+
+        }
+
+
+
+
+        //Establece el movimiento General
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         float xRaw = Input.GetAxisRaw("Horizontal");
@@ -110,7 +150,16 @@ public class Movement : MonoBehaviour
 
         anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
+        if ((x != 0 && y == 0) && Time.time > cooldownsonido && coll.onGround)
+        {
 
+            audioSource.PlayOneShot(suelo);
+            cooldownsonido = Time.time + 0.3f;
+
+
+
+
+        }
 
 
 
@@ -119,10 +168,14 @@ public class Movement : MonoBehaviour
         {
             wallJumped = false;
             GetComponent<BetterJumping>().enabled = true;
+
+
+
+
         }
 
 
-
+        //Si estoy cogiendome a la pared pero no dasheando
         if (wallGrab && !isDashing)
         {
             rb.gravityScale = 0;
@@ -150,6 +203,8 @@ public class Movement : MonoBehaviour
                 {
                     shoot = true;
 
+
+                    //Controlador para saber donde disparar cuando estoy cogiendome a un muro
                     if (derecha)
                     {
                         vector = new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.3f, this.transform.position.z);
@@ -158,6 +213,9 @@ public class Movement : MonoBehaviour
                     {
                         vector = new Vector3(this.transform.position.x - 0.9f, this.transform.position.y + 0.3f, this.transform.position.z);
                     }
+
+                    audioSource.PlayOneShot(disparo);
+
                     Instantiate(bala, vector, quaterion);
                     nextFireTime = Time.time + cooldown;
 
@@ -173,6 +231,8 @@ public class Movement : MonoBehaviour
             }
         }
 
+
+        //Si no estoy en colision contra la pared o si estoy en colision con el suelo
         if (!coll.onWall || coll.onGround)
             wallSlide = false;
 
@@ -180,24 +240,37 @@ public class Movement : MonoBehaviour
         //Si pulso saltar
         if (Input.GetButtonDown("Jump"))
         {
+            //Pulso el trigger en la animacion de saltar
             anim.SetTrigger("jump");
 
+
+            //Si estoy en el suelo
             if (coll.onGround)
             {
                 //upattack=false;
                 Jump(Vector2.up, false);
+                audioSource.PlayOneShot(saltopared);
             }
             if (coll.onWall && !coll.onGround)
+            {
                 WallJump();
+                audioSource.PlayOneShot(saltopared);
+            }
+
         }
 
+
+        //Establezco el dash
         if (Input.GetButtonDown("Fire1") && !hasDashed || permitodash && Input.GetButtonDown("Fire1"))
         {
             if (xRaw != 0 || yRaw != 0)
                 Dash(xRaw, yRaw);
             permitodash = false;
+            audioSource.PlayOneShot(dash);
+
         }
 
+        //Establezco si toqué el suelo
         if (coll.onGround && !groundTouch)
         {
             GroundTouch();
@@ -215,7 +288,7 @@ public class Movement : MonoBehaviour
             return;
 
 
-
+        //Modifico la animacion para que mire a un lado u otro ademas de la modificacion del Collider
         if (x > 0)
         {
             side = 1;
@@ -242,6 +315,9 @@ public class Movement : MonoBehaviour
 
 
         }
+
+
+        //Establezco el tiempo necesario para disparar
         if (Time.time > nextFireTime)
         {
             if (Input.GetButtonDown("Fire2"))
@@ -256,6 +332,8 @@ public class Movement : MonoBehaviour
                 {
                     vector = new Vector3(this.transform.position.x - 0.9f, this.transform.position.y + 0.3f, this.transform.position.z);
                 }
+                audioSource.PlayOneShot(disparo);
+
                 Instantiate(bala, vector, quaterion);
                 nextFireTime = Time.time + cooldown;
 
@@ -263,7 +341,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire3") && Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.P) && Input.GetKeyDown(KeyCode.W))
         {
             upattack = true;
 
@@ -272,14 +350,31 @@ public class Movement : MonoBehaviour
 
 
         }
+
+        //combo de la espada
         if (Input.GetKeyDown(KeyCode.P))
         {
             switch (ataque)
             {
-                case 0: ataque = 1; break;
-                case 1: ataque = 2; break;
-                case 2: ataque = 3; break;
-                case 3: ataque = 0; break;
+                case 0:
+                    ataque = 1;
+                    audioSource.PlayOneShot(ataque1);
+
+                    break;
+                case 1:
+                    ataque = 2;
+                    audioSource.PlayOneShot(ataque2);
+
+                    break;
+                case 2:
+                    ataque = 3;
+                    audioSource.PlayOneShot(ataque3);
+
+                    break;
+                case 3:
+                    ataque = 0;
+
+                    break;
 
 
 
@@ -290,22 +385,12 @@ public class Movement : MonoBehaviour
 
 
         }
+        //Si llevo mas de este tiempo sin pulsar el botón mi ataque se pone en 0 de nuevo
         else if (Time.time > tiempo_espera_espada - 0.3)
         {
-
             ataque = 0;
 
-
-
         }
-
-
-
-
-
-
-
-
 
     }
 
