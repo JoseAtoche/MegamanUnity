@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Fuerza
+  - Guardar
+  - bala
+  - balaenemiga
   layers:
   - Default
   - TransparentFX

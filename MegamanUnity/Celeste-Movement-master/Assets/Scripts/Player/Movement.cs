@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+
 public class Movement : MonoBehaviour
 {
     [Space]
@@ -103,11 +104,14 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         audioSource = GetComponent<AudioSource>();
         derecha = true;
         coll = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<AnimationScript>();
+        GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().Load();
     }
 
     // Update is called once per frame

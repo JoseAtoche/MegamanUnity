@@ -27,6 +27,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bala Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8568318026064561105, guid: d0fa1248118f64e459e08e4d66d87e7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: balaenemiga
+      objectReference: {fileID: 0}
     - target: {fileID: 719670879544001612, guid: d0fa1248118f64e459e08e4d66d87e7d,
         type: 3}
       propertyPath: m_LocalPosition.x

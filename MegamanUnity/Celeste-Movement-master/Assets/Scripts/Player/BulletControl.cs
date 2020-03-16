@@ -55,23 +55,37 @@ public class BulletControl : MonoBehaviour
         Entity_life enemy = hitInfo.GetComponent<Entity_life>();
         if (enemy != null)
         {
-            if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50)
+            if (!enemy.GetComponent<Entity_life>().invulnerable)
             {
+                enemy.GetComponent<Entity_life>().StopAllCoroutines();
+                enemy.GetComponent<Entity_life>().invulnerable = true;
+                enemy.GetComponent<Entity_life>().Invoke("UndoInvincible", 2);
+                if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50)
+                {
 
-                enemy.vida = enemy.vida - 3;
-            }
-            else
-            {
-                enemy.vida = enemy.vida - 1;
+                    enemy.vida = enemy.vida - 3;
+                }
+                else
+                {
+                    enemy.vida = enemy.vida - 2;
 
+                }
+                enemy.GetComponent<Entity_life>().StartCoroutine(enemy.GetComponent<Entity_life>().FlashSprite());
             }
+
+
+
 
 
 
             Destroy(gameObject);
         }
 
-        //  Instantiate(impactEffect, transform.position, transform.rotation);
+
+
+
+
+       //  Instantiate(impactEffect, transform.position, transform.rotation);
 
        ;
     }

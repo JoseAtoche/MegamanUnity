@@ -25,6 +25,8 @@ public class ModifyCanvas : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+
+        GameObject.FindGameObjectWithTag("Gardar").GetComponent<GuardadoAutomatico>().prohibidoguardar = true;
         Vector3 vector = new Vector3(880, 240, 0);
         barra.transform.position = vector;
         sonido.PlayOneShot(musicaboss);

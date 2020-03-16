@@ -7,13 +7,18 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
+        GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().nuevapartida = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
 
 
     }
 
-    public void OpcionGame()
+    public void ContinuarGame()
     {
+        GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().nuevapartida = false;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
 
 
@@ -21,7 +26,7 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
 
-
+        Application.Quit();
 
     }
 

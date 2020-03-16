@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+
+[System.Serializable]
 public class Entity_life : MonoBehaviour
 {
 
@@ -14,16 +16,15 @@ public class Entity_life : MonoBehaviour
     public Collider2D colisionespadaderecha;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
+        if (vida <= 0)
+        {
 
-    }
+            Destroy(gameObject);
 
-    // Update is called once per frame
-    void Update()
-    {
 
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -36,6 +37,8 @@ public class Entity_life : MonoBehaviour
         //Colision del nuevo personaje
         //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
         //De esta forma le hará daño a el JUGADOR
+
+        //Tambien ve si alguna bala enemiga le golpeó
         if (collision == colisionreal.GetComponent<BoxCollider2D>())
         {
             Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
@@ -89,6 +92,9 @@ public class Entity_life : MonoBehaviour
 
 
         }
+
+        //Detecta si ha colisionado con una bala un enemigo
+
 
 
 
