@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletControl : MonoBehaviour
 {
@@ -9,15 +7,16 @@ public class BulletControl : MonoBehaviour
     public float bulletSpeed;
     public float bulletLife;
 
-    void Awake()
+    private void Awake()
     {
 
         bulletRB = GetComponent<Rigidbody2D>();
 
 
     }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -40,7 +39,7 @@ public class BulletControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
 
@@ -49,8 +48,7 @@ public class BulletControl : MonoBehaviour
         Destroy(gameObject, bulletLife);
     }
 
-
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Entity_life enemy = hitInfo.GetComponent<Entity_life>();
         if (enemy != null)

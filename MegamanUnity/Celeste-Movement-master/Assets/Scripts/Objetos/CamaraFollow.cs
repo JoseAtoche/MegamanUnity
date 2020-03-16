@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CamaraFollow : MonoBehaviour
 {
@@ -8,15 +6,13 @@ public class CamaraFollow : MonoBehaviour
     public GameObject jugador;
     private Vector3 posicion;
 
-    
-    
-    void Start()
+    private void Start()
     {
         posicion = transform.position - jugador.transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.position = jugador.transform.position + posicion;
 

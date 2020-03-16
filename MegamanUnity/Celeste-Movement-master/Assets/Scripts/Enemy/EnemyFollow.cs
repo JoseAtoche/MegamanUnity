@@ -5,17 +5,18 @@ public class EnemyFollow : MonoBehaviour
     public float radiodevision;
     public float velocidad;
     public GameObject jugador;
-    Vector3 posicioninicial;
-    Animator animator;
+    private Vector3 posicioninicial;
+    private Animator animator;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         posicioninicial = transform.position;
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector3 objetivo = posicioninicial;
         Quaternion rotacion;
@@ -34,7 +35,6 @@ public class EnemyFollow : MonoBehaviour
 
                 rotacion = new Quaternion(0, 180, 0, 0);
                 objetivo = new Vector3(jugador.transform.position.x + (radiodevision / 1.2f), jugador.transform.position.y, jugador.transform.position.z);
-
 
             }
             else
@@ -61,15 +61,10 @@ public class EnemyFollow : MonoBehaviour
             {
                 rotacion = new Quaternion(0, 180, 0, 0);
 
-
             }
             else
             {
-
                 rotacion = new Quaternion(0, 0, 0, 0);
-
-
-
 
             }
 
@@ -81,14 +76,9 @@ public class EnemyFollow : MonoBehaviour
             animator.SetBool("disparar", false);
         }
 
-
-
-
-
         //Si la posicion es la misma que la incial dejamos de correr
         if (transform.position.x == posicioninicial.x)
         {
-
 
             animator.SetBool("correr", false);
 
@@ -101,9 +91,6 @@ public class EnemyFollow : MonoBehaviour
 
             animator.SetBool("correr", false);
             animator.SetBool("disparar", true);
-
-
-
 
 
         }

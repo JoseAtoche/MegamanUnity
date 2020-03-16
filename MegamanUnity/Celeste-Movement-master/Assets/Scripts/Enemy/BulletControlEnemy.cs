@@ -7,27 +7,27 @@ public class BulletControlEnemy : MonoBehaviour
     public Rigidbody2D bulletRB;
     public float bulletSpeed;
     public float bulletLife;
-    Vector3 posicioninicial;
+    private Vector3 posicioninicial;
 
-
-    void Awake()
+    private void Awake()
     {
         bulletRB = GetComponent<Rigidbody2D>();
     }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         posicioninicial = GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, posicioninicial, bulletSpeed);
         Destroy(gameObject, bulletLife);
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    private void OnTriggerEnter2D(Collider2D hitInfo)
     {
 
 

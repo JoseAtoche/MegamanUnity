@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class RippleEffect : MonoBehaviour
 {
@@ -32,12 +32,12 @@ public class RippleEffect : MonoBehaviour
     public float dropInterval = 0.5f;
 
     [SerializeField, HideInInspector]
-    Shader shader;
+    private readonly Shader shader;
 
-    class Droplet
+    private class Droplet
     {
-        Vector2 position;
-        float time;
+        private Vector2 position;
+        private float time;
 
         public Droplet()
         {
@@ -46,7 +46,7 @@ public class RippleEffect : MonoBehaviour
 
         public void Reset(Vector2 pos)
         {
-			position = pos;
+            position = pos;
             time = 0;
         }
 
@@ -61,15 +61,15 @@ public class RippleEffect : MonoBehaviour
         }
     }
 
-    Droplet[] droplets;
-    Texture2D gradTexture;
-    Material material;
-    float timer;
-    int dropCount;
+    private Droplet[] droplets;
+    private Texture2D gradTexture;
+    private Material material;
+    private float timer;
+    private int dropCount;
 
-    void UpdateShaderParameters()
+    private void UpdateShaderParameters()
     {
-        var c = GetComponent<Camera>();
+        Camera c = GetComponent<Camera>();
 
         material.SetVector("_Drop1", droplets[0].MakeShaderParameter(c.aspect));
         material.SetVector("_Drop2", droplets[1].MakeShaderParameter(c.aspect));
@@ -80,32 +80,36 @@ public class RippleEffect : MonoBehaviour
         material.SetVector("_Params2", new Vector4(1, 1 / c.aspect, refractionStrength, reflectionStrength));
     }
 
-    void Awake()
+    private void Awake()
     {
         droplets = new Droplet[3];
         droplets[0] = new Droplet();
         droplets[1] = new Droplet();
         droplets[2] = new Droplet();
 
-        gradTexture = new Texture2D(2048, 1, TextureFormat.Alpha8, false);
-        gradTexture.wrapMode = TextureWrapMode.Clamp;
-        gradTexture.filterMode = FilterMode.Bilinear;
-        for (var i = 0; i < gradTexture.width; i++)
+        gradTexture = new Texture2D(2048, 1, TextureFormat.Alpha8, false)
         {
-            var x = 1.0f / gradTexture.width * i;
-            var a = waveform.Evaluate(x);
+            wrapMode = TextureWrapMode.Clamp,
+            filterMode = FilterMode.Bilinear
+        };
+        for (int i = 0; i < gradTexture.width; i++)
+        {
+            float x = 1.0f / gradTexture.width * i;
+            float a = waveform.Evaluate(x);
             gradTexture.SetPixel(i, 0, new Color(a, a, a, a));
         }
         gradTexture.Apply();
 
-        material = new Material(shader);
-        material.hideFlags = HideFlags.DontSave;
+        material = new Material(shader)
+        {
+            hideFlags = HideFlags.DontSave
+        };
         material.SetTexture("_GradTex", gradTexture);
 
         UpdateShaderParameters();
     }
 
-    void Update()
+    private void Update()
     {
         if (dropInterval > 0)
         {
@@ -117,12 +121,15 @@ public class RippleEffect : MonoBehaviour
             }
         }
 
-        foreach (var d in droplets) d.Update();
+        foreach (Droplet d in droplets)
+        {
+            d.Update();
+        }
 
         UpdateShaderParameters();
     }
 
-    void OnRenderImage(RenderTexture source, RenderTexture destination)
+    private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
         Graphics.Blit(source, destination, material);
     }
@@ -132,7 +139,7 @@ public class RippleEffect : MonoBehaviour
         droplets[dropCount++ % droplets.Length].Reset(pos);
     }
 
-    IEnumerator Stop()
+    private IEnumerator Stop()
     {
         yield return new WaitForSeconds(.3f);
 

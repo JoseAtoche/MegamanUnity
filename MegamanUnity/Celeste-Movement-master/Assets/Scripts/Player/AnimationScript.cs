@@ -10,7 +10,7 @@ public class AnimationScript : MonoBehaviour
     public SpriteRenderer sr;
     private float tiempodeespera;
 
-    void Start()
+    private void Start()
     {
         anim = GetComponent<Animator>();
         coll = GetComponentInParent<Collision>();
@@ -18,7 +18,7 @@ public class AnimationScript : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void Update()
     {
         anim.SetBool("onGround", coll.onGround);
         anim.SetBool("onWall", coll.onWall);
@@ -88,7 +88,9 @@ public class AnimationScript : MonoBehaviour
         if (move.wallGrab || move.wallSlide)
         {
             if (side == -1 && sr.flipX)
+            {
                 return;
+            }
 
             if (side == 1 && !sr.flipX)
             {

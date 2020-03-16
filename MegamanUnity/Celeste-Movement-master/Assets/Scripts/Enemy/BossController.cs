@@ -23,9 +23,8 @@ public class BossController : MonoBehaviour
     public float quartetBurstDuration = 5.0f;
     public float guillotineDuration = 4.0f;
     public float nocturneDuration = 4.0f;
-
-    float fixedSpeed;
-    Vector3 final;
+    private float fixedSpeed;
+    private Vector3 final;
 
 
     public float time = 0;
@@ -44,7 +43,8 @@ public class BossController : MonoBehaviour
     }
 
     public State state = State.THORNADUS;
-    void Start()
+
+    private void Start()
     {
 
 
@@ -53,7 +53,7 @@ public class BossController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         heartBar.value = scriptvida.vida;
 
@@ -124,8 +124,7 @@ public class BossController : MonoBehaviour
 
     }
 
-
-    void intro()
+    private void intro()
     {
 
         if (time >= introDuration)
@@ -142,7 +141,7 @@ public class BossController : MonoBehaviour
 
     }
 
-    void thornadus()
+    private void thornadus()
     {
         if (time >= thornadusDuration)
         {
@@ -159,7 +158,8 @@ public class BossController : MonoBehaviour
 
 
     }
-    void evilWaltz()
+
+    private void evilWaltz()
     {
         if (time >= evilWaltzDuration)
         {
@@ -178,7 +178,8 @@ public class BossController : MonoBehaviour
 
 
     }
-    void scythe()
+
+    private void scythe()
     {
 
         if (time >= scytheDuration)
@@ -199,7 +200,8 @@ public class BossController : MonoBehaviour
 
 
     }
-    void quartetBurst()
+
+    private void quartetBurst()
     {
         if (time >= quartetBurstDuration)
         {
@@ -218,7 +220,8 @@ public class BossController : MonoBehaviour
 
 
     }
-    void hailNocturne()
+
+    private void hailNocturne()
     {
         if (time >= nocturneDuration)
         {
@@ -235,7 +238,8 @@ public class BossController : MonoBehaviour
 
 
     }
-    void guillotine()
+
+    private void guillotine()
     {
         if (time >= guillotineDuration)
         {
@@ -252,12 +256,7 @@ public class BossController : MonoBehaviour
 
     }
 
-
-
-
-
-
-    void aleatorio()
+    private void aleatorio()
     {
         switch (Random.Range(0, 6))
         {
@@ -307,7 +306,7 @@ public class BossController : MonoBehaviour
 
     }
 
-    IEnumerator DashWait()
+    private IEnumerator DashWait()
     {
 
 

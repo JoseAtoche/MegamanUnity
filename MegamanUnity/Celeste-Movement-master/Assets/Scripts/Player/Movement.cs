@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -62,11 +61,11 @@ public class Movement : MonoBehaviour
 
     [Space]
     [Header("De ataques y lugar")]
-    public Boolean derecha;
-    public Boolean bigAtack = false;
-    public Boolean shoot = false;
-    public Boolean onleader = false;
-    public Boolean upattack = false;
+    public bool derecha;
+    public bool bigAtack = false;
+    public bool shoot = false;
+    public bool onleader = false;
+    public bool upattack = false;
 
 
     [Space]
@@ -79,17 +78,9 @@ public class Movement : MonoBehaviour
     public AudioClip muerte;
     public AudioClip saltopared;
     public AudioClip suelo;
-
-
-    AudioSource audioSource;
-
-
-
-
-
-    Quaternion quaterion = new Quaternion(0, 0, 0, 0);
-
-    Vector3 vector = new Vector3();
+    private AudioSource audioSource;
+    private Quaternion quaterion = new Quaternion(0, 0, 0, 0);
+    private Vector3 vector = new Vector3();
 
 
 
@@ -102,7 +93,7 @@ public class Movement : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
 
@@ -115,7 +106,7 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
 
@@ -184,7 +175,9 @@ public class Movement : MonoBehaviour
         {
             rb.gravityScale = 0;
             if (x > .2f || x < -.2f)
+            {
                 rb.velocity = new Vector2(rb.velocity.x, 0);
+            }
 
             float speedModifier = y > 0 ? .5f : 1;
 
@@ -211,11 +204,11 @@ public class Movement : MonoBehaviour
                     //Controlador para saber donde disparar cuando estoy cogiendome a un muro
                     if (derecha)
                     {
-                        vector = new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.3f, this.transform.position.z);
+                        vector = new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z);
                     }
                     else
                     {
-                        vector = new Vector3(this.transform.position.x - 0.9f, this.transform.position.y + 0.3f, this.transform.position.z);
+                        vector = new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
                     }
 
                     audioSource.PlayOneShot(disparo);
@@ -238,7 +231,9 @@ public class Movement : MonoBehaviour
 
         //Si no estoy en colision contra la pared o si estoy en colision con el suelo
         if (!coll.onWall || coll.onGround)
+        {
             wallSlide = false;
+        }
 
 
         //Si pulso saltar
@@ -268,7 +263,10 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !hasDashed || permitodash && Input.GetButtonDown("Fire1"))
         {
             if (xRaw != 0 || yRaw != 0)
+            {
                 Dash(xRaw, yRaw);
+            }
+
             permitodash = false;
             audioSource.PlayOneShot(dash);
 
@@ -289,7 +287,9 @@ public class Movement : MonoBehaviour
         WallParticle(y);
 
         if (wallGrab || wallSlide || !canMove)
+        {
             return;
+        }
 
 
         //Modifico la animacion para que mire a un lado u otro ademas de la modificacion del Collider
@@ -330,11 +330,11 @@ public class Movement : MonoBehaviour
 
                 if (derecha)
                 {
-                    vector = new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.3f, this.transform.position.z);
+                    vector = new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z);
                 }
                 else
                 {
-                    vector = new Vector3(this.transform.position.x - 0.9f, this.transform.position.y + 0.3f, this.transform.position.z);
+                    vector = new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
                 }
                 audioSource.PlayOneShot(disparo);
 
@@ -398,10 +398,7 @@ public class Movement : MonoBehaviour
 
     }
 
-
-
-
-    void GroundTouch()
+    private void GroundTouch()
     {
         hasDashed = false;
         isDashing = false;
@@ -428,7 +425,7 @@ public class Movement : MonoBehaviour
         StartCoroutine(DashWait());
     }
 
-    IEnumerator DashWait()
+    private IEnumerator DashWait()
     {
         FindObjectOfType<GhostTrail>().ShowGhost();
         StartCoroutine(GroundDash());
@@ -461,11 +458,13 @@ public class Movement : MonoBehaviour
 
     }
 
-    IEnumerator GroundDash()
+    private IEnumerator GroundDash()
     {
         yield return new WaitForSeconds(.15f);
         if (coll.onGround)
+        {
             hasDashed = false;
+        }
     }
 
     private void WallJump()
@@ -489,10 +488,14 @@ public class Movement : MonoBehaviour
     private void WallSlide()
     {
         if (coll.wallSide != side)
+        {
             anim.Flip(side * -1);
+        }
 
         if (!canMove)
+        {
             return;
+        }
 
         bool pushingWall = false;
         if ((rb.velocity.x > 0 && coll.onRightWall) || (rb.velocity.x < 0 && coll.onLeftWall))
@@ -509,10 +512,14 @@ public class Movement : MonoBehaviour
 
 
         if (!canMove)
+        {
             return;
+        }
 
         if (wallGrab)
+        {
             return;
+        }
 
         if (!wallJumped)
         {
@@ -535,21 +542,21 @@ public class Movement : MonoBehaviour
         particle.Play();
     }
 
-    IEnumerator DisableMovement(float time)
+    private IEnumerator DisableMovement(float time)
     {
         canMove = false;
         yield return new WaitForSeconds(time);
         canMove = true;
     }
 
-    void RigidbodyDrag(float x)
+    private void RigidbodyDrag(float x)
     {
         rb.drag = x;
     }
 
-    void WallParticle(float vertical)
+    private void WallParticle(float vertical)
     {
-        var main = slideParticle.main;
+        ParticleSystem.MainModule main = slideParticle.main;
 
         if (wallSlide || (wallGrab && vertical < 0))
         {
@@ -562,7 +569,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    int ParticleSide()
+    private int ParticleSide()
     {
         int particleSide = coll.onRightWall ? 1 : -1;
         return particleSide;

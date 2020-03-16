@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using DG.Tweening;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class GhostBoss : MonoBehaviour
 {
-    private Transform move;
+    private readonly Transform move;
     public SpriteRenderer sr;
     public Transform ghostsParent;
     public Color trailColor;

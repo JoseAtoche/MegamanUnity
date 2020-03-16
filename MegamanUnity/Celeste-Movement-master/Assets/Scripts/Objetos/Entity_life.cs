@@ -27,18 +27,13 @@ public class Entity_life : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-
-
-
-
 
         //Colision del nuevo personaje
         //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
         //De esta forma le hará daño a el JUGADOR
 
-        //Tambien ve si alguna bala enemiga le golpeó
         if (collision == colisionreal.GetComponent<BoxCollider2D>())
         {
             Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
@@ -54,12 +49,7 @@ public class Entity_life : MonoBehaviour
 
                 entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
 
-
-
             }
-
-
-
         }
 
 
@@ -93,7 +83,6 @@ public class Entity_life : MonoBehaviour
 
         }
 
-        //Detecta si ha colisionado con una bala un enemigo
 
 
 
@@ -116,8 +105,7 @@ public class Entity_life : MonoBehaviour
         }
     }
 
-
-    void UndoInvincible()
+    private void UndoInvincible()
     {
         invulnerable = false;
         StopAllCoroutines();

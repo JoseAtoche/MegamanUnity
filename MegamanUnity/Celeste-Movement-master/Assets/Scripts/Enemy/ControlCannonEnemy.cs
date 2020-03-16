@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ControlCannonEnemy : MonoBehaviour
 {
@@ -13,11 +11,11 @@ public class ControlCannonEnemy : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
     }
 
-    void Update()
+    private void Update()
     {
         float dist = Vector3.Distance(jugador.transform.position, transform.position);
         if (dist < radiodevision)

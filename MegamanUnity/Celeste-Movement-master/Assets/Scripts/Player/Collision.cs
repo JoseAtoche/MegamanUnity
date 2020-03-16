@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
@@ -25,13 +23,13 @@ public class Collision : MonoBehaviour
     private Color debugCollisionColor = Color.red;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
 
@@ -54,11 +52,11 @@ public class Collision : MonoBehaviour
 
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 
-        var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
+        Vector2[] positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
 
         Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, collisionRadius);
         Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
