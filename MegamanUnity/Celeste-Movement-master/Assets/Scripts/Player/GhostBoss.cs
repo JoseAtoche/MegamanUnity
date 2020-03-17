@@ -13,7 +13,6 @@ public class GhostBoss : MonoBehaviour
 
     private void Start()
     {
-
         sr = GetComponentInParent<SpriteRenderer>();
     }
 
@@ -38,5 +37,4 @@ public class GhostBoss : MonoBehaviour
         current.GetComponent<SpriteRenderer>().material.DOKill();
         current.GetComponent<SpriteRenderer>().material.DOColor(fadeColor, fadeTime);
     }
-
 }

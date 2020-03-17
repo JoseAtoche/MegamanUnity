@@ -7,6 +7,7 @@ using DG.Tweening.Plugins.Options;
 using UnityEngine;
 
 #pragma warning disable 1591
+
 namespace DG.Tweening
 {
     /// <summary>
@@ -52,6 +53,7 @@ namespace DG.Tweening
 #if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5
         static void PlaymodeStateChanged()
 #else
+
         private static void PlaymodeStateChanged(UnityEditor.PlayModeStateChange state)
 #endif
         {
@@ -62,6 +64,7 @@ namespace DG.Tweening
 
             DOTween.instance.OnApplicationPause(UnityEditor.EditorApplication.isPaused);
         }
+
 #endif
 
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
@@ -98,7 +101,6 @@ namespace DG.Tweening
             }
 
             #region Called via Reflection
-
 
             // Called via Reflection by DOTweenPathInspector
             // Returns FALSE if the DOTween's Physics Module is disabled, or if there's no rigidbody attached
@@ -139,7 +141,7 @@ namespace DG.Tweening
                 return t;
             }
 
-            #endregion
+            #endregion Called via Reflection
         }
     }
 }

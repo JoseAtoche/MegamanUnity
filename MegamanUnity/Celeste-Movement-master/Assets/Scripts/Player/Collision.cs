@@ -2,40 +2,32 @@
 
 public class Collision : MonoBehaviour
 {
-
     [Header("Layers")]
     public LayerMask groundLayer;
 
     [Space]
-
     public bool onGround;
+
     public bool onWall;
     public bool onRightWall;
     public bool onLeftWall;
     public int wallSide;
 
     [Space]
-
     [Header("Collision")]
-
     public float collisionRadius = 0.25f;
+
     public Vector2 bottomOffset, rightOffset, leftOffset;
     private Color debugCollisionColor = Color.red;
 
     // Start is called before the first frame update
     private void Start()
     {
-
     }
 
     // Update is called once per frame
     private void Update()
     {
-
-
-
-
-
         onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
 
         onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer)
@@ -45,11 +37,6 @@ public class Collision : MonoBehaviour
         onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
         wallSide = onRightWall ? -1 : 1;
-
-
-
-
-
     }
 
     private void OnDrawGizmos()

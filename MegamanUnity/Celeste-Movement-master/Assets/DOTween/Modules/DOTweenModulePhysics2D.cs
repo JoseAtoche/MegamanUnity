@@ -2,9 +2,11 @@
 // Created: 2018/07/13
 
 #if true && (UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5 || UNITY_2017_1_OR_NEWER) // MODULE_MARKER
+
 using UnityEngine;
 
 #pragma warning disable 1591
+
 namespace DG.Tweening
 {
     public static class DOTweenModulePhysics2D
@@ -96,11 +98,12 @@ namespace DG.Tweening
             return s;
         }
 
-        #endregion
+        #endregion Special
 
-        #endregion
+        #endregion Rigidbody2D Shortcuts
 
-        #endregion
+        #endregion Shortcuts
     }
 }
+
 #endif

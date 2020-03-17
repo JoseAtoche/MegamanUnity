@@ -142,7 +142,5 @@ public class RippleEffect : MonoBehaviour
     private IEnumerator Stop()
     {
         yield return new WaitForSeconds(.3f);
-
     }
-
 }

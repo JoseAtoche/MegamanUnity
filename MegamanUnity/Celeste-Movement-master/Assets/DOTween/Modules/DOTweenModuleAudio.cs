@@ -2,12 +2,17 @@
 // Created: 2018/07/13
 
 #if true // MODULE_MARKER
+
 using UnityEngine;
+
 #if UNITY_5 || UNITY_2017_1_OR_NEWER
+
 using UnityEngine.Audio; // Required for AudioMixer
+
 #endif
 
 #pragma warning disable 1591
+
 namespace DG.Tweening
 {
     public static class DOTweenModuleAudio
@@ -41,9 +46,10 @@ namespace DG.Tweening
             return DOTween.To(() => target.pitch, x => target.pitch = x, endValue, duration).SetTarget(target);
         }
 
-        #endregion
+        #endregion Audio
 
 #if UNITY_5 || UNITY_2017_1_OR_NEWER
+
         #region AudioMixer (Unity 5 or Newer)
 
         /// <summary>Tweens an AudioMixer's exposed float to the given value.
@@ -190,12 +196,14 @@ namespace DG.Tweening
             return DOTween.TogglePause(target);
         }
 
-        #endregion
+        #endregion Operation Shortcuts
 
-        #endregion
+        #endregion AudioMixer (Unity 5 or Newer)
+
 #endif
 
-        #endregion
+        #endregion Shortcuts
     }
 }
+
 #endif

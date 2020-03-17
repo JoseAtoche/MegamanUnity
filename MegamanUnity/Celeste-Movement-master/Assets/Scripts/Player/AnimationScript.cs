@@ -2,12 +2,13 @@
 
 public class AnimationScript : MonoBehaviour
 {
-
     private Animator anim;
     private Movement move;
     private Collision coll;
+
     [HideInInspector]
     public SpriteRenderer sr;
+
     private float tiempodeespera;
 
     private void Start()
@@ -35,13 +36,6 @@ public class AnimationScript : MonoBehaviour
         /// anim.SetBool("OnLeader", move.onleader);
         anim.SetBool("upattack", move.upattack);
         anim.SetInteger("ataque", move.ataque);
-
-
-
-
-
-
-
     }
 
     public void SetHorizontalMovement(float x, float y, float yVel)
@@ -50,30 +44,15 @@ public class AnimationScript : MonoBehaviour
         anim.SetFloat("VerticalAxis", y);
         anim.SetFloat("VerticalVelocity", yVel);
 
-
-
-
-
-
-
-
-
         if (x != 0)
         {
-
             anim.SetBool("Moviendose", true);
             tiempodeespera = Time.time;
         }
 
-
         if (Time.time > tiempodeespera + 0.03)
         {
-
-
-
             anim.SetBool("Moviendose", false);
-
-
         }
     }
 
@@ -84,7 +63,6 @@ public class AnimationScript : MonoBehaviour
 
     public void Flip(int side)
     {
-
         if (move.wallGrab || move.wallSlide)
         {
             if (side == -1 && sr.flipX)

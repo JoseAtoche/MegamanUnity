@@ -5,11 +5,10 @@ public class DatosCheckPoint
 {
     // Start is called before the first frame update
     public int vida;
+
     public float x;
     public float y;
     public float z;
-
-
 
     public DatosCheckPoint(GameObject p)
     {
@@ -17,11 +16,5 @@ public class DatosCheckPoint
         x = p.transform.position.x;
         y = p.transform.position.y;
         z = p.transform.position.z;
-
     }
-
-
-
-
 }
-

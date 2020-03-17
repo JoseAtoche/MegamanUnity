@@ -9,7 +9,6 @@ public class ControlCannonEnemy : MonoBehaviour
     public float tiempoespera = 2;
     public GameObject jugador;
 
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,7 +22,6 @@ public class ControlCannonEnemy : MonoBehaviour
             tiempoinicia += Time.deltaTime;
             if (tiempoinicia >= tiempoespera)
             {
-
                 GameObject balacreada = Instantiate(bala, cannon.transform.position, cannon.transform.rotation);
                 balacreada.GetComponent<Rigidbody2D>().AddForce(cannon.transform.position);
                 balacreada.transform.SetParent(transform);
@@ -31,8 +29,4 @@ public class ControlCannonEnemy : MonoBehaviour
             }
         }
     }
-
-
-
-
 }

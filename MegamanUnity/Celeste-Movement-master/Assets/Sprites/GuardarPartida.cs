@@ -4,7 +4,6 @@ using UnityEngine;
 
 public static class GuardarPartida
 {
-
     //it's static so we can call it from anywhere
     public static void Save(GameObject player)
     {
@@ -18,7 +17,6 @@ public static class GuardarPartida
         else
         {
             stream = new FileStream(path, FileMode.Open);
-
         }
         DatosCheckPoint datos = new DatosCheckPoint(player);
         formatter.Serialize(stream, datos);
@@ -31,23 +29,19 @@ public static class GuardarPartida
     /// <returns></returns>
     public static DatosCheckPoint Load()
     {
-
         string path = Application.persistentDataPath + "/PlayerData.json";
         if (File.Exists(path))
         {
-
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             DatosCheckPoint data = formatter.Deserialize(stream) as DatosCheckPoint;
             stream.Close();
             return data;
-
         }
         else
         {
             Debug.Log("Datos no encontrados");
             return null;
-
         }
     }
 }

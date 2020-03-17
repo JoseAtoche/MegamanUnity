@@ -5,6 +5,7 @@ using DG.Tweening.Core;
 using UnityEngine;
 
 #pragma warning disable 1591
+
 namespace DG.Tweening
 {
     /// <summary>
@@ -14,6 +15,7 @@ namespace DG.Tweening
 	public static class DOTweenModuleUnityVersion
     {
 #if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5 || UNITY_2017_1_OR_NEWER
+
         #region Unity 4.3 or Newer
 
         #region Material
@@ -42,6 +44,7 @@ namespace DG.Tweening
             }
             return s;
         }
+
         /// <summary>Tweens a Material's named color property using the given gradient
         /// (NOTE 1: only uses the colors of the gradient, not the alphas - NOTE 2: creates a Sequence, not a Tweener).
         /// Also stores the image as the tween's target so it can be used for filtered operations</summary>
@@ -69,12 +72,14 @@ namespace DG.Tweening
             return s;
         }
 
-        #endregion
+        #endregion Material
 
-        #endregion
+        #endregion Unity 4.3 or Newer
+
 #endif
 
 #if UNITY_5_3_OR_NEWER || UNITY_2017_1_OR_NEWER
+
         #region CustomYieldInstructions (Unity 5.3 or Newer)
 
         /// <summary>
@@ -194,7 +199,8 @@ namespace DG.Tweening
             return new DOTweenCYInstruction.WaitForStart(t);
         }
 
-        #endregion
+        #endregion CustomYieldInstructions (Unity 5.3 or Newer)
+
 #endif
     }
 
@@ -203,6 +209,7 @@ namespace DG.Tweening
     // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
 #if UNITY_5_3_OR_NEWER || UNITY_2017_1_OR_NEWER
+
     public static class DOTweenCYInstruction
     {
         public class WaitForCompletion : CustomYieldInstruction
@@ -210,6 +217,7 @@ namespace DG.Tweening
             public override bool keepWaiting => t.active && !t.IsComplete();
 
             private readonly Tween t;
+
             public WaitForCompletion(Tween tween)
             {
                 t = tween;
@@ -221,6 +229,7 @@ namespace DG.Tweening
             public override bool keepWaiting => t.active && (!t.playedOnce || t.position * (t.CompletedLoops() + 1) > 0);
 
             private readonly Tween t;
+
             public WaitForRewind(Tween tween)
             {
                 t = tween;
@@ -232,6 +241,7 @@ namespace DG.Tweening
             public override bool keepWaiting => t.active;
 
             private readonly Tween t;
+
             public WaitForKill(Tween tween)
             {
                 t = tween;
@@ -244,6 +254,7 @@ namespace DG.Tweening
 
             private readonly Tween t;
             private readonly int elapsedLoops;
+
             public WaitForElapsedLoops(Tween tween, int elapsedLoops)
             {
                 t = tween;
@@ -257,6 +268,7 @@ namespace DG.Tweening
 
             private readonly Tween t;
             private readonly float position;
+
             public WaitForPosition(Tween tween, float position)
             {
                 t = tween;
@@ -269,11 +281,13 @@ namespace DG.Tweening
             public override bool keepWaiting => t.active && !t.playedOnce;
 
             private readonly Tween t;
+
             public WaitForStart(Tween tween)
             {
                 t = tween;
             }
         }
     }
+
 #endif
 }

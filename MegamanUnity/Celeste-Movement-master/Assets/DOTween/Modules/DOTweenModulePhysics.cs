@@ -2,6 +2,7 @@
 // Created: 2018/07/13
 
 #if true // MODULE_MARKER
+
 using DG.Tweening.Core;
 using DG.Tweening.Core.Enums;
 using DG.Tweening.Plugins;
@@ -10,6 +11,7 @@ using DG.Tweening.Plugins.Options;
 using UnityEngine;
 
 #pragma warning disable 1591
+
 namespace DG.Tweening
 {
     public static class DOTweenModulePhysics
@@ -158,6 +160,7 @@ namespace DG.Tweening
             t.plugOptions.mode = pathMode;
             return t;
         }
+
         /// <summary>Tweens a Rigidbody's localPosition through the given path waypoints, using the chosen path algorithm.
         /// Also stores the Rigidbody as the tween's target so it can be used for filtered operations
         /// <para>NOTE: to tween a rigidbody correctly it should be set to kinematic at least while being tweened.</para>
@@ -189,6 +192,7 @@ namespace DG.Tweening
             t.plugOptions.useLocalPosition = true;
             return t;
         }
+
         // Used by path editor when creating the actual tween, so it can pass a pre-compiled path
         internal static TweenerCore<Vector3, Path, PathOptions> DOPath(
             this Rigidbody target, Path path, float duration, PathMode pathMode = PathMode.Full3D
@@ -201,6 +205,7 @@ namespace DG.Tweening
             t.plugOptions.mode = pathMode;
             return t;
         }
+
         internal static TweenerCore<Vector3, Path, PathOptions> DOLocalPath(
             this Rigidbody target, Path path, float duration, PathMode pathMode = PathMode.Full3D
         )
@@ -215,11 +220,12 @@ namespace DG.Tweening
             return t;
         }
 
-        #endregion
+        #endregion Special
 
-        #endregion
+        #endregion Rigidbody
 
-        #endregion
+        #endregion Shortcuts
     }
 }
+
 #endif

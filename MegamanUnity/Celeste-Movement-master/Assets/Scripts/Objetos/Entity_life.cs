@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-
 [System.Serializable]
 public class Entity_life : MonoBehaviour
 {
-
-
     public int vida = 100;
     public bool invulnerable;
     public SpriteRenderer spriteRenderer;
@@ -15,21 +12,16 @@ public class Entity_life : MonoBehaviour
     public Collider2D colisionespadaizquierda;
     public Collider2D colisionespadaderecha;
 
-
     private void Update()
     {
         if (vida <= 0)
         {
-
             Destroy(gameObject);
-
-
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
         //Colision del nuevo personaje
         //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
         //De esta forma le hará daño a el JUGADOR
@@ -39,60 +31,37 @@ public class Entity_life : MonoBehaviour
             Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
             if (!entity_jugador.invulnerable)
             {
-
                 entity_jugador.StopAllCoroutines();
                 entity_jugador.invulnerable = true;
                 entity_jugador.Invoke("UndoInvincible", 2);
 
-                if (vida <= 50) { entity_jugador.vida -= 6; } else { entity_jugador.vida -= 3; }
-
+                //Resta vida al jugador segun la vida del enemigo, si es menor a 50 resta 6 si no 4
+                entity_jugador.vida -= (vida <= 50) ? 6 : 3;
 
                 entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
-
             }
         }
-
+        else
 
         //El enemigo detectará si ha entrado en el collider de las espadas del jugador
         //Y SI ESTÁ ATACANDO, RECIBIRÁ DAÑO
 
-        if ((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() || collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>()) && GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0)
+        if ((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() ||
+            collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>()) &&
+            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+            !invulnerable)
         {
-            if (!invulnerable)
-            {
+            StopAllCoroutines();
+            invulnerable = true;
+            Invoke("UndoInvincible", 2);
 
-                StopAllCoroutines();
-                invulnerable = true;
-                Invoke("UndoInvincible", 2);
+            //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
 
+            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
 
-                Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
-                if (entity_jugador.vida <= 50)
-                {
-                    vida -= 8;
-                }
-                else
-                {
-                    vida -= 5;
-                }
-
-                StartCoroutine(FlashSprite());
-
-            }
-
-
+            StartCoroutine(FlashSprite());
         }
-
-
-
-
-
-
-
     }
-
-
-
 
     public IEnumerator FlashSprite()
     {

@@ -1,41 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Escudo : MonoBehaviour
 {
-
-
     public float velocidad;
-    private Vector3 posicioninicial;
     private Animator animator;
-    private Vector3 posicionfinal;
     private Vector3 objetivo;
-
-
+    private Vector3 posicionfinal;
+    private Vector3 posicioninicial;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         posicioninicial = transform.position;
         animator = GetComponent<Animator>();
         posicionfinal = new Vector3(posicioninicial.x - 3, posicioninicial.y, posicioninicial.z);
-
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
         if (transform.position == posicioninicial)
         {
-
             //  animator.SetBool("Andando", false);
             animator.SetTrigger("GiroIzquierda");
             animator.ResetTrigger("GiroDerecha");
             objetivo = posicionfinal;
         }
-        if (transform.position == posicionfinal)
+        else if (transform.position == posicionfinal)
         {
             //   animator.SetBool("Andando", false);
             animator.SetTrigger("GiroDerecha");
