@@ -37,7 +37,7 @@ public class BulletControl : MonoBehaviour
         Entity_life enemy = hitInfo.GetComponent<Entity_life>();
         if (enemy != null)
         {
-            if (!enemy.GetComponent<Entity_life>().invulnerable)
+            if (!enemy.GetComponent<Entity_life>().invulnerable && enemy.tag != "escudo")
             {
                 enemy.GetComponent<Entity_life>().StopAllCoroutines();
                 enemy.GetComponent<Entity_life>().invulnerable = true;
@@ -47,12 +47,20 @@ public class BulletControl : MonoBehaviour
 
                 enemy.GetComponent<Entity_life>().StartCoroutine(enemy.GetComponent<Entity_life>().FlashSprite());
             }
+            else
+            {
+                enemy.danioparaescudo(this.transform.position.x);
+
+
+
+
+            }
 
             Destroy(gameObject);
         }
 
-       //  Instantiate(impactEffect, transform.position, transform.rotation);
+        //  Instantiate(impactEffect, transform.position, transform.rotation);
 
-       ;
+
     }
 }

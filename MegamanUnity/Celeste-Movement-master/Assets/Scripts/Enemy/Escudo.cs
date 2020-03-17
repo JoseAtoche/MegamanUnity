@@ -7,6 +7,7 @@ public class Escudo : MonoBehaviour
     private Vector3 objetivo;
     private Vector3 posicionfinal;
     private Vector3 posicioninicial;
+    public bool derecha;
 
     // Start is called before the first frame update
     private void Start()
@@ -21,6 +22,8 @@ public class Escudo : MonoBehaviour
     {
         if (transform.position == posicioninicial)
         {
+
+            derecha = false;
             //  animator.SetBool("Andando", false);
             animator.SetTrigger("GiroIzquierda");
             animator.ResetTrigger("GiroDerecha");
@@ -28,6 +31,8 @@ public class Escudo : MonoBehaviour
         }
         else if (transform.position == posicionfinal)
         {
+            derecha = true;
+
             //   animator.SetBool("Andando", false);
             animator.SetTrigger("GiroDerecha");
             animator.ResetTrigger("GiroIzquierda");
@@ -43,4 +48,10 @@ public class Escudo : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, posicioninicial.y, transform.position.z);
     }
+
+
+
+
+
+
 }
