@@ -27,6 +27,13 @@ public class BossController : MonoBehaviour
 
     public float time = 0;
 
+
+    bool primeravez = true;
+
+    Vector3 posicionAcual;
+
+
+
     public enum State
     {
         INTRO,
@@ -43,7 +50,7 @@ public class BossController : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        fixedSpeed = velocidad * Time.deltaTime;
+
     }
 
     // Update is called once per frame
@@ -57,6 +64,17 @@ public class BossController : MonoBehaviour
         }
 
         time += Time.deltaTime;
+        if (time >= 0f && time <= 0.05f)
+        {
+            anim.ResetTrigger("thornadus");
+            anim.ResetTrigger("guillotine");
+            anim.ResetTrigger("burst");
+            anim.ResetTrigger("scythe");
+            anim.ResetTrigger("waltz");
+            anim.ResetTrigger("nocturne");
+
+            aleatorio();
+        }
 
         switch (state)
         {
@@ -94,18 +112,11 @@ public class BossController : MonoBehaviour
                 guillotine();
                 break;
         }
-        transform.position = Vector3.MoveTowards(transform.position, final, fixedSpeed);
-        if (time == 0f)
-        {
-            anim.SetBool("thornadus", false);
-            anim.SetBool("guillotine", false);
-            anim.SetBool("burst", false);
-            anim.SetBool("fall", false);
-            anim.SetBool("waltz", false);
-            anim.SetBool("nocturne", false);
+        fixedSpeed = velocidad * Time.deltaTime;
+        Debug.Log(state + " Modificación " + final.x + " " + final.y);
 
-            aleatorio();
-        }
+        transform.position = Vector3.MoveTowards(posicionAcual, final, fixedSpeed);
+
     }
 
     private void intro()
@@ -122,9 +133,11 @@ public class BossController : MonoBehaviour
     {
         if (time >= thornadusDuration)
         {
-            final = new Vector3(transform.position.x, transform.position.y + 300, transform.position.z);
 
-            anim.SetBool("thornadus", true);
+            final = new Vector3(transform.position.x, -6.8f, transform.position.z);
+
+            anim.SetTrigger("thornadus");
+
             state = State.THORNADUS;
             time -= thornadusDuration;
         }
@@ -134,12 +147,12 @@ public class BossController : MonoBehaviour
     {
         if (time >= evilWaltzDuration)
         {
-            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+            final = new Vector3(136.91f, transform.position.y, transform.position.z);
 
-            anim.SetBool("waltz", true);
+            anim.SetTrigger("waltz");
 
-            state = State.GUILLOTINE;
-            time -= guillotineDuration;
+            state = State.WALTZ;
+            time -= evilWaltzDuration;
         }
     }
 
@@ -147,9 +160,9 @@ public class BossController : MonoBehaviour
     {
         if (time >= scytheDuration)
         {
-            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+            final = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            anim.SetTrigger("scythe");
 
-            anim.SetBool("fall", true);
             state = State.SCYTHE;
             time -= scytheDuration;
         }
@@ -159,9 +172,9 @@ public class BossController : MonoBehaviour
     {
         if (time >= quartetBurstDuration)
         {
-            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+            final = new Vector3(145f, -10.07f, transform.position.z);
 
-            anim.SetBool("burst", true);
+            anim.SetTrigger("burst");
             state = State.BURST;
             time -= quartetBurstDuration;
         }
@@ -171,9 +184,9 @@ public class BossController : MonoBehaviour
     {
         if (time >= nocturneDuration)
         {
-            final = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+            final = new Vector3(146.28f, -14.11f, 0);
 
-            anim.SetBool("nocturne", true);
+            anim.SetTrigger("nocturne");
             state = State.NOCTURNE;
             time -= nocturneDuration;
         }
@@ -183,9 +196,9 @@ public class BossController : MonoBehaviour
     {
         if (time >= guillotineDuration)
         {
-            final = new Vector3(transform.position.x + 100, transform.position.y, transform.position.z);
+            final = new Vector3(transform.position.x, -14.11f, transform.position.z);
 
-            anim.SetBool("guillotine", true);
+            anim.SetTrigger("guillotine");
             state = State.GUILLOTINE;
             time -= guillotineDuration;
         }
@@ -193,25 +206,31 @@ public class BossController : MonoBehaviour
 
     private void aleatorio()
     {
+
         switch (Random.Range(0, 6))
         {
             case 0:
+                transform.position = new Vector3(145f, -10.07f, transform.position.z);
+
                 state = State.BURST;
 
                 break;
 
             case 1:
+                transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, -7.15f, transform.position.z);
                 state = State.GUILLOTINE;
 
                 break;
 
             case 2:
+                transform.position = new Vector3(146.28f, -14.11f, transform.position.z);
                 state = State.NOCTURNE;
 
                 break;
 
             case 3:
-                state = State.SCYTHE;
+                //  state = State.SCYTHE;
+                aleatorio();
 
                 break;
 
@@ -221,10 +240,13 @@ public class BossController : MonoBehaviour
                 break;
 
             case 5:
+                transform.position = new Vector3(144f, GameObject.FindGameObjectWithTag("Player").transform.position.y + 5, transform.position.z);
                 state = State.WALTZ;
 
                 break;
         }
+        posicionAcual = transform.position;
+        Debug.Log(state + " coords " + transform.position.x + " " + transform.position.y);
     }
 
     private void Dash()

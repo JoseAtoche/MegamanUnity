@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [System.Serializable]
@@ -80,23 +81,25 @@ public class Entity_life : MonoBehaviour
                 StartCoroutine(FlashSprite());
             }
             else
+                try
+                {
+                    if ((collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
+                      GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+                      !invulnerable && this.GetComponent<Escudo>() != null)
+                    {
+                        StopAllCoroutines();
+                        invulnerable = true;
+                        Invoke("UndoInvincible", 2);
 
-            if ((collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
-              GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-              !invulnerable && this.GetComponent<Escudo>() != null)
-            {
-                StopAllCoroutines();
-                invulnerable = true;
-                Invoke("UndoInvincible", 2);
+                        //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
 
-                //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
+                        vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
 
-                vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
+                        StartCoroutine(FlashSprite());
+                    }
 
-                StartCoroutine(FlashSprite());
-            }
-
-
+                }
+                catch (Exception e) { }
 
 
 

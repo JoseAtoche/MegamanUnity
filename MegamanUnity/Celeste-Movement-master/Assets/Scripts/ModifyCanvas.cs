@@ -24,8 +24,7 @@ public class ModifyCanvas : MonoBehaviour
         if (this.GetComponent<BoxCollider2D>().isTrigger == true)
         {
             // GameObject.FindGameObjectWithTag("Gardar").GetComponent<GuardadoAutomatico>().prohibidoguardar = true;
-            Vector3 vector = new Vector3(880, 240, 0);
-            barra.transform.position = vector;
+            barra.transform.position = new Vector3(barra.transform.position.x - 100, barra.transform.position.y, 0);
             sonidoBoss.PlayOneShot(musicaboss);
             sonido.SetActive(false);
             this.GetComponent<BoxCollider2D>().isTrigger = false;
