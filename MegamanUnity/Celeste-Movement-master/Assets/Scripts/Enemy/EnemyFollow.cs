@@ -7,6 +7,9 @@ public class EnemyFollow : MonoBehaviour
     public GameObject jugador;
     private Vector3 posicioninicial;
     private Animator animator;
+    public GameObject bala;
+    public float tiempoespera = 2;
+    public float tiempoinicia = 0;
 
     // Start is called before the first frame update
     private void Start()
@@ -31,20 +34,29 @@ public class EnemyFollow : MonoBehaviour
             if (jugador.transform.position.x > transform.position.x)
             {
                 rotacion = new Quaternion(0, 180, 0, 0);
-                objetivo = new Vector3(jugador.transform.position.x + (radiodevision / 1.2f), jugador.transform.position.y, jugador.transform.position.z);
+                objetivo = new Vector3(jugador.transform.position.x - (radiodevision / 1.8f), transform.position.y, jugador.transform.position.z);
             }
             else
             {
                 rotacion = new Quaternion(0, 0, 0, 0);
-                objetivo = new Vector3(jugador.transform.position.x - (radiodevision / 1.2f), jugador.transform.position.y, jugador.transform.position.z);
+                objetivo = new Vector3(jugador.transform.position.x + (radiodevision / 1.8f), transform.position.y, jugador.transform.position.z);
             }
 
             //Si la distancia es menor al radio entre 2 debe disparar
 
-            if (dist < radiodevision / 1.2f)
+            if (dist < radiodevision / 1.78f)
             {
+
                 animator.SetBool("correr", false);
                 animator.SetBool("disparar", true);
+                tiempoinicia += Time.deltaTime;
+                if (tiempoinicia >= tiempoespera)
+                {
+                    GameObject balacreada = Instantiate(bala, transform.position, transform.rotation);
+                    balacreada.GetComponent<Rigidbody2D>().AddForce(transform.position);
+                    balacreada.transform.SetParent(transform);
+                    tiempoinicia = 0;
+                }
             }
             else
             {
@@ -70,12 +82,18 @@ public class EnemyFollow : MonoBehaviour
             animator.SetBool("correr", false);
         }
 
+
+        /*if (jugador.transform.position.y + 1 > transform.position.y && jugador.transform.position.y - 1 < transform.position.y)
+        {*/
         float fixedSpeed = velocidad * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, objetivo, fixedSpeed);
 
         transform.position = new Vector3(transform.position.x, posicioninicial.y, transform.position.z);
 
         Debug.DrawLine(transform.position, objetivo, Color.green);
+
+        /*  }*/
+
     }
 
     private void OnDrawGizmos()

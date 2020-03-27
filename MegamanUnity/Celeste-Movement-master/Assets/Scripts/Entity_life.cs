@@ -17,7 +17,10 @@ public class Entity_life : MonoBehaviour
     {
         if (vida <= 0)
         {
-            Destroy(gameObject);
+
+
+
+            Invoke("Explode", 2f);
         }
     }
 
@@ -171,5 +174,15 @@ public class Entity_life : MonoBehaviour
         invulnerable = false;
         StopAllCoroutines();
         spriteRenderer.enabled = true;
+    }
+
+
+    void Explode()
+    {
+
+        var exp = GetComponent<ParticleSystem>();
+        exp.Play();
+        Destroy(gameObject, exp.duration);
+
     }
 }

@@ -15,9 +15,9 @@ public class DashItem : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
 
     {
-        if (collision.gameObject.tag == "Player" && GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().permitodash == false)
+        if (collision.gameObject.tag == "Player" && GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().saltos == 0)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().permitodash = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().saltos = 1;
         }
         Destroy(gameObject);
     }

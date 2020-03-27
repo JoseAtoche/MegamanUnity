@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
     [Space]
     private bool groundTouch;
 
-    private bool hasDashed;
+    public bool hasDashed;
 
     public int side = 1;
 
@@ -58,7 +58,6 @@ public class Movement : MonoBehaviour
     public GameObject colliderderecha;
 
     public GameObject colliderizquierda;
-    public bool permitodash = false;
     public GameObject GhostFuerza;
     public int ataque = 0;
 
@@ -87,6 +86,8 @@ public class Movement : MonoBehaviour
     private Vector3 vector = new Vector3();
 
     private float tiempo_espera_espada = 0;
+
+    public int saltos = 0;
 
     // Start is called before the first frame update
     private void Start()
@@ -214,15 +215,17 @@ public class Movement : MonoBehaviour
         }
 
         //Establezco el dash
-        if (Input.GetButtonDown("Fire1") && !hasDashed || permitodash && Input.GetButtonDown("Fire1"))
+        // if (Input.GetButtonDown("Fire1") && !hasDashed)
+        if (Input.GetButtonDown("Fire1") && saltos > 0)
         {
             if (xRaw != 0 || yRaw != 0)
             {
                 Dash(xRaw, yRaw);
+
+                audioSource.PlayOneShot(dash);
             }
 
-            permitodash = false;
-            audioSource.PlayOneShot(dash);
+
         }
 
         //Establezco si toqué el suelo
@@ -329,6 +332,7 @@ public class Movement : MonoBehaviour
     {
         hasDashed = false;
         isDashing = false;
+        saltos = 1;
 
         side = anim.sr.flipX ? -1 : 1;
 
@@ -342,6 +346,12 @@ public class Movement : MonoBehaviour
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
 
         hasDashed = true;
+        saltos--;
+
+
+
+
+
 
         anim.SetTrigger("dash");
 
