@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -92,12 +93,16 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        derecha = true;
-        coll = GetComponent<Collision>();
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<AnimationScript>();
-        GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().Load();
+        try
+        {
+            audioSource = GetComponent<AudioSource>();
+            derecha = true;
+            coll = GetComponent<Collision>();
+            rb = GetComponent<Rigidbody2D>();
+            anim = GetComponentInChildren<AnimationScript>();
+            GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().Load();
+        }
+        catch (Exception e) { }
     }
 
     // Update is called once per frame

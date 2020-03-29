@@ -14,10 +14,19 @@ public class vida_item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida < 100)
+        if (collision.gameObject.tag == "Player")
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida = GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida + 10;
+
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida < 100)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida = GameObject.FindGameObjectWithTag("Player").GetComponent<Entity_life>().vida + 10;
+
+            }
+
+
+
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+
     }
 }

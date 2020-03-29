@@ -9,12 +9,9 @@ public class ModifyCanvas : MonoBehaviour
     public AudioSource sonidoBoss;
     public GameObject muro;
     bool permitirmovimiento = false;
+    public GameObject cutscene;
 
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
+    public GameObject prometheus;
 
     // Update is called once per frame
     private void Update()
@@ -29,7 +26,6 @@ public class ModifyCanvas : MonoBehaviour
 
             if (muro.transform.position.y == -2.14f)
             {
-
                 permitirmovimiento = false;
             }
 
@@ -41,19 +37,21 @@ public class ModifyCanvas : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (this.GetComponent<BoxCollider2D>().isTrigger == true)
+        if (collision.tag == "Player" && this.GetComponent<BoxCollider2D>().isTrigger == true)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
+            cutscene.SetActive(true);
             //GameObject.FindGameObjectWithTag("Gardar").GetComponent<GuardadoAutomatico>().prohibidoguardar = true;
             barra.transform.position = new Vector3(barra.transform.position.x - 100, barra.transform.position.y, 0);
             sonidoBoss.PlayOneShot(musicaboss);
             sonido.SetActive(false);
             this.GetComponent<BoxCollider2D>().isTrigger = false;
             permitirmovimiento = true;
+            prometheus.SetActive(true);
 
 
 
         }
-
 
     }
 }
