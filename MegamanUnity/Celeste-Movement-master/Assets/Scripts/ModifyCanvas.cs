@@ -41,7 +41,7 @@ public class ModifyCanvas : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
             cutscene.SetActive(true);
-            //GameObject.FindGameObjectWithTag("Gardar").GetComponent<GuardadoAutomatico>().prohibidoguardar = true;
+            GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().prohibidoguardar = true;
             barra.transform.position = new Vector3(barra.transform.position.x - 100, barra.transform.position.y, 0);
             sonidoBoss.PlayOneShot(musicaboss);
             sonido.SetActive(false);
