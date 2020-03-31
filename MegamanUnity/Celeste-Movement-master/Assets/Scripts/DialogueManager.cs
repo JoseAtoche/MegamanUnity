@@ -6,11 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
-
     public Text dialogueText;
-
-
-
     private Queue<string> sentences;
 
     // Use this for initialization

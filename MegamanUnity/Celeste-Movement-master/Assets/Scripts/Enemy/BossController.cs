@@ -14,11 +14,11 @@ public class BossController : MonoBehaviour
 
     public Entity_life scriptvida;
 
-    public float introDuration = 1.0f;
+    public float introDuration = 0.5f;
 
     public float thornadusDuration = 4.0f;
     public float evilWaltzDuration = 4.0f;
-    public float scytheDuration = 4.0f;
+    public float scytheDuration = 0.4f;
     public float quartetBurstDuration = 5.0f;
     public float guillotineDuration = 4.0f;
     public float nocturneDuration = 4.0f;
@@ -28,7 +28,7 @@ public class BossController : MonoBehaviour
     public float time = 0;
 
 
-    bool primeravez = true;
+    bool primeravez = false;
 
     Vector3 posicionAcual;
 
@@ -133,7 +133,6 @@ public class BossController : MonoBehaviour
     {
         if (time >= thornadusDuration)
         {
-
             final = new Vector3(transform.position.x, -6.8f, transform.position.z);
 
             anim.SetTrigger("thornadus");
@@ -160,7 +159,8 @@ public class BossController : MonoBehaviour
     {
         if (time >= scytheDuration)
         {
-            final = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            anim.SetBool("Finalizado", false);
+            // final = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             anim.SetTrigger("scythe");
 
             state = State.SCYTHE;
@@ -172,7 +172,8 @@ public class BossController : MonoBehaviour
     {
         if (time >= quartetBurstDuration)
         {
-            final = new Vector3(145f, -10.07f, transform.position.z);
+            anim.SetBool("Finalizado", false);
+            // final = new Vector3(145f, -10.07f, transform.position.z);
 
             anim.SetTrigger("burst");
             state = State.BURST;
@@ -184,7 +185,8 @@ public class BossController : MonoBehaviour
     {
         if (time >= nocturneDuration)
         {
-            final = new Vector3(146.28f, -14.11f, 0);
+            anim.SetBool("Finalizado", false);
+            // final = new Vector3(146.28f, -14.11f, 0);
 
             anim.SetTrigger("nocturne");
             state = State.NOCTURNE;
@@ -210,36 +212,41 @@ public class BossController : MonoBehaviour
         switch (Random.Range(0, 6))
         {
             case 0:
-                transform.position = new Vector3(145f, -10.07f, transform.position.z);
+                //   transform.position = new Vector3(145f, -10.07f, transform.position.z);
 
                 state = State.BURST;
 
                 break;
 
             case 1:
+                anim.SetBool("Finalizado", true);
                 transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, -7.15f, transform.position.z);
                 state = State.GUILLOTINE;
 
                 break;
 
             case 2:
+                anim.SetBool("Finalizado", true);
                 transform.position = new Vector3(146.28f, -14.11f, transform.position.z);
                 state = State.NOCTURNE;
 
                 break;
 
             case 3:
-                //  state = State.SCYTHE;
+                anim.SetBool("Finalizado", true);
+                state = State.SCYTHE;
                 aleatorio();
 
                 break;
 
             case 4:
+                anim.SetBool("Finalizado", true);
                 state = State.THORNADUS;
 
                 break;
 
             case 5:
+                anim.SetBool("Finalizado", true);
                 transform.position = new Vector3(144f, GameObject.FindGameObjectWithTag("Player").transform.position.y + 5, transform.position.z);
                 state = State.WALTZ;
 
