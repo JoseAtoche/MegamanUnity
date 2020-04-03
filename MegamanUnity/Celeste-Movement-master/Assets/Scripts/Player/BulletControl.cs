@@ -43,15 +43,16 @@ public class BulletControl : MonoBehaviour
                 enemy.GetComponent<Entity_life>().invulnerable = true;
                 enemy.GetComponent<Entity_life>().Invoke("UndoInvincible", 2);
 
-                enemy.vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 3 : 2;
+                enemy.vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 3 * 2 : 3 : (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 2 * 2 : 2;
+                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().desactivarBiometal();
 
                 enemy.GetComponent<Entity_life>().StartCoroutine(enemy.GetComponent<Entity_life>().FlashSprite());
             }
             else
             {
                 enemy.danioparaescudo(this.transform.position.x);
-
-
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().desactivarBiometal();
 
 
             }

@@ -97,6 +97,10 @@ public class Movement : MonoBehaviour
 
 
 
+    public bool canonpotenciado = false;
+
+    public GameObject biometal;
+
 
 
 
@@ -132,7 +136,7 @@ public class Movement : MonoBehaviour
 
         if (/*GameObject.FindObjectOfType<PlayerController>().scriptvida.vida > -10 &&*/ GameObject.FindObjectOfType<PlayerController>().scriptvida.vida <= 0)
         {
-            audioSource.PlayOneShot(muerte);
+            StartCoroutine(Morir());
             /* GameObject.FindObjectOfType<PlayerController>().scriptvida.vida = -15;*/
         }
 
@@ -523,5 +527,37 @@ public class Movement : MonoBehaviour
         int particleSide = coll.onRightWall ? 1 : -1;
         return particleSide;
     }
+    public void activarBiometal()
+    {
+        biometal.SetActive(true);
 
+
+    }
+    public void desactivarBiometal()
+    {
+
+        biometal.SetActive(false);
+
+
+    }
+
+    public IEnumerator Morir()
+    {
+
+
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamaraFollow>().enabled = false;
+        this.transform.GetChild(0).parent = null;
+
+        audioSource.PlayOneShot(muerte);
+        audioSource.PlayOneShot(muerte);
+        audioSource.PlayOneShot(muerte);
+        Destroy(GameObject.Find("GhostFuerza"));
+        Destroy(GameObject.Find("Visual"));
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+
+
+
+
+    }
 }

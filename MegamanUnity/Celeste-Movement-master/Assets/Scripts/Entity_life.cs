@@ -12,18 +12,24 @@ public class Entity_life : MonoBehaviour
     public Collider2D colisionreal;
     public Collider2D colisionespadaizquierda;
     public Collider2D colisionespadaderecha;
+    bool primer = false;
 
     private void Update()
     {
-        if (vida <= 0)
-        {
 
+        //Comprobacion de la vida, este método NO es para el boss
+        if (vida <= 0 && (this.tag == "Enemy" || this.tag == "escudo") && this.name != "prometheusBoss")
+        {
+            StopCoroutine(FlashSprite());
 
 
             Invoke("Explode", 2f);
         }
     }
-
+    /// <summary>
+    /// Colusión de las entiddes
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
         //Colision del nuevo personaje
@@ -65,6 +71,8 @@ public class Entity_life : MonoBehaviour
 
             StartCoroutine(FlashSprite());
         }
+
+        //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda, ESTE DAÑO ES SOLO PARA LA ESPADA
         else
         {
             if ((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
@@ -111,7 +119,10 @@ public class Entity_life : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Este daño es específico para el escudo, ya que su funcionamiento es algo distinto, esto es SOLO Y EXCLUSIVAMENTE PARA CUANDO LE DA UNA BALA
+    /// </summary>
+    /// <param name="x">Hay que pasarle el eje X del jugador para que este sepa si está a la derecha o a la izquierda</param>
     public void danioparaescudo(float x)
     {
 
@@ -124,9 +135,10 @@ public class Entity_life : MonoBehaviour
             invulnerable = true;
             Invoke("UndoInvincible", 2);
 
-            //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
+            //Resta vida al enemigo segun la vida del jugador, y su potenciador
+            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 3 * 2 : 3 : (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 2 * 2 : 2;
 
-            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 3 : 2;
+            //  vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 3 : 2;
 
             StartCoroutine(FlashSprite());
         }
@@ -136,9 +148,10 @@ public class Entity_life : MonoBehaviour
             invulnerable = true;
             Invoke("UndoInvincible", 2);
 
-            //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
+            //Resta vida al enemigo segun la vida del jugador, y su potenciador
+            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 3 * 2 : 3 : (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 2 * 2 : 2;
 
-            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 3 : 2;
+            // vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 3 : 2;
 
             StartCoroutine(FlashSprite());
         }
@@ -151,17 +164,16 @@ public class Entity_life : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
+    /// <summary>
+    /// Invoca al efecto Flash para que el sprite parpadee
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator FlashSprite()
     {
+
         while (true)
         {
+
             spriteRenderer.enabled = false;
             yield return new WaitForSeconds(.02f);
             spriteRenderer.enabled = true;
@@ -169,6 +181,10 @@ public class Entity_life : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Hace invencible a la entidad
+    /// </summary>
     private void UndoInvincible()
     {
         invulnerable = false;
@@ -176,13 +192,22 @@ public class Entity_life : MonoBehaviour
         spriteRenderer.enabled = true;
     }
 
-
+    /// <summary>
+    /// Invoca la explosion al morir la entidad
+    /// </summary>
     void Explode()
     {
+        //Obtiene el objeto Explosion y lo inicia solo 0.15 segundos
+        this.transform.GetChild(1).gameObject.SetActive(true);
+        Destroy(gameObject, 0.15f);
+        //Aleatoriamente te da un objeto de doble de fuerza
+        if (UnityEngine.Random.Range(0, 5) == 0 && !primer)
+        {
+            primer = true;
+            Instantiate(GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().fuerza, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), new Quaternion(0, 0, 0, 0));
 
-        var exp = GetComponent<ParticleSystem>();
-        exp.Play();
-        Destroy(gameObject, exp.duration);
+        }
+
 
     }
 }

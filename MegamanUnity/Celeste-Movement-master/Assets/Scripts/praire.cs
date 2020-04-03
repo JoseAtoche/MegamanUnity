@@ -8,6 +8,8 @@ public class praire : MonoBehaviour
     public Animator nube;
     bool activado = false;
     public GameObject texto;
+    public GameObject tutorial;
+
 
     private void Start()
     {
@@ -27,8 +29,10 @@ public class praire : MonoBehaviour
         if (activado)
         {
 
-            texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y + 400, 0);
+            texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y + 400 + 108, 0);
             activado = false;
+            tutorial.SetActive(true);
+
 
         }
 
@@ -46,9 +50,10 @@ public class praire : MonoBehaviour
             nube.SetTrigger("pequeño");
             nube.SetTrigger("pequeño");
 
-            texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y - 400, 0);
+            texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y - 400 - 108, 0);
             nube.GetComponent<DialogueTrigger>().TriggerDialogue();
             activado = true;
+
 
 
         }
