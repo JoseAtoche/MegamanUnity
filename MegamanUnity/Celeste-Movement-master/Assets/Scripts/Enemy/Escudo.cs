@@ -24,7 +24,7 @@ public class Escudo : MonoBehaviour
         {
 
             derecha = false;
-            //  animator.SetBool("Andando", false);
+            animator.SetBool("Andando", false);
             animator.SetTrigger("GiroIzquierda");
             animator.ResetTrigger("GiroDerecha");
             objetivo = posicionfinal;
@@ -33,14 +33,18 @@ public class Escudo : MonoBehaviour
         {
             derecha = true;
 
-            //   animator.SetBool("Andando", false);
+            animator.SetBool("Andando", false);
             animator.SetTrigger("GiroDerecha");
             animator.ResetTrigger("GiroIzquierda");
 
             objetivo = posicioninicial;
         }
+        else
+        {
+            animator.SetBool("Andando", true);
 
-        animator.SetBool("Andando", true);
+        }
+
 
         float fixedSpeed = velocidad * Time.deltaTime;
 

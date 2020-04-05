@@ -11,6 +11,9 @@ public class EnemyFollow : MonoBehaviour
     public float tiempoespera = 2;
     public float tiempoinicia = 0;
 
+    Quaternion rotacion;
+    public Vector3 objetivo;
+    float dist;
     // Start is called before the first frame update
     private void Start()
     {
@@ -21,49 +24,32 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Vector3 objetivo = posicioninicial;
-        Quaternion rotacion;
-        float dist = Vector3.Distance(jugador.transform.position, transform.position);
+        objetivo = posicioninicial;
+
+        dist = Vector3.Distance(jugador.transform.position, transform.position);
 
         //Si da distacia del jugador es menor al radio de vision
         //Si estamos a la misma altura te sigue
         if (dist < radiodevision && (jugador.transform.position.y + 1 > transform.position.y && jugador.transform.position.y - 1 < transform.position.y))
         {
-            //Transformo la rotacion del cuerpo segun si el jugador está a la derecha o izquierda
+            comprobarPosicionJugadorParaMoverse();
 
-            if (jugador.transform.position.x > transform.position.x)
+            comprobarPosicionJugadorParaDisparar();
+
+            comprobarRotacion();
+
+            if (objetivo == transform.position)
             {
-                rotacion = new Quaternion(0, 180, 0, 0);
-                objetivo = new Vector3(jugador.transform.position.x - (radiodevision / 1.8f), transform.position.y, jugador.transform.position.z);
-            }
-            else
-            {
-                rotacion = new Quaternion(0, 0, 0, 0);
-                objetivo = new Vector3(jugador.transform.position.x + (radiodevision / 1.8f), transform.position.y, jugador.transform.position.z);
-            }
-
-            //Si la distancia es menor al radio entre 2 debe disparar
-
-            if (dist < radiodevision / 1.78f)
-            {
-
                 animator.SetBool("correr", false);
-                animator.SetBool("disparar", true);
-                tiempoinicia += Time.deltaTime;
-                if (tiempoinicia >= tiempoespera)
-                {
-                    GameObject balacreada = Instantiate(bala, transform.position, transform.rotation);
-                    balacreada.GetComponent<Rigidbody2D>().AddForce(transform.position);
-                    balacreada.transform.SetParent(transform);
-                    tiempoinicia = 0;
-                }
+
             }
             else
             {
-                //Y establezco al enemigo como corriendo
                 animator.SetBool("correr", true);
-                transform.rotation = rotacion;
+                animator.ResetTrigger("disparar");
+
             }
+
         }
         //Si la distancia es mayor al radio de vision
         else
@@ -72,8 +58,10 @@ public class EnemyFollow : MonoBehaviour
 
             transform.rotation = (posicioninicial.x > transform.position.x) ? new Quaternion(0, 180, 0, 0) : new Quaternion(0, 0, 0, 0);
 
-            //Establecemos el disparar a false
-            animator.SetBool("disparar", false);
+
+            animator.SetBool("correr", true);
+            animator.ResetTrigger("disparar");
+
         }
 
         //Si la posicion es la misma que la incial dejamos de correr
@@ -83,8 +71,7 @@ public class EnemyFollow : MonoBehaviour
         }
 
 
-        /*if (jugador.transform.position.y + 1 > transform.position.y && jugador.transform.position.y - 1 < transform.position.y)
-        {*/
+
         float fixedSpeed = velocidad * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, objetivo, fixedSpeed);
 
@@ -92,7 +79,97 @@ public class EnemyFollow : MonoBehaviour
 
         Debug.DrawLine(transform.position, objetivo, Color.green);
 
-        /*  }*/
+
+
+    }
+
+    //Transformo la rotacion del cuerpo segun si el jugador está a la derecha o izquierda
+
+    private void comprobarPosicionJugadorParaMoverse()
+    {
+
+
+
+        if (jugador.transform.position.x > transform.position.x)
+        {
+
+            objetivo = new Vector3(jugador.transform.position.x - (radiodevision / 1.8f), transform.position.y, jugador.transform.position.z);
+        }
+        else
+        {
+
+            objetivo = new Vector3(jugador.transform.position.x + (radiodevision / 1.8f), transform.position.y, jugador.transform.position.z);
+        }
+
+
+
+    }
+    private void comprobarRotacion()
+    {
+        if (objetivo.x == transform.position.x)
+        {
+            if (jugador.transform.position.x > transform.position.x)
+            {
+
+                rotacion = new Quaternion(0, 180, 0, 0);
+            }
+            else
+            {
+
+                rotacion = new Quaternion(0, 0, 0, 0);
+
+            }
+
+
+        }
+        else
+        {
+            if (objetivo.x < transform.position.x)
+            {
+
+
+                rotacion = new Quaternion(0, 0, 0, 0);
+
+
+            }
+            else
+            {
+
+                rotacion = new Quaternion(0, 180, 0, 0);
+
+
+            }
+            animator.ResetTrigger("disparar");
+
+
+        }
+
+        transform.rotation = rotacion;
+
+    }
+
+    //Si la distancia es menor al radio entre 2 debe disparar
+    private void comprobarPosicionJugadorParaDisparar()
+    {
+
+        if (dist < radiodevision / 1.78f)
+        {
+
+            tiempoinicia += Time.deltaTime;
+            if (tiempoinicia >= tiempoespera)
+            {
+
+                animator.SetBool("correr", false);
+                animator.SetTrigger("disparar");
+                GameObject balacreada = Instantiate(bala, this.transform.GetChild(0).gameObject.transform.position, transform.rotation);
+
+                balacreada.GetComponent<Rigidbody2D>().AddForce(transform.position);
+                tiempoinicia = 0;
+            }
+
+        }
+
+
 
     }
 

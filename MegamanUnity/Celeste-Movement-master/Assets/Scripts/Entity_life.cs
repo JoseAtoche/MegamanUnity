@@ -75,46 +75,49 @@ public class Entity_life : MonoBehaviour
         //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda, ESTE DAÑO ES SOLO PARA LA ESPADA
         else
         {
-            if ((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
-               GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-               !invulnerable && this.GetComponent<Escudo>() != null)
+            try
             {
-
-
-                StopAllCoroutines();
-                invulnerable = true;
-                Invoke("UndoInvincible", 2);
-
-                //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
-
-                vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
-
-                StartCoroutine(FlashSprite());
-            }
-            else
-                try
+                if ((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
+                   GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+                   !invulnerable && this.GetComponent<Escudo>() != null)
                 {
-                    if ((collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
-                      GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-                      !invulnerable && this.GetComponent<Escudo>() != null)
-                    {
-                        StopAllCoroutines();
-                        invulnerable = true;
-                        Invoke("UndoInvincible", 2);
 
-                        //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
 
-                        vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
+                    StopAllCoroutines();
+                    invulnerable = true;
+                    Invoke("UndoInvincible", 2);
 
-                        StartCoroutine(FlashSprite());
-                    }
+                    //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
 
+                    vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
+
+                    StartCoroutine(FlashSprite());
                 }
-                catch (Exception e) { }
+                else
+                    try
+                    {
+                        if ((collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
+                          GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+                          !invulnerable && this.GetComponent<Escudo>() != null)
+                        {
+                            StopAllCoroutines();
+                            invulnerable = true;
+                            Invoke("UndoInvincible", 2);
+
+                            //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
+
+                            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
+
+                            StartCoroutine(FlashSprite());
+                        }
+
+                    }
+                    catch (Exception e) { }
 
 
 
-
+            }
+            catch (Exception e) { }
         }
     }
 

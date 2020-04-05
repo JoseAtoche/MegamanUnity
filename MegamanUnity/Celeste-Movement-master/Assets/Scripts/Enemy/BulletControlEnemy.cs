@@ -7,24 +7,46 @@ public class BulletControlEnemy : MonoBehaviour
     public Rigidbody2D bulletRB;
     public float bulletSpeed;
     public float bulletLife;
-    private Vector3 posicioninicial;
-
+    private Vector3 posiciondeseada;
+    float y;
     private void Awake()
     {
         bulletRB = GetComponent<Rigidbody2D>();
+
+        this.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+
+        if (transform.position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x)
+        {
+            float m = (GameObject.FindGameObjectWithTag("Player").transform.position.y - transform.position.y) / (GameObject.FindGameObjectWithTag("Player").transform.position.x - transform.position.x);
+
+
+
+            posiciondeseada = new Vector3(-2000, (m * -2000) + (GameObject.FindGameObjectWithTag("Player").transform.position.x), GameObject.FindGameObjectWithTag("Player").transform.position.z);
+
+        }
+        else
+        {
+            float m = (transform.position.y - GameObject.FindGameObjectWithTag("Player").transform.position.y) / (transform.position.x - GameObject.FindGameObjectWithTag("Player").transform.position.x);
+
+
+
+
+            posiciondeseada = new Vector3(2000, (m * 2000) + (GameObject.FindGameObjectWithTag("Player").transform.position.x), GameObject.FindGameObjectWithTag("Player").transform.position.z);
+        }
     }
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        posicioninicial = GameObject.FindGameObjectWithTag("Player").transform.position;
-    }
+
 
     // Update is called once per frame
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, posicioninicial, bulletSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, posiciondeseada, bulletSpeed);
+        //este comando me obliga a poner 1. donde estoy 2. donde voy 3. la velocidad
+
+
         Destroy(gameObject, bulletLife);
+        //y este me dice cuanto tiempo vivo
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
