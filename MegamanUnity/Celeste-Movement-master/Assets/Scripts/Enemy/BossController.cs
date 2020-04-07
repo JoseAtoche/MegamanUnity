@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,22 +17,22 @@ public class BossController : MonoBehaviour
 
     public float introDuration = 0.5f;
 
-    public float thornadusDuration = 4.0f;
-    public float evilWaltzDuration = 4.0f;
+    public float thornadusDuration = 0.40f;
+    public float evilWaltzDuration = 0.40f;
     public float scytheDuration = 0.4f;
-    public float quartetBurstDuration = 5.0f;
-    public float guillotineDuration = 4.0f;
-    public float nocturneDuration = 4.0f;
-    private float fixedSpeed;
-    private Vector3 final;
+    public float quartetBurstDuration = 0.40f;
+    public float guillotineDuration = 0.40f;
+    public float nocturneDuration = 0.40f;
 
     public float time = 0;
 
 
+    public GameObject objetoPadre;
+    Vector3 posicionprincipal;
+
     bool primeravez = false;
 
-    Vector3 posicionAcual;
-
+    bool cortinacomenzada = false;
 
 
     public enum State
@@ -50,7 +51,7 @@ public class BossController : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-
+        posicionprincipal = objetoPadre.transform.position;
     }
 
     // Update is called once per frame
@@ -60,209 +61,318 @@ public class BossController : MonoBehaviour
 
         if (scriptvida.vida < 50)
         {
-            Dash();
+            Power();
         }
 
         time += Time.deltaTime;
-        if (time >= 0f && time <= 0.05f)
-        {
-            anim.ResetTrigger("thornadus");
-            anim.ResetTrigger("guillotine");
-            anim.ResetTrigger("burst");
-            anim.ResetTrigger("scythe");
-            anim.ResetTrigger("waltz");
-            anim.ResetTrigger("nocturne");
 
-            aleatorio();
-        }
 
         switch (state)
         {
             case State.INTRO:
                 // do intro stuff
-                intro();
+                Intro();
                 break;
 
             case State.THORNADUS:
-                thornadus();
+                Thornadus();
                 break;
 
             case State.WALTZ:
 
-                evilWaltz();
+                EvilWaltz();
                 break;
 
             case State.SCYTHE:
 
-                scythe();
+                Scythe();
                 break;
 
             case State.BURST:
 
-                quartetBurst();
+                QuartetBurst();
                 break;
 
             case State.NOCTURNE:
 
-                hailNocturne();
+                HailNocturne();
                 break;
 
             case State.GUILLOTINE:
 
-                guillotine();
+                Guillotine();
                 break;
         }
-        fixedSpeed = velocidad * Time.deltaTime;
-        Debug.Log(state + " Modificación " + final.x + " " + final.y);
 
-        transform.position = Vector3.MoveTowards(posicionAcual, final, fixedSpeed);
 
     }
 
-    private void intro()
+    private void Intro()
     {
-        if (time >= introDuration)
+        if (time < introDuration)
         {
-            //anim.SetBool("floatPrometheus", true);
-            //state = State.INTRO;
-            //time -= introDuration;
+            objetoPadre.transform.position = posicionprincipal;
+
+
+        }
+        else
+        {
+
+
+            Aleatorio();
+
+
+
         }
     }
 
-    private void thornadus()
+    private void Thornadus()
     {
-        if (time >= thornadusDuration)
+        if (time < thornadusDuration)
         {
-            final = new Vector3(transform.position.x, -6.8f, transform.position.z);
 
-            anim.SetTrigger("thornadus");
+            objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + 3, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
+
+            anim.SetBool("Finalizado", false);
+
+            if (!primeravez)
+            {
+                primeravez = true;
+                anim.SetTrigger("thornadus");
+
+            }
 
             state = State.THORNADUS;
-            time -= thornadusDuration;
+        }
+        else
+        {
+
+
+            Aleatorio();
+
+
+
         }
     }
 
-    private void evilWaltz()
+    private void EvilWaltz()
     {
-        if (time >= evilWaltzDuration)
+        if (time < evilWaltzDuration)
         {
-            final = new Vector3(136.91f, transform.position.y, transform.position.z);
+            objetoPadre.transform.position = posicionprincipal;
+            anim.SetBool("Finalizado", false);
 
-            anim.SetTrigger("waltz");
+            if (!primeravez)
+            {
+                primeravez = true;
+                anim.SetTrigger("waltz");
+            }
 
             state = State.WALTZ;
-            time -= evilWaltzDuration;
+        }
+        else
+        {
+
+
+            Aleatorio();
+
+
+
         }
     }
 
-    private void scythe()
+    private void Scythe()
     {
-        if (time >= scytheDuration)
+        if (time < scytheDuration)
         {
+            objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
+
             anim.SetBool("Finalizado", false);
-            // final = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            anim.SetTrigger("scythe");
+
+
+            if (!primeravez)
+            {
+                primeravez = true;
+                anim.SetTrigger("scythe");
+            }
 
             state = State.SCYTHE;
-            time -= scytheDuration;
+        }
+        else
+        {
+
+
+            Aleatorio();
+
+
+
         }
     }
 
-    private void quartetBurst()
+    private void QuartetBurst()
     {
-        if (time >= quartetBurstDuration)
+        if (time < quartetBurstDuration)
         {
-            anim.SetBool("Finalizado", false);
-            // final = new Vector3(145f, -10.07f, transform.position.z);
+            objetoPadre.transform.position = posicionprincipal;
 
-            anim.SetTrigger("burst");
+            anim.SetBool("Finalizado", false);
+
+            if (!primeravez)
+            {
+                primeravez = true;
+                anim.SetTrigger("burst");
+            }
             state = State.BURST;
-            time -= quartetBurstDuration;
+        }
+        else
+        {
+
+
+            Aleatorio();
+
+
+
         }
     }
 
-    private void hailNocturne()
+    private void HailNocturne()
     {
-        if (time >= nocturneDuration)
+        if (time < nocturneDuration)
         {
+            objetoPadre.transform.position = posicionprincipal;
+
             anim.SetBool("Finalizado", false);
-            // final = new Vector3(146.28f, -14.11f, 0);
 
-            anim.SetTrigger("nocturne");
+            if (!primeravez)
+            {
+                primeravez = true;
+                anim.SetTrigger("nocturne");
+            }
             state = State.NOCTURNE;
-            time -= nocturneDuration;
+        }
+        else
+        {
+
+
+            Aleatorio();
+
+
+
         }
     }
 
-    private void guillotine()
+    private void Guillotine()
     {
-        if (time >= guillotineDuration)
+        if (time < guillotineDuration)
         {
-            final = new Vector3(transform.position.x, -14.11f, transform.position.z);
+            objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
+            anim.SetBool("Finalizado", false);
 
-            anim.SetTrigger("guillotine");
+            if (!primeravez)
+            {
+                primeravez = true;
+                anim.SetTrigger("guillotine");
+            }
             state = State.GUILLOTINE;
-            time -= guillotineDuration;
+        }
+        else
+        {
+
+
+
+
+            Aleatorio();
+
+
+
         }
     }
 
-    private void aleatorio()
+    private void Aleatorio()
     {
 
-        switch (Random.Range(0, 6))
+        primeravez = false;
+
+        anim.SetBool("Finalizado", true);
+        anim.ResetTrigger("thornadus");
+        anim.ResetTrigger("guillotine");
+        anim.ResetTrigger("burst");
+        anim.ResetTrigger("scythe");
+        anim.ResetTrigger("waltz");
+        anim.ResetTrigger("nocturne");
+        time = 0;
+
+        if (!cortinacomenzada)
         {
-            case 0:
-                //   transform.position = new Vector3(145f, -10.07f, transform.position.z);
+            // StartCoroutine(EsperarUnSegundo());
+            switch (UnityEngine.Random.Range(0, 6))
+            {
+                case 0:
 
-                state = State.BURST;
+                    state = State.BURST;
 
-                break;
 
-            case 1:
-                anim.SetBool("Finalizado", true);
-                transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, -7.15f, transform.position.z);
-                state = State.GUILLOTINE;
+                    break;
 
-                break;
+                case 1:
 
-            case 2:
-                anim.SetBool("Finalizado", true);
-                transform.position = new Vector3(146.28f, -14.11f, transform.position.z);
-                state = State.NOCTURNE;
+                    state = State.GUILLOTINE;
 
-                break;
+                    break;
 
-            case 3:
-                anim.SetBool("Finalizado", true);
-                state = State.SCYTHE;
-                aleatorio();
+                case 2:
 
-                break;
+                    state = State.NOCTURNE;
 
-            case 4:
-                anim.SetBool("Finalizado", true);
-                state = State.THORNADUS;
+                    break;
 
-                break;
+                case 3:
 
-            case 5:
-                anim.SetBool("Finalizado", true);
-                transform.position = new Vector3(144f, GameObject.FindGameObjectWithTag("Player").transform.position.y + 5, transform.position.z);
-                state = State.WALTZ;
+                    state = State.SCYTHE;
+                    Aleatorio();
 
-                break;
+                    break;
+
+                case 4:
+
+                    state = State.THORNADUS;
+
+                    break;
+
+                case 5:
+
+                    state = State.WALTZ;
+
+                    break;
+            }
         }
-        posicionAcual = transform.position;
         Debug.Log(state + " coords " + transform.position.x + " " + transform.position.y);
+
+
+
     }
 
-    private void Dash()
+    private void Power()
     {
         GetComponentInChildren<GhostBoss>().ShowGhost();
     }
 
-    private IEnumerator DashWait()
+    //private IEnumerator DashWait()
+    //{
+    //    yield return new WaitForSeconds(.3f);
+    //}
+
+    private IEnumerator EsperarUnSegundo()
     {
-        yield return new WaitForSeconds(.3f);
+
+        cortinacomenzada = true;
+
+
+        yield return new WaitForSeconds(1f);
+
+        cortinacomenzada = false;
+
     }
+
+
 }

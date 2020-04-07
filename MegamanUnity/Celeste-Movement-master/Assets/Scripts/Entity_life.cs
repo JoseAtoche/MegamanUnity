@@ -25,6 +25,16 @@ public class Entity_life : MonoBehaviour
 
             Invoke("Explode", 2f);
         }
+        else if (vida <= 0 && this.name == "prometheusBoss")
+        {
+
+
+
+
+
+
+
+        }
     }
     /// <summary>
     /// Colusión de las entiddes
