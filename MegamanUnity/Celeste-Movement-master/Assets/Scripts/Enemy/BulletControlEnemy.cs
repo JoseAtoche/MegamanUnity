@@ -8,7 +8,6 @@ public class BulletControlEnemy : MonoBehaviour
     public float bulletSpeed;
     public float bulletLife;
     private Vector3 posiciondeseada;
-    float y;
     private void Awake()
     {
         bulletRB = GetComponent<Rigidbody2D>();

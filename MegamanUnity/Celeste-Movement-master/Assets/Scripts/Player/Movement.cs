@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -123,6 +124,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (coll.onGround == true) { saltos = 1; }
+
+
+
         //Esto es un potenciador cuando mi vida es menor a 50
         if (GameObject.FindObjectOfType<PlayerController>().scriptvida.vida < 50)
         {
@@ -373,7 +378,7 @@ public class Movement : MonoBehaviour
 
 
 
-        anim.SetTrigger("dash");
+        // anim.SetTrigger("dash");
 
         rb.velocity = Vector2.zero;
         Vector2 dir = new Vector2(x, y);
@@ -555,6 +560,9 @@ public class Movement : MonoBehaviour
         Destroy(GameObject.Find("Visual"));
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
 
 
 

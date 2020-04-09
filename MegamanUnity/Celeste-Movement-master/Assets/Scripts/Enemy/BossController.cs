@@ -35,6 +35,12 @@ public class BossController : MonoBehaviour
     bool cortinacomenzada = false;
 
 
+    public GameObject carabela1;
+    public GameObject carabela2;
+    public GameObject carabela3;
+    public GameObject carabela4;
+
+
     public enum State
     {
         INTRO,
@@ -221,11 +227,44 @@ public class BossController : MonoBehaviour
             {
                 primeravez = true;
                 anim.SetTrigger("burst");
+
+                carabela1.SetActive(true);
+                carabela2.SetActive(true);
+                carabela3.SetActive(true);
+                carabela4.SetActive(true);
+
+
+
+
             }
+            if (carabela1.active == true)
+            {
+                carabela1.transform.position = Vector3.MoveTowards(carabela1.transform.position, new Vector3(137.46f, -8.13f, 0), 0.5f);
+
+
+            }
+            if (carabela2.active == true)
+            {
+                carabela2.transform.position = Vector3.MoveTowards(carabela2.transform.position, new Vector3(152.71f, -8.13f, 0), 0.5f);
+            }
+            if (carabela3.active == true)
+            {
+                carabela3.transform.position = Vector3.MoveTowards(carabela3.transform.position, new Vector3(152.71f, -15.21f, 0), 0.5f);
+            }
+            if (carabela4.active == true)
+            {
+                carabela4.transform.position = Vector3.MoveTowards(carabela4.transform.position, new Vector3(137.46f, -15.21f, 0), 0.5f);
+            }
+
             state = State.BURST;
         }
         else
         {
+
+            carabela1.SetActive(false);
+            carabela2.SetActive(false);
+            carabela3.SetActive(false);
+            carabela4.SetActive(false);
 
 
             Aleatorio();
@@ -308,40 +347,58 @@ public class BossController : MonoBehaviour
             switch (UnityEngine.Random.Range(0, 6))
             {
                 case 0:
-
-                    state = State.BURST;
+                    if (state != State.BURST)
+                    {
+                        state = State.BURST;
+                    }
+                    else { Aleatorio(); }
 
 
                     break;
 
                 case 1:
-
-                    state = State.GUILLOTINE;
+                    if (state != State.GUILLOTINE)
+                    {
+                        state = State.GUILLOTINE;
+                    }
+                    else { Aleatorio(); }
 
                     break;
 
                 case 2:
-
-                    state = State.NOCTURNE;
+                    if (state != State.NOCTURNE)
+                    {
+                        state = State.NOCTURNE;
+                    }
+                    else { Aleatorio(); }
 
                     break;
 
                 case 3:
-
-                    state = State.SCYTHE;
+                    //if (state != State.SCYTHE)
+                    //{
+                    //    state = State.SCYTHE;
+                    //}
+                    //else { Aleatorio(); }
                     Aleatorio();
 
                     break;
 
                 case 4:
-
-                    state = State.THORNADUS;
+                    if (state != State.THORNADUS)
+                    {
+                        state = State.THORNADUS;
+                    }
+                    else { Aleatorio(); }
 
                     break;
 
                 case 5:
-
-                    state = State.WALTZ;
+                    if (state != State.WALTZ)
+                    {
+                        state = State.WALTZ;
+                    }
+                    else { Aleatorio(); }
 
                     break;
             }

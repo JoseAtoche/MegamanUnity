@@ -37,7 +37,15 @@ public class BulletControl : MonoBehaviour
         Entity_life enemy = hitInfo.GetComponent<Entity_life>();
         if (enemy != null)
         {
-            if (!enemy.GetComponent<Entity_life>().invulnerable && enemy.tag != "escudo")
+            if (enemy.name == "Carabela 1" || enemy.name == "Carabela 2" || enemy.name == "Carabela 3" || enemy.name == "Carabela 4")
+            {
+
+                enemy.vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 3 * 2 : 3 : (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 2 * 2 : 2;
+                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().desactivarBiometal();
+
+            }
+            else if (!enemy.GetComponent<Entity_life>().invulnerable && enemy.tag != "escudo")
             {
                 enemy.GetComponent<Entity_life>().StopAllCoroutines();
                 enemy.GetComponent<Entity_life>().invulnerable = true;
@@ -49,13 +57,15 @@ public class BulletControl : MonoBehaviour
 
                 enemy.GetComponent<Entity_life>().StartCoroutine(enemy.GetComponent<Entity_life>().FlashSprite());
             }
-            else
+            else if (!enemy.GetComponent<Entity_life>().invulnerable && enemy.tag == "escudo")
             {
-                enemy.danioparaescudo(this.transform.position.x);
+                enemy.DanioparaEscudo(this.transform.position.x);
+                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado = false;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().desactivarBiometal();
 
 
             }
+
 
             Destroy(gameObject);
         }
