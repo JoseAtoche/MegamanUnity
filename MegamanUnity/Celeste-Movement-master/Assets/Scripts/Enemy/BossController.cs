@@ -61,6 +61,7 @@ public class BossController : MonoBehaviour
     }
 
     // Update is called once per frame
+    [Obsolete]
     private void Update()
     {
         heartBar.value = scriptvida.vida;
@@ -215,6 +216,7 @@ public class BossController : MonoBehaviour
         }
     }
 
+    [Obsolete]
     private void QuartetBurst()
     {
         if (time < quartetBurstDuration)
