@@ -2239,9 +2239,6 @@ AnimatorStateTransition:
     m_ConditionEvent: VerticalVelocity
     m_EventTreshold: -0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: onWall
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
     m_ConditionEvent: wallSlide
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -2484,6 +2481,9 @@ AnimatorStateTransition:
     m_EventTreshold: -0.1
   - m_ConditionMode: 1
     m_ConditionEvent: jump
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: onGround
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7677977707366177614}
@@ -3167,7 +3167,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: onWall
+    m_ConditionEvent: wallSlide
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: VerticalVelocity
