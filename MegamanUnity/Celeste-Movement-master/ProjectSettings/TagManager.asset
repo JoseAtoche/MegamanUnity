@@ -12,6 +12,7 @@ TagManager:
   - escudo
   - biometal
   - objetos
+  - iconoGuardado
   layers:
   - Default
   - TransparentFX

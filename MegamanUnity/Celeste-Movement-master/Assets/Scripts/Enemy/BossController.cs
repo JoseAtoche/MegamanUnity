@@ -23,6 +23,12 @@ public class BossController : MonoBehaviour
     public float quartetBurstDuration = 0.40f;
     public float guillotineDuration = 0.40f;
     public float nocturneDuration = 0.40f;
+    public AudioClip ataque1;
+    public AudioClip ataque2;
+    public AudioClip ataque3;
+    public AudioClip ataque4;
+    public AudioClip ataque5;
+    public AudioClip ataque6;
 
     public float time = 0;
 
@@ -39,7 +45,7 @@ public class BossController : MonoBehaviour
     public GameObject carabela2;
     public GameObject carabela3;
     public GameObject carabela4;
-
+    private AudioSource audioSource;
 
     public enum State
     {
@@ -54,8 +60,10 @@ public class BossController : MonoBehaviour
 
     public State state = State.THORNADUS;
 
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         posicionprincipal = objetoPadre.transform.position;
     }
@@ -146,7 +154,7 @@ public class BossController : MonoBehaviour
             {
                 primeravez = true;
                 anim.SetTrigger("thornadus");
-
+                audioSource.PlayOneShot(ataque5);
             }
 
             state = State.THORNADUS;

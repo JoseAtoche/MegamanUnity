@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class GuardadoAutomatico : MonoBehaviour
 {
     private float tiempodeespera = 0;
     public bool prohibidoguardar = false;
     public bool nuevapartida = false;
-
+    public GameObject Guardado1;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -24,6 +25,7 @@ public class GuardadoAutomatico : MonoBehaviour
             {
                 GuardarPartida.Save(GameObject.FindGameObjectWithTag("Player"));
                 Debug.Log("Guardado correctamente");
+                StartCoroutine(Guardado());
             }
 
             tiempodeespera = Time.time + 10;
@@ -42,5 +44,15 @@ public class GuardadoAutomatico : MonoBehaviour
 
             Debug.Log("Cargado correctamente");
         }
+    }
+
+    public IEnumerator Guardado()
+    {
+        GameObject.Find("ObjetosNecesarios").GetComponent<objetosNecesarios>().guardado.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+        GameObject.Find("ObjetosNecesarios").GetComponent<objetosNecesarios>().guardado.SetActive(false);
+
+
     }
 }

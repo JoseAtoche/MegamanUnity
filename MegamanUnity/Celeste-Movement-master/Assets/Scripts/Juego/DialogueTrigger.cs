@@ -6,6 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
 
     public Dialogue dialogue;
+    public BossController controlador;
 
 
     public void TriggerDialogue()
@@ -21,7 +22,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(6.18f, -0.49f, 0);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = true;
-
+        controlador.enabled = true;
     }
 
 }

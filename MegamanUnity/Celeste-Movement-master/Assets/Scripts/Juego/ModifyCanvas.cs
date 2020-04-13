@@ -39,6 +39,8 @@ public class ModifyCanvas : MonoBehaviour
     {
         if (collision.tag == "Player" && this.GetComponent<BoxCollider2D>().isTrigger == true)
         {
+            prometheus.SetActive(true);
+
             GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
             cutscene.SetActive(true);
             GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().prohibidoguardar = true;
@@ -47,8 +49,6 @@ public class ModifyCanvas : MonoBehaviour
             sonido.SetActive(false);
             this.GetComponent<BoxCollider2D>().isTrigger = false;
             permitirmovimiento = true;
-            prometheus.SetActive(true);
-
 
 
         }

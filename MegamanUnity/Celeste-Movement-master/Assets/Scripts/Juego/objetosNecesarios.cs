@@ -5,4 +5,5 @@ using UnityEngine;
 public class objetosNecesarios : MonoBehaviour
 {
     public FuerzaItem fuerza;
+    public GameObject guardado;
 }

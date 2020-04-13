@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ public static class GuardarPartida
         DatosCheckPoint datos = new DatosCheckPoint(player);
         formatter.Serialize(stream, datos);
         stream.Close();
+
     }
 
     /// <summary>
@@ -44,4 +46,6 @@ public static class GuardarPartida
             return null;
         }
     }
+
+
 }

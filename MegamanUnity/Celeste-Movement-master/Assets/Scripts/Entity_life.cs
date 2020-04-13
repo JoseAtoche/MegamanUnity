@@ -14,6 +14,9 @@ public class Entity_life : MonoBehaviour
     public Collider2D colisionespadaderecha;
     bool primer = false;
 
+    public bool permitirataque = true;
+    public int ataqueanterior = 0;
+
     private void Update()
     {
 
@@ -53,6 +56,23 @@ public class Entity_life : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque == 0)
+        {
+
+            permitirataque = true;
+
+
+
+
+        }
+        if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque == ataqueanterior + 1)
+        {
+
+            permitirataque = true;
+        }
+        else { permitirataque = false; }
+
+
         //Colision del nuevo personaje
         //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
         //De esta forma le hará daño a el JUGADOR
@@ -80,17 +100,9 @@ public class Entity_life : MonoBehaviour
         if ((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() ||
             collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>()) &&
             GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-            !invulnerable && this.GetComponent<Escudo>() == null)
+            (!invulnerable || GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().combo) && this.GetComponent<Escudo>() == null)
         {
-            StopAllCoroutines();
-            invulnerable = true;
-            Invoke("UndoInvincible", 2);
-
-            //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
-
-            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
-
-            StartCoroutine(FlashSprite());
+            quitarvida("espada");
         }
 
         //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda, ESTE DAÑO ES SOLO PARA LA ESPADA
@@ -98,43 +110,19 @@ public class Entity_life : MonoBehaviour
         {
             try
             {
-                if ((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
+                if (((collision == colisionespadaderecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-                   !invulnerable && this.GetComponent<Escudo>() != null)
+                   !invulnerable && this.GetComponent<Escudo>() != null) ||
+
+                   (((collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
+                         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+                         !invulnerable && this.GetComponent<Escudo>() != null)))
                 {
 
 
-                    StopAllCoroutines();
-                    invulnerable = true;
-                    Invoke("UndoInvincible", 2);
+                    quitarvida("espada");
 
-                    //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
-
-                    vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
-
-                    StartCoroutine(FlashSprite());
                 }
-                else
-                    try
-                    {
-                        if ((collision == colisionespadaizquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
-                          GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-                          !invulnerable && this.GetComponent<Escudo>() != null)
-                        {
-                            StopAllCoroutines();
-                            invulnerable = true;
-                            Invoke("UndoInvincible", 2);
-
-                            //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
-
-                            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
-
-                            StartCoroutine(FlashSprite());
-                        }
-
-                    }
-                    catch (Exception e) { }
-
 
 
             }
@@ -143,6 +131,9 @@ public class Entity_life : MonoBehaviour
                 //  Debug.Log(e);
             }
         }
+
+        ataqueanterior = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque;
+
     }
 
 
@@ -155,34 +146,13 @@ public class Entity_life : MonoBehaviour
         try
         {
 
-            if (this.GetComponent<Escudo>().derecha && !invulnerable && x < this.transform.position.x)
+            if (this.GetComponent<Escudo>().derecha && !invulnerable && x < this.transform.position.x || !this.GetComponent<Escudo>().derecha && !invulnerable && x > this.transform.position.x)
             {
 
 
-                StopAllCoroutines();
-                invulnerable = true;
-                Invoke("UndoInvincible", 2);
-
-                //Resta vida al enemigo segun la vida del jugador, y su potenciador
-                vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 3 * 2 : 3 : (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 2 * 2 : 2;
-
-                //  vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 3 : 2;
-
-                StartCoroutine(FlashSprite());
+                quitarvida("pistola");
             }
-            else if (!this.GetComponent<Escudo>().derecha && !invulnerable && x > this.transform.position.x)
-            {
-                StopAllCoroutines();
-                invulnerable = true;
-                Invoke("UndoInvincible", 2);
 
-                //Resta vida al enemigo segun la vida del jugador, y su potenciador
-                vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 3 * 2 : 3 : (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 2 * 2 : 2;
-
-                // vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 3 : 2;
-
-                StartCoroutine(FlashSprite());
-            }
 
         }
         catch (Exception e) { }
@@ -247,5 +217,41 @@ public class Entity_life : MonoBehaviour
 
 
     }
+
+
+
+    public void quitarvida(string arma)
+    {
+
+        StopAllCoroutines();
+        invulnerable = true;
+        Invoke("UndoInvincible", 2);
+
+
+        if (arma == "espada")
+        {
+            //Resta vida al enemigo segun la vida del jugador, si es menor a 50 resta 8 si no 5
+
+            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? 8 : 5;
+
+
+
+        }
+        else if (arma == "pistola")
+        {
+            //Resta vida al enemigo segun la vida del jugador, y su potenciador
+            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 3 * 2 : 3 : (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().canonpotenciado) ? 2 * 2 : 2;
+
+        }
+
+
+        StartCoroutine(FlashSprite());
+
+
+
+
+    }
+
+
 
 }

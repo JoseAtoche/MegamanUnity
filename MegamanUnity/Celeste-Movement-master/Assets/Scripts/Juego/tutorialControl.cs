@@ -12,7 +12,7 @@ public class tutorialControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
         tutorial1.SetActive(true);
         flecha.SetActive(true);
 
@@ -35,7 +35,7 @@ public class tutorialControl : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire1"))
         {
-
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = true;
             this.gameObject.SetActive(false);
             tutorial1.SetActive(false);
             tutorial2.SetActive(false);

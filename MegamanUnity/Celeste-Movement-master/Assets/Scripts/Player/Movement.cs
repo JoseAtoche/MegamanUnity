@@ -101,6 +101,7 @@ public class Movement : MonoBehaviour
     public bool canonpotenciado = false;
 
     public GameObject biometal;
+    public Boolean combo;
 
 
 
@@ -298,7 +299,7 @@ public class Movement : MonoBehaviour
         }
 
         //Establezco el tiempo necesario para disparar
-        if (Time.time > nextFireTime && Input.GetButtonDown(botondisparo))
+        if (Time.time > nextFireTime && Input.GetButtonDown(botondisparo) && ataque == 0)
         {
             shoot = true;
 
@@ -311,36 +312,54 @@ public class Movement : MonoBehaviour
             nextFireTime = Time.time + cooldown;
         }
 
-        if (Input.GetButtonDown(botonespada) && y > 0)
+        if (Input.GetButtonDown(botonespada) && y > 0 && rb.velocity.x == 0 && coll.onGround)
         {
             upattack = true;
+            ataque = 1;
+            jumpForce = jumpForce * 1.2f;
+
+            Jump(Vector2.up, false);
+            jumpForce = jumpForce / 1.2f;
+
+
+        }
+        else
+        {
+            upattack = false;
+
+
+
         }
 
         //combo de la espada
-        if (Input.GetButtonDown(botonespada))
+        if (Input.GetButtonDown(botonespada) && y == 0)
         {
             switch (ataque)
             {
                 case 0:
                     ataque = 1;
                     audioSource.PlayOneShot(ataque1);
+                    combo = true;
+
 
                     break;
 
                 case 1:
                     ataque = 2;
                     audioSource.PlayOneShot(ataque2);
-
+                    combo = true;
                     break;
 
                 case 2:
                     ataque = 3;
                     audioSource.PlayOneShot(ataque3);
+                    combo = true;
 
                     break;
 
                 case 3:
                     ataque = 0;
+                    combo = false;
 
                     break;
             }
@@ -350,6 +369,7 @@ public class Movement : MonoBehaviour
         else if (Time.time > tiempo_espera_espada - 0.3)
         {
             ataque = 0;
+            combo = false;
         }
     }
 
@@ -372,11 +392,6 @@ public class Movement : MonoBehaviour
 
         hasDashed = true;
         saltos--;
-
-
-
-
-
 
         // anim.SetTrigger("dash");
 
