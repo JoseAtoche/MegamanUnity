@@ -17,6 +17,10 @@ public class Entity_life : MonoBehaviour
     public bool permitirataque = true;
     public int ataqueanterior = 0;
 
+    public GameObject finalCutscene;
+    public GameObject explosion;
+
+
     private void Update()
     {
 
@@ -32,6 +36,8 @@ public class Entity_life : MonoBehaviour
         }
         else if (vida <= 0 && this.name == "prometheusBoss")
         {
+            explosion.SetActive(true);
+            finalCutscene.SetActive(true);
 
 
 
