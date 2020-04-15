@@ -4,36 +4,37 @@ public class ModifyCanvas : MonoBehaviour
 {
     public GameObject barra;
 
-    public AudioClip musicaboss;
+    public AudioClip musicaBoss;
     public GameObject sonido;
     public AudioSource sonidoBoss;
     public GameObject muro;
-    bool permitirmovimiento = false;
+    private bool permitirMovimiento = false;
     public GameObject cutscene;
 
     public GameObject prometheus;
 
-    // Update is called once per frame
+    /// <summary>
+    /// Mueve el muro cuando se le indique
+    /// </summary>
     private void Update()
     {
-
-        if (permitirmovimiento)
+        if (permitirMovimiento)
         {
-
             Vector3 objetivo = new Vector3(muro.transform.position.x, -2.14f, muro.transform.position.z);
             float fixedSpeed = 15 * Time.deltaTime;
             muro.transform.position = Vector3.MoveTowards(muro.transform.position, objetivo, fixedSpeed);
 
             if (muro.transform.position.y == -2.14f)
             {
-                permitirmovimiento = false;
+                permitirMovimiento = false;
             }
-
-
         }
-
-
     }
+
+    /// <summary>
+    /// Si he pasado el muro, se activa la cinemática
+    /// </summary>
+    /// <param name="collision"></param>
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -43,15 +44,12 @@ public class ModifyCanvas : MonoBehaviour
 
             GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
             cutscene.SetActive(true);
-            GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().prohibidoguardar = true;
+            GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().prohibidoGuardar = true;
             barra.transform.position = new Vector3(barra.transform.position.x - 90, barra.transform.position.y, 0);
-            sonidoBoss.PlayOneShot(musicaboss);
+            sonidoBoss.PlayOneShot(musicaBoss);
             sonido.SetActive(false);
             this.GetComponent<BoxCollider2D>().isTrigger = false;
-            permitirmovimiento = true;
-
-
+            permitirMovimiento = true;
         }
-
     }
 }

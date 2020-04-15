@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +12,7 @@ public class BossController : MonoBehaviour
 
     public bool invulnerable;
 
-    public Entity_life scriptvida;
+    public Entity_life scriptVida;
 
     public float introDuration = 0.5f;
 
@@ -32,14 +31,12 @@ public class BossController : MonoBehaviour
 
     public float time = 0;
 
-
     public GameObject objetoPadre;
-    Vector3 posicionprincipal;
+    private Vector3 posicionPrincipal;
 
-    bool primeravez = false;
+    private bool primeraVez = false;
 
-    bool cortinacomenzada = false;
-
+    private bool cortinaComenzada = false;
 
     public GameObject carabela1;
     public GameObject carabela2;
@@ -60,28 +57,30 @@ public class BossController : MonoBehaviour
 
     public State state = State.THORNADUS;
 
-
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
-        posicionprincipal = objetoPadre.transform.position;
+        posicionPrincipal = objetoPadre.transform.position;
     }
 
-    // Update is called once per frame
-    [Obsolete]
+    /// <summary>
+    /// Pequeño  patron de estados
+    /// </summary>
     private void Update()
     {
-        heartBar.value = scriptvida.vida;
+        //La barra de vida se establece a la vida actual del boss
+        heartBar.value = scriptVida.vida;
 
-        if (scriptvida.vida < 50)
+        //Si la vida es menor a 50 le pongo una animacion y fuerza
+        if (scriptVida.vida < 50)
         {
             Power();
         }
 
         time += Time.deltaTime;
 
-
+        //Estado
         switch (state)
         {
             case State.INTRO:
@@ -118,41 +117,37 @@ public class BossController : MonoBehaviour
                 Guillotine();
                 break;
         }
-
-
     }
 
+    /// <summary>
+    /// Estado de introduccion
+    /// </summary>
     private void Intro()
     {
         if (time < introDuration)
         {
-            objetoPadre.transform.position = posicionprincipal;
-
-
+            objetoPadre.transform.position = posicionPrincipal;
         }
         else
         {
-
-
             Aleatorio();
-
-
-
         }
     }
 
+    /// <summary>
+    /// Estado del tornado, se mueve hacia arriba, siempre se pone a la derecha del jugador para atacarle
+    /// </summary>
     private void Thornadus()
     {
         if (time < thornadusDuration)
         {
-
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + 3, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
 
             anim.SetBool("Finalizado", false);
 
-            if (!primeravez)
+            if (!primeraVez)
             {
-                primeravez = true;
+                primeraVez = true;
                 anim.SetTrigger("thornadus");
                 audioSource.PlayOneShot(ataque5);
             }
@@ -161,25 +156,23 @@ public class BossController : MonoBehaviour
         }
         else
         {
-
-
             Aleatorio();
-
-
-
         }
     }
 
+    /// <summary>
+    /// Estado del Evil Waltz es un ataque que se pone bajo del  escenario para atacar
+    /// </summary>
     private void EvilWaltz()
     {
         if (time < evilWaltzDuration)
         {
-            objetoPadre.transform.position = posicionprincipal;
+            objetoPadre.transform.position = posicionPrincipal;
             anim.SetBool("Finalizado", false);
 
-            if (!primeravez)
+            if (!primeraVez)
             {
-                primeravez = true;
+                primeraVez = true;
                 anim.SetTrigger("waltz");
             }
 
@@ -187,15 +180,13 @@ public class BossController : MonoBehaviour
         }
         else
         {
-
-
             Aleatorio();
-
-
-
         }
     }
 
+    /// <summary>
+    /// Se pone encima del jugador para atacarle
+    /// </summary>
     private void Scythe()
     {
         if (time < scytheDuration)
@@ -204,10 +195,9 @@ public class BossController : MonoBehaviour
 
             anim.SetBool("Finalizado", false);
 
-
-            if (!primeravez)
+            if (!primeraVez)
             {
-                primeravez = true;
+                primeraVez = true;
                 anim.SetTrigger("scythe");
             }
 
@@ -215,43 +205,34 @@ public class BossController : MonoBehaviour
         }
         else
         {
-
-
             Aleatorio();
-
-
-
         }
     }
 
-    [Obsolete]
+    /// <summary>
+    /// Ataque que activa 4 carabelas que se mueven a las posiciones incicadas para atacar
+    /// </summary>
     private void QuartetBurst()
     {
         if (time < quartetBurstDuration)
         {
-            objetoPadre.transform.position = posicionprincipal;
+            objetoPadre.transform.position = posicionPrincipal;
 
             anim.SetBool("Finalizado", false);
 
-            if (!primeravez)
+            if (!primeraVez)
             {
-                primeravez = true;
+                primeraVez = true;
                 anim.SetTrigger("burst");
 
                 carabela1.SetActive(true);
                 carabela2.SetActive(true);
                 carabela3.SetActive(true);
                 carabela4.SetActive(true);
-
-
-
-
             }
             if (carabela1.active == true)
             {
                 carabela1.transform.position = Vector3.MoveTowards(carabela1.transform.position, new Vector3(137.46f, -8.13f, 0), 0.5f);
-
-
             }
             if (carabela2.active == true)
             {
@@ -270,43 +251,36 @@ public class BossController : MonoBehaviour
         }
         else
         {
-
             carabela1.SetActive(false);
             carabela2.SetActive(false);
             carabela3.SetActive(false);
             carabela4.SetActive(false);
 
-
             Aleatorio();
-
-
-
         }
     }
 
+    /// <summary>
+    /// Ataque que se realiza desde el centro de la pantalla
+    /// </summary>
     private void HailNocturne()
     {
         if (time < nocturneDuration)
         {
-            objetoPadre.transform.position = posicionprincipal;
+            objetoPadre.transform.position = posicionPrincipal;
 
             anim.SetBool("Finalizado", false);
 
-            if (!primeravez)
+            if (!primeraVez)
             {
-                primeravez = true;
+                primeraVez = true;
                 anim.SetTrigger("nocturne");
             }
             state = State.NOCTURNE;
         }
         else
         {
-
-
             Aleatorio();
-
-
-
         }
     }
 
@@ -317,30 +291,25 @@ public class BossController : MonoBehaviour
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
             anim.SetBool("Finalizado", false);
 
-            if (!primeravez)
+            if (!primeraVez)
             {
-                primeravez = true;
+                primeraVez = true;
                 anim.SetTrigger("guillotine");
             }
             state = State.GUILLOTINE;
         }
         else
         {
-
-
-
-
             Aleatorio();
-
-
-
         }
     }
 
+    /// <summary>
+    /// Es un randomizador, hace que el enemigo ejecute otro ataque, siempre y cuando no sea el mismo que acaba de realizar
+    /// </summary>
     private void Aleatorio()
     {
-
-        primeravez = false;
+        primeraVez = false;
 
         anim.SetBool("Finalizado", true);
         anim.ResetTrigger("thornadus");
@@ -351,7 +320,7 @@ public class BossController : MonoBehaviour
         anim.ResetTrigger("nocturne");
         time = 0;
 
-        if (!cortinacomenzada)
+        if (!cortinaComenzada)
         {
             // StartCoroutine(EsperarUnSegundo());
             switch (UnityEngine.Random.Range(0, 6))
@@ -362,7 +331,6 @@ public class BossController : MonoBehaviour
                         state = State.BURST;
                     }
                     else { Aleatorio(); }
-
 
                     break;
 
@@ -414,9 +382,6 @@ public class BossController : MonoBehaviour
             }
         }
         Debug.Log(state + " coords " + transform.position.x + " " + transform.position.y);
-
-
-
     }
 
     private void Power()
@@ -431,15 +396,10 @@ public class BossController : MonoBehaviour
 
     private IEnumerator EsperarUnSegundo()
     {
-
-        cortinacomenzada = true;
-
+        cortinaComenzada = true;
 
         yield return new WaitForSeconds(1f);
 
-        cortinacomenzada = false;
-
+        cortinaComenzada = false;
     }
-
-
 }

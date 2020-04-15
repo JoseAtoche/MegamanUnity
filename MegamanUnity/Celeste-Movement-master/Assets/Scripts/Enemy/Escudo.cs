@@ -20,15 +20,16 @@ public class Escudo : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //Si ha llegado a la posicion incial da la vuelta
         if (transform.position == posicioninicial)
         {
-
             derecha = false;
             animator.SetBool("Andando", false);
             animator.SetTrigger("GiroIzquierda");
             animator.ResetTrigger("GiroDerecha");
             objetivo = posicionfinal;
         }
+        //Si ha llegado a la posicion final da la vuelta
         else if (transform.position == posicionfinal)
         {
             derecha = true;
@@ -42,9 +43,7 @@ public class Escudo : MonoBehaviour
         else
         {
             animator.SetBool("Andando", true);
-
         }
-
 
         float fixedSpeed = velocidad * Time.deltaTime;
 
@@ -52,10 +51,4 @@ public class Escudo : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, posicioninicial.y, transform.position.z);
     }
-
-
-
-
-
-
 }

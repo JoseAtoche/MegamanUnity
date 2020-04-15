@@ -16,6 +16,9 @@ public class GhostBoss : MonoBehaviour
         sr = GetComponentInParent<SpriteRenderer>();
     }
 
+    /// <summary>
+    /// Activa el efecto de boss cuando llega a menos de la mitad de la vida
+    /// </summary>
     public void ShowGhost()
     {
         Sequence s = DOTween.Sequence();

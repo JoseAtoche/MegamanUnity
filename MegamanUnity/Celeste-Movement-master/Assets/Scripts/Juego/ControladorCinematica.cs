@@ -12,7 +12,7 @@ public class ControladorCinematica : MonoBehaviour
     public Text dialogueText;
     private Queue<string> sentences;
 
-    void Start()
+    private void Start()
     {
         frases = new ArrayList();
 
@@ -22,38 +22,23 @@ public class ControladorCinematica : MonoBehaviour
         frases.Add("Por ello, no te dejaré pasar de aquí, al menos... no vivo");
         frases.Add("Prepárate para la batalla, ¡TRAIDOR!");
 
-
-
-
         ComenzarDialogo();
-
-
     }
 
     public void ComenzarDialogo()
     {
-
-
         foreach (string frase in frases)
         {
-
             StartCoroutine(TypeSentence(frase));
-
         }
-
-
-
     }
 
-    IEnumerator Wait()
+    private IEnumerator Wait()
     {
-
         yield return new WaitForSeconds(1);
-
-
     }
 
-    IEnumerator TypeSentence(string sentence)
+    private IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())

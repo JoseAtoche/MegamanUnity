@@ -5779,12 +5779,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "Zero regresaba de vender a los Mavericks\nTras vencer a su creador el Dr.
-    Willy una vez,\n y el secuestro de Ciel, deb\xEDa regresar a vencer a \nsus nuevas
-    creaciones.\nLa muerte de sus hermanos, Harpuia, Fenrir, \nLeviathan, Phantom,
-    Sigma y Serpent \nno eran seguras, y la creacion de Omega estaba por\n finalizar,
-    deb\xEDa volver a Neo Arcadia para rescatar\n a su salvadora y al X de las manos
-    de Willy"
+  m_text: "Zero regresaba de vencer a los Mavericks\nTras vencer a su creador el Dr.
+    Willy una vez,\n y el secuestro de Ciel, deb\xEDa regresar a derrotar a \nsus
+    nuevas creaciones.\nLa muerte de sus hermanos, Harpuia, Fenrir, \nLeviathan, Phantom,
+    Sigma y Serpent \nno eran seguras, y la resurrecci\xF3n de Omega estaba por\n
+    finalizar, deb\xEDa volver a Neo Arcadia para rescatar\n a su salvadora y al X
+    de las manos de Willy"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5853,7 +5853,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1607960900}
-    characterCount: 393
+    characterCount: 399
     spriteCount: 0
     spaceCount: 76
     wordCount: 71

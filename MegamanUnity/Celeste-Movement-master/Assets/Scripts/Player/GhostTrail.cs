@@ -19,6 +19,9 @@ public class GhostTrail : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
+    /// <summary>
+    /// Pone un efecto tras el personaje para formar el dash
+    /// </summary>
     public void ShowGhost()
     {
         Sequence s = DOTween.Sequence();

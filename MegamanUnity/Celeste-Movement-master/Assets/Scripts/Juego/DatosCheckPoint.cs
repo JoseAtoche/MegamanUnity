@@ -10,6 +10,10 @@ public class DatosCheckPoint
     public float y;
     public float z;
 
+    /// <summary>
+    /// Guarda los datos del jugador, vida, y posición
+    /// </summary>
+    /// <param name="p"></param>
     public DatosCheckPoint(GameObject p)
     {
         vida = p.GetComponent<Entity_life>().vida;

@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 6284080316190647538}
   m_LocalRotation: {x: 0.02467767, y: 0.02467767, z: 0.70667607, w: 0.70667607}
   m_LocalPosition: {x: 151.98, y: -49.14, z: 1}
-  m_LocalScale: {x: 5.6195846, y: 7.7752857, z: 0}
+  m_LocalScale: {x: 3.630252, y: 5.4115987, z: 0}
   m_Children:
   - {fileID: 6284080316773909526}
   m_Father: {fileID: 0}
@@ -124,11 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1229f9a1b8f2f4988e9dea16014380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiodevision: 5
+  radioDeVision: 5
   bala: {fileID: 1814441324575866633, guid: 2fb49adce9c8b0549826d80d077ef7a6, type: 3}
   cannon: {fileID: 6284080315297435296}
-  tiempoinicia: 0
-  tiempoespera: 2
+  tiempoInicia: 0
+  tiempoEspera: 2
   jugador: {fileID: 0}
 --- !u!61 &6284080316190647542
 BoxCollider2D:
@@ -140,7 +140,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -261,7 +261,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.12942363, y: -0.010111213}

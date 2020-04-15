@@ -11,6 +11,9 @@ public class BetterJumping : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    /// <summary>
+    /// Mejora del salto permitiendo poder pulsar el espacio más tiempo para llegar a mas altura
+    /// </summary>
     private void Update()
     {
         if (rb.velocity.y < 0)

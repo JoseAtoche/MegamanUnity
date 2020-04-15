@@ -20,12 +20,9 @@ public class Collision : MonoBehaviour
     public Vector2 bottomOffset, rightOffset, leftOffset;
     private Color debugCollisionColor = Color.red;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
+    /// <summary>
+    /// Calcula las colisiones del jugador en todo momento
+    /// </summary>
     private void Update()
     {
         onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);

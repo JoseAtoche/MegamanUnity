@@ -7,20 +7,37 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     [Space]
-    [Header("Objects")]
+    [Header("Objects y hitboxes")]
+
+    //Prefab de la bala
     public GameObject bala;
 
+    ///Cañon del jugador
     public GameObject cannon;
 
+    //Biometal para el ataque especial
+    public GameObject biometal;
+
+    //Script de colision
     private Collision coll;
+
+    //Espacio que ocupa la espada derecha
+    public GameObject colliderDerderecha;
+
+    //Espacio que ocupa la espada izquierda
+    public GameObject colliderIzquierda;
+
+    //La sombra trasera que se activa al 50%
+    public GameObject ghostFueza;
 
     [HideInInspector]
     public Rigidbody2D rb;
 
-    private AnimationScript anim;
+    //Script de animacion
+    private AnimationScript animacion;
 
     [Space]
-    [Header("Stats")]
+    [Header("Stadísticas")]
     public float speed = 10;
 
     public float jumpForce = 50;
@@ -29,10 +46,10 @@ public class Movement : MonoBehaviour
     public float dashSpeed = 20;
     public float cooldown = 2;
     private float nextFireTime = 0;
-    private float cooldownsonido = 0;
+    private float cooldownSonido = 0;
 
     [Space]
-    [Header("Booleans")]
+    [Header("Boleanos")]
     public bool canMove;
 
     public bool wallGrab;
@@ -41,14 +58,17 @@ public class Movement : MonoBehaviour
     public bool isDashing;
 
     [Space]
+    //suelo tocado
     private bool groundTouch;
 
+    //Si está realizando dash
     public bool hasDashed;
 
+    //A que lado tiene volteada la animacion
     public int side = 1;
 
     [Space]
-    [Header("Polish")]
+    [Header("Partículas")]
     public ParticleSystem dashParticle;
 
     public ParticleSystem jumpParticle;
@@ -56,15 +76,17 @@ public class Movement : MonoBehaviour
     public ParticleSystem slideParticle;
 
     [Space]
-    [Header("Controladores")]
-    public GameObject colliderderecha;
+    [Header("Controladores De ataques y lugar")]
 
-    public GameObject colliderizquierda;
-    public GameObject GhostFuerza;
+    //El numero de ataque actual
     public int ataque = 0;
 
-    [Space]
-    [Header("De ataques y lugar")]
+    public bool disparoPotenciado = false;
+    private float tiempoEsperaEspada = 0;
+    public int saltos = 0;
+    public Boolean combo;
+
+    //Booleanos para saber que ataques/movimientos está realizando y hacia donde está mirando
     public bool derecha;
 
     public bool bigAtack = false;
@@ -73,6 +95,8 @@ public class Movement : MonoBehaviour
     public bool upattack = false;
 
     [Space]
+    private AudioSource audioSource;
+
     [Header("Sonidos")]
     public AudioClip ataque1;
 
@@ -81,31 +105,20 @@ public class Movement : MonoBehaviour
     public AudioClip dash;
     public AudioClip disparo;
     public AudioClip muerte;
-    public AudioClip saltopared;
+    public AudioClip saltoPared;
     public AudioClip suelo;
-    private AudioSource audioSource;
+
+    [Space]
+    [Header("Botones")]
+    //Signacion de botones
+    public string botonDash = "Fire1";
+
+    public string botonDisparo = "Fire2";
+    public string botonSaltar = "Jump";
+    public string botonEspada = "Fire3";
+
     private Quaternion quaterion = new Quaternion(0, 0, 0, 0);
     private Vector3 vector = new Vector3();
-
-    private float tiempo_espera_espada = 0;
-    public int saltos = 0;
-
-
-    public string botondash = "Fire1";
-    public string botondisparo = "Fire2";
-    public string botonsaltar = "Jump";
-    public string botonespada = "Fire3";
-
-
-
-    public bool canonpotenciado = false;
-
-    public GameObject biometal;
-    public Boolean combo;
-
-
-
-
 
     // Start is called before the first frame update
     private void Start()
@@ -116,7 +129,7 @@ public class Movement : MonoBehaviour
             derecha = true;
             coll = GetComponent<Collision>();
             rb = GetComponent<Rigidbody2D>();
-            anim = GetComponentInChildren<AnimationScript>();
+            animacion = GetComponentInChildren<AnimationScript>();
             GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().Load();
         }
         catch (Exception e) { }
@@ -125,25 +138,23 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //Si toco el suelo se permite saltar
         if (coll.onGround == true) { saltos = 1; }
 
-
-
         //Esto es un potenciador cuando mi vida es menor a 50
-        if (GameObject.FindObjectOfType<PlayerController>().scriptvida.vida < 50)
+        if (GameObject.FindObjectOfType<PlayerController>().scriptVida.vida < 50)
         {
-            GhostFuerza.SetActive(true);
+            ghostFueza.SetActive(true);
             Fuerza();
         }
         else
         {
-            GhostFuerza.SetActive(false);
+            ghostFueza.SetActive(false);
         }
-
-        if (/*GameObject.FindObjectOfType<PlayerController>().scriptvida.vida > -10 &&*/ GameObject.FindObjectOfType<PlayerController>().scriptvida.vida <= 0)
+        //Si la vida es menor o igual a 0 muere
+        if (GameObject.FindObjectOfType<PlayerController>().scriptVida.vida <= 0)
         {
             StartCoroutine(Morir());
-            /* GameObject.FindObjectOfType<PlayerController>().scriptvida.vida = -15;*/
         }
 
         //Establece el movimiento General
@@ -155,12 +166,13 @@ public class Movement : MonoBehaviour
 
         Walk(dir);
 
-        anim.SetHorizontalMovement(x, y, rb.velocity.y);
+        animacion.SetHorizontalMovement(x, y, rb.velocity.y);
 
-        if ((x != 0 && y == 0) && Time.time > cooldownsonido && coll.onGround)
+        //establece el sonido de la pisada si el personaje se mueve
+        if ((x != 0 && y == 0) && Time.time > cooldownSonido && coll.onGround)
         {
             audioSource.PlayOneShot(suelo);
-            cooldownsonido = Time.time + 0.3f;
+            cooldownSonido = Time.time + 0.3f;
         }
 
         //Si colisiono con el suelo y no estoy dasheando
@@ -170,7 +182,7 @@ public class Movement : MonoBehaviour
             GetComponent<BetterJumping>().enabled = true;
         }
 
-        //Si estoy cogiendome a la pared pero no dasheando
+        //Si estoy cogiendome a la pared pero no dasheando, esto es para caer poco a poco
         if (wallGrab && !isDashing)
         {
             rb.gravityScale = 0;
@@ -193,7 +205,7 @@ public class Movement : MonoBehaviour
         {
             //Dar la vuelta a al hora de los muros
 
-            if (Time.time > nextFireTime && Input.GetButtonDown(botondisparo))
+            if (Time.time > nextFireTime && Input.GetButtonDown(botonDisparo))
             {
                 shoot = true;
 
@@ -221,28 +233,28 @@ public class Movement : MonoBehaviour
         }
 
         //Si pulso saltar
-        if (Input.GetButtonDown(botonsaltar))
+        if (Input.GetButtonDown(botonSaltar))
         {
             //Pulso el trigger en la animacion de saltar
-            anim.SetTrigger("jump");
+            animacion.SetTrigger("jump");
 
             //Si estoy en el suelo
             if (coll.onGround)
             {
                 //upattack=false;
                 Jump(Vector2.up, false);
-                audioSource.PlayOneShot(saltopared);
+                audioSource.PlayOneShot(saltoPared);
             }
             if (coll.onWall && !coll.onGround)
             {
                 WallJump();
-                audioSource.PlayOneShot(saltopared);
+                audioSource.PlayOneShot(saltoPared);
             }
         }
 
         //Establezco el dash
         // if (Input.GetButtonDown(botondash) && !hasDashed)
-        if (Input.GetButtonDown(botondash) && saltos > 0)
+        if (Input.GetButtonDown(botonDash) && saltos > 0)
         {
             if (xRaw != 0 || yRaw != 0)
             {
@@ -250,8 +262,6 @@ public class Movement : MonoBehaviour
 
                 audioSource.PlayOneShot(dash);
             }
-
-
         }
 
         //Establezco si toqué el suelo
@@ -273,46 +283,51 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        //Modifico la animacion para que mire a un lado u otro ademas de la modificacion del Collider
+        //Modifico la animacion para que mire a un lado u otro ademas de la modificacion del Collider del ataque
 
         if (x > 0)
         {
             side = 1;
-            anim.Flip(side);
+            animacion.Flip(side);
             derecha = true;
 
             //Establece los Collider del Golpe
-            colliderderecha.SetActive(true);
-            colliderizquierda.SetActive(false);
+            colliderDerderecha.SetActive(true);
+            colliderIzquierda.SetActive(false);
         }
         else
         if (x < 0)
         {
             derecha = false;
             side = -1;
-            anim.Flip(side);
+            animacion.Flip(side);
 
             //Establece los Collider del Golpe
 
-            colliderderecha.SetActive(false);
-            colliderizquierda.SetActive(true);
+            colliderDerderecha.SetActive(false);
+            colliderIzquierda.SetActive(true);
         }
 
+        AtaqueGeneral();
+    }
+
+    private void AtaqueGeneral()
+    {
         //Establezco el tiempo necesario para disparar
-        if (Time.time > nextFireTime && Input.GetButtonDown(botondisparo) && ataque == 0)
+        if (Time.time > nextFireTime && Input.GetButtonDown(botonDisparo) && ataque == 0)
         {
             shoot = true;
 
             //Establezcola bala en el lugar adecuado segun a donde mire
             vector = derecha ? new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z) : new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
-
+            //Audio del disparo
             audioSource.PlayOneShot(disparo);
-
+            //Inizalizacion de la bala
             Instantiate(bala, vector, quaterion);
             nextFireTime = Time.time + cooldown;
         }
-
-        if (Input.GetButtonDown(botonespada) && y > 0 && rb.velocity.x == 0 && coll.onGround)
+        //Ataque de espada fuerte, cuando pulso arriba (AUN NO FUNCIONAL)
+        if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") > 0 && rb.velocity.x == 0 && coll.onGround)
         {
             upattack = true;
             ataque = 1;
@@ -320,19 +335,14 @@ public class Movement : MonoBehaviour
 
             Jump(Vector2.up, false);
             jumpForce = jumpForce / 1.2f;
-
-
         }
         else
         {
             upattack = false;
-
-
-
         }
 
-        //combo de la espada
-        if (Input.GetButtonDown(botonespada) && y == 0)
+        //combo de la espada, cada vez que pulso un ataque nuevo se ejecuta junto a su sonido
+        if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") == 0)
         {
             switch (ataque)
             {
@@ -340,7 +350,6 @@ public class Movement : MonoBehaviour
                     ataque = 1;
                     audioSource.PlayOneShot(ataque1);
                     combo = true;
-
 
                     break;
 
@@ -363,27 +372,29 @@ public class Movement : MonoBehaviour
 
                     break;
             }
-            tiempo_espera_espada = Time.time + cooldown;
+            tiempoEsperaEspada = Time.time + cooldown;
         }
         //Si llevo mas de este tiempo sin pulsar el botón mi ataque se pone en 0 de nuevo
-        else if (Time.time > tiempo_espera_espada - 0.3)
+        else if (Time.time > tiempoEsperaEspada - 0.3)
         {
             ataque = 0;
             combo = false;
         }
     }
 
+    //Cuando toco el suelo, se activan las particulas y activan/desactivan los booleanos pertinentes
     private void GroundTouch()
     {
         hasDashed = false;
         isDashing = false;
         saltos = 1;
 
-        side = anim.sr.flipX ? -1 : 1;
+        side = animacion.sr.flipX ? -1 : 1;
 
         jumpParticle.Play();
     }
 
+    //Realizacion del Dash,  a la direccion deseada junto a la animacion
     private void Dash(float x, float y)
     {
         Camera.main.transform.DOComplete();
@@ -423,12 +434,10 @@ public class Movement : MonoBehaviour
         isDashing = false;
     }
 
+    //Activacion de la animacion de fuerza
     private void Fuerza()
     {
-        //Camera.main.transform.DOComplete();
-        //Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
-        //FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-        FindObjectOfType<GhostForce>().ShowGhost();
+        FindObjectOfType<GhostTrail>().ShowGhost();
     }
 
     private IEnumerator GroundDash()
@@ -445,7 +454,7 @@ public class Movement : MonoBehaviour
         if ((side == 1 && coll.onRightWall) || side == -1 && !coll.onRightWall)
         {
             side *= -1;
-            anim.Flip(side);
+            animacion.Flip(side);
         }
 
         StopCoroutine(DisableMovement(0));
@@ -462,7 +471,7 @@ public class Movement : MonoBehaviour
     {
         if (coll.wallSide != side)
         {
-            anim.Flip(side * -1);
+            animacion.Flip(side * -1);
         }
 
         if (!canMove)
@@ -504,6 +513,7 @@ public class Movement : MonoBehaviour
         }
     }
 
+    //Salto sabiendo si está o no en pared
     private void Jump(Vector2 dir, bool wall)
     {
         slideParticle.transform.parent.localScale = new Vector3(ParticleSide(), 1, 1);
@@ -547,24 +557,26 @@ public class Movement : MonoBehaviour
         int particleSide = coll.onRightWall ? 1 : -1;
         return particleSide;
     }
-    public void activarBiometal()
+
+    //Activa el objeto biometal para tenerlo visualmente
+    public void ActivarBiometal()
     {
         biometal.SetActive(true);
-
-
     }
-    public void desactivarBiometal()
+
+    //desctiva el objeto biometal para no tenerlo visualmente
+
+    public void DesactivarBiometal()
     {
-
         biometal.SetActive(false);
-
-
     }
 
+    /// <summary>
+    /// Cuando muere la camara se establece estática y suena la muerte del personaje ademas de destruir todo lo referente al personaje que sea vistoso
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator Morir()
     {
-
-
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamaraFollow>().enabled = false;
         this.transform.GetChild(0).parent = null;
 
@@ -578,9 +590,5 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
-
-
-
-
     }
 }

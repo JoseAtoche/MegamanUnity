@@ -2,7 +2,6 @@
 
 public class CamaraFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject jugador;
 
     private Vector3 posicion;
@@ -12,7 +11,9 @@ public class CamaraFollow : MonoBehaviour
         posicion = transform.position - jugador.transform.position;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// La cámara sigue al jugador en todo momento
+    /// </summary>
     private void Update()
     {
         transform.position = jugador.transform.position + posicion;

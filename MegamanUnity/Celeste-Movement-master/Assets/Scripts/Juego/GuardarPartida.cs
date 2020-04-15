@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public static class GuardarPartida
 {
-    //it's static so we can call it from anywhere
+    /// <summary>
+    /// Este método guarda la partida
+    /// </summary>
+    /// <param name="player"> jugador</param>
     public static void Save(GameObject player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -22,11 +24,10 @@ public static class GuardarPartida
         DatosCheckPoint datos = new DatosCheckPoint(player);
         formatter.Serialize(stream, datos);
         stream.Close();
-
     }
 
     /// <summary>
-    /// Este metodo hace algo
+    /// Este metodo carga la partida
     /// </summary>
     /// <returns></returns>
     public static DatosCheckPoint Load()
@@ -46,6 +47,4 @@ public static class GuardarPartida
             return null;
         }
     }
-
-
 }

@@ -1,21 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class tutorialControl : MonoBehaviour
 {
-    bool primera = false;
+    private bool primera = false;
     public GameObject flecha;
     public GameObject tutorial1;
     public GameObject tutorial2;
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Si tocas el botón cambia al siguiente tutorial
+    /// </summary>
+    private void Update()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
         tutorial1.SetActive(true);
         flecha.SetActive(true);
-
 
         if (Input.GetButtonDown("Fire1") && !primera)
         {
@@ -23,15 +22,9 @@ public class tutorialControl : MonoBehaviour
             {
                 primera = true;
                 flecha.SetActive(false);
-
             }
             tutorial2.SetActive(true);
             flecha.SetActive(true);
-
-
-
-
-
         }
         else if (Input.GetButtonDown("Fire1"))
         {
@@ -40,10 +33,6 @@ public class tutorialControl : MonoBehaviour
             tutorial1.SetActive(false);
             tutorial2.SetActive(false);
             flecha.SetActive(false);
-
         }
-
-
-
     }
 }

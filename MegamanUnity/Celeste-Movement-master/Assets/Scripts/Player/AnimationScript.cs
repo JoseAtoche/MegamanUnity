@@ -9,7 +9,7 @@ public class AnimationScript : MonoBehaviour
     [HideInInspector]
     public SpriteRenderer sr;
 
-    private float tiempodeespera;
+    private float tiempoDeEspera;
 
     private void Start()
     {
@@ -18,6 +18,10 @@ public class AnimationScript : MonoBehaviour
         move = GetComponentInParent<Movement>();
         sr = GetComponent<SpriteRenderer>();
     }
+
+    /// <summary>
+    /// Se encarga de poner la animacion necesaria del movimiento en todo momento automáticamente
+    /// </summary>
 
     private void Update()
     {
@@ -38,6 +42,7 @@ public class AnimationScript : MonoBehaviour
         anim.SetInteger("ataque", move.ataque);
     }
 
+    //Establece las animaciones respecto al movimiento
     public void SetHorizontalMovement(float x, float y, float yVel)
     {
         anim.SetFloat("HorizontalAxis", x);
@@ -47,20 +52,28 @@ public class AnimationScript : MonoBehaviour
         if (x != 0)
         {
             anim.SetBool("Moviendose", true);
-            tiempodeespera = Time.time;
+            tiempoDeEspera = Time.time;
         }
 
-        if (Time.time > tiempodeespera + 0.03)
+        if (Time.time > tiempoDeEspera + 0.03)
         {
             anim.SetBool("Moviendose", false);
         }
     }
 
+    /// <summary>
+    /// Me permite activar cualquier trigger
+    /// </summary>
+    /// <param name="trigger">nombre del trigger</param>
     public void SetTrigger(string trigger)
     {
         anim.SetTrigger(trigger);
     }
 
+    /// <summary>
+    /// Rota visualmente la animacion
+    /// </summary>
+    /// <param name="side">1 Derecha | -1 Izquierda</param>
     public void Flip(int side)
     {
         if (move.wallGrab || move.wallSlide)

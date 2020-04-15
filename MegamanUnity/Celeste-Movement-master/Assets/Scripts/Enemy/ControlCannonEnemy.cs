@@ -2,42 +2,42 @@
 
 public class ControlCannonEnemy : MonoBehaviour
 {
-    public float radiodevision;
+    public float radioDeVision;
     public GameObject bala;
     public GameObject cannon;
-    public float tiempoinicia = 0;
-    public float tiempoespera = 2;
+    public float tiempoInicia = 0;
+    public float tiempoEspera = 2;
     public GameObject jugador;
 
-
+    /// <summary>
+    /// Dispara al enemigo cada cierto tiempo si está en su campo de visión
+    /// </summary>
     private void Update()
     {
         float dist = Vector3.Distance(jugador.transform.position, transform.position);
         if (cannon == null)
         {
-
-            if (dist < radiodevision)
+            if (dist < radioDeVision)
             {
-                tiempoinicia += Time.deltaTime;
-                if (tiempoinicia >= tiempoespera)
+                tiempoInicia += Time.deltaTime;
+                if (tiempoInicia >= tiempoEspera)
                 {
-
                     GameObject balacreada = Instantiate(bala, this.transform.position, this.transform.rotation);
                     balacreada.GetComponent<Rigidbody2D>().AddForce(this.transform.position);
                     balacreada.transform.SetParent(transform);
-                    tiempoinicia = 0;
+                    tiempoInicia = 0;
                 }
             }
         }
-        else if (dist < radiodevision)
+        else if (dist < radioDeVision)
         {
-            tiempoinicia += Time.deltaTime;
-            if (tiempoinicia >= tiempoespera)
+            tiempoInicia += Time.deltaTime;
+            if (tiempoInicia >= tiempoEspera)
             {
                 GameObject balacreada = Instantiate(bala, cannon.transform.position, cannon.transform.rotation);
                 balacreada.GetComponent<Rigidbody2D>().AddForce(cannon.transform.position);
                 balacreada.transform.SetParent(transform);
-                tiempoinicia = 0;
+                tiempoInicia = 0;
             }
         }
     }

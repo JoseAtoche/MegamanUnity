@@ -3,12 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class Controlador_Intro : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
+    /// <summary>
+    /// Si pulso cualquier tecla la cinemática parará
+    /// </summary>
     private void Update()
     {
         if (Input.anyKey)
