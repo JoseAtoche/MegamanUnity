@@ -1,0 +1,2405 @@
+fileFormatVersion: 2
+guid: 2e3c0a4d410d1bf4fb8742c78d50a058
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7481615730767270338
+    second: prometheusFin_0
+  - first:
+      213: -7770232902487629800
+    second: prometheusFin_1
+  - first:
+      213: 3600973387895701312
+    second: prometheusFin_2
+  - first:
+      213: -4662250656728028034
+    second: prometheusFin_3
+  - first:
+      213: -6451575028042214191
+    second: prometheusFin_4
+  - first:
+      213: 2063157036607579517
+    second: prometheusFin_5
+  - first:
+      213: -8751802261920281515
+    second: prometheusFin_6
+  - first:
+      213: 7932434026851137839
+    second: prometheusFin_7
+  - first:
+      213: -4877259936935823199
+    second: prometheusFin_8
+  - first:
+      213: 5957428978495718748
+    second: prometheusFin_9
+  - first:
+      213: -7159961024940400391
+    second: prometheusFin_10
+  - first:
+      213: 4564071359994071133
+    second: prometheusFin_11
+  - first:
+      213: 1339520756838013461
+    second: prometheusFin_12
+  - first:
+      213: 2531421491301314525
+    second: prometheusFin_13
+  - first:
+      213: 7777193961861439980
+    second: prometheusFin_14
+  - first:
+      213: 1189216624479820540
+    second: prometheusFin_15
+  - first:
+      213: 8596883333524775298
+    second: prometheusFin_16
+  - first:
+      213: 7331541113233344352
+    second: prometheusFin_17
+  - first:
+      213: 8461235653091666360
+    second: prometheusFin_18
+  - first:
+      213: 1911640503129974843
+    second: prometheusFin_19
+  - first:
+      213: 8759176317641591179
+    second: prometheusFin_20
+  - first:
+      213: 8241564144284298885
+    second: prometheusFin_21
+  - first:
+      213: 3934242422226475644
+    second: prometheusFin_22
+  - first:
+      213: 744588826897840733
+    second: prometheusFin_23
+  - first:
+      213: 1283480482324341340
+    second: prometheusFin_24
+  - first:
+      213: -1950740470695495469
+    second: prometheusFin_25
+  - first:
+      213: -7765725958147542846
+    second: prometheusFin_26
+  - first:
+      213: -3908969687318287268
+    second: prometheusFin_27
+  - first:
+      213: -237092593119334199
+    second: prometheusFin_28
+  - first:
+      213: 2421920983504907559
+    second: prometheusFin_29
+  - first:
+      213: 7418897849463644072
+    second: prometheusFin_30
+  - first:
+      213: -9049392234335871634
+    second: prometheusFin_31
+  - first:
+      213: 6004830845983467522
+    second: prometheusFin_32
+  - first:
+      213: 1290957463805021199
+    second: prometheusFin_33
+  - first:
+      213: 7861271552067766939
+    second: prometheusFin_34
+  - first:
+      213: 6016161862969021155
+    second: prometheusFin_35
+  - first:
+      213: -554599049438941990
+    second: prometheusFin_36
+  - first:
+      213: 1140991176945526226
+    second: prometheusFin_37
+  - first:
+      213: 4490764477284407609
+    second: prometheusFin_38
+  - first:
+      213: -1819792898324022603
+    second: prometheusFin_39
+  - first:
+      213: -5648081052959753829
+    second: prometheusFin_40
+  - first:
+      213: 1646500295869564740
+    second: prometheusFin_41
+  - first:
+      213: 1242835930266053151
+    second: prometheusFin_42
+  - first:
+      213: 1374248817600987685
+    second: prometheusFin_43
+  - first:
+      213: -6987596577932205012
+    second: prometheusFin_44
+  - first:
+      213: 2913676886482804428
+    second: prometheusFin_45
+  - first:
+      213: -8173909139789371014
+    second: prometheusFin_46
+  - first:
+      213: -7891978900626107591
+    second: prometheusFin_47
+  - first:
+      213: -4674940046653677851
+    second: prometheusFin_48
+  - first:
+      213: 8150804723385854275
+    second: prometheusFin_49
+  - first:
+      213: 784293541592800459
+    second: prometheusFin_50
+  - first:
+      213: -6247460878970966211
+    second: prometheusFin_51
+  - first:
+      213: -3737776602296358682
+    second: prometheusFin_52
+  - first:
+      213: 1138023354373520790
+    second: prometheusFin_53
+  - first:
+      213: 1964724009039556441
+    second: prometheusFin_54
+  - first:
+      213: -4171221802997040972
+    second: prometheusFin_55
+  - first:
+      213: -5682983656757694678
+    second: prometheusFin_56
+  - first:
+      213: -6818721278316508634
+    second: prometheusFin_57
+  - first:
+      213: 5445299090314168947
+    second: prometheusFin_58
+  - first:
+      213: -435491542197744091
+    second: prometheusFin_59
+  - first:
+      213: 6033164340489117934
+    second: prometheusFin_60
+  - first:
+      213: 7191977578971459983
+    second: prometheusFin_61
+  - first:
+      213: 5359771543571704858
+    second: prometheusFin_62
+  - first:
+      213: 7443889648260471945
+    second: prometheusFin_63
+  - first:
+      213: 5510662479858058201
+    second: prometheusFin_64
+  - first:
+      213: 166871058604573386
+    second: prometheusFin_65
+  - first:
+      213: -638196554565038780
+    second: prometheusFin_66
+  - first:
+      213: -4496365159944459366
+    second: prometheusFin_67
+  - first:
+      213: 186173468125819512
+    second: prometheusFin_68
+  - first:
+      213: -5160240874121720277
+    second: prometheusFin_69
+  - first:
+      213: -3250709945787593374
+    second: prometheusFin_70
+  - first:
+      213: -1346803113743500959
+    second: prometheusFin_71
+  - first:
+      213: -4087102100234844132
+    second: prometheusFin_72
+  - first:
+      213: 4006403846499620229
+    second: prometheusFin_73
+  - first:
+      213: -537667257587229846
+    second: prometheusFin_74
+  - first:
+      213: -7607652468338058228
+    second: prometheusFin_75
+  - first:
+      213: -3456919118985269213
+    second: prometheusFin_76
+  - first:
+      213: 785969698077227339
+    second: prometheusFin_77
+  - first:
+      213: 5082240365459807988
+    second: prometheusFin_78
+  - first:
+      213: 3144147316835096510
+    second: prometheusFin_79
+  - first:
+      213: -8833655421406951849
+    second: prometheusFin_80
+  - first:
+      213: 3126387662444045361
+    second: prometheusFin_81
+  - first:
+      213: -3600750443324652659
+    second: prometheusFin_82
+  - first:
+      213: -2506328567786945412
+    second: prometheusFin_83
+  - first:
+      213: 6195361626265901916
+    second: prometheusFin_84
+  - first:
+      213: -883662909460403803
+    second: prometheusFin_85
+  - first:
+      213: 8184169508094070375
+    second: prometheusFin_86
+  - first:
+      213: 8416948387299494038
+    second: prometheusFin_87
+  - first:
+      213: -1368435491491438442
+    second: prometheusFin_88
+  - first:
+      213: 2689693252220123609
+    second: prometheusFin_89
+  - first:
+      213: -9015634066315146674
+    second: prometheusFin_90
+  - first:
+      213: -7925860388471603665
+    second: prometheusFin_91
+  - first:
+      213: -2579258772498806608
+    second: prometheusFin_92
+  - first:
+      213: 4345619566639300423
+    second: prometheusFin_93
+  - first:
+      213: -7100710348176372189
+    second: prometheusFin_94
+  - first:
+      213: -318545088868854875
+    second: prometheusFin_95
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: prometheusFin_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d4b4725d22bdd469488286cb18455a
+      internalID: -7481615730767270338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cccf16a3d453f9248807aebc8d4a9e5f
+      internalID: -7770232902487629800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640232cb65eda5d40955e4136f957f1c
+      internalID: 3600973387895701312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_3
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50dc433b92f3224ab55a8e01c6f7585
+      internalID: -4662250656728028034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_4
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca598499cfe884e47b06035f69203a6d
+      internalID: -6451575028042214191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_5
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d53785ea1832e2448d47ab78a4ccb9b
+      internalID: 2063157036607579517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_6
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d62954d9e8a7f94a9aeaef2a0a95fb9
+      internalID: -8751802261920281515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_7
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6f24c8a435277418c60b9ac9af7c1c
+      internalID: 7932434026851137839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_8
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea4e5c327125214985cac0fc0bc6ff9
+      internalID: -4877259936935823199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_9
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c56ab082f76731841a30faf0460e5504
+      internalID: 5957428978495718748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_10
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c122514abd5e5aa448202f996bde7cc0
+      internalID: -7159961024940400391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_11
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860f668596435ab44bb4eae0667adf8c
+      internalID: 4564071359994071133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_12
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c024415f292025547a944dec0786e734
+      internalID: 1339520756838013461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_13
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6986615b191fd2044963945e637acd4a
+      internalID: 2531421491301314525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_14
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d0997a397e253448225bc8905e13a0
+      internalID: 7777193961861439980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_15
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83997fd001580e04e9a51822b11f99b1
+      internalID: 1189216624479820540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_16
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 963
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc4423b16f2cab6449d11bf93a8ba3bf
+      internalID: 8596883333524775298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 803e934080c639d4ab939342b601954d
+      internalID: 7331541113233344352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_18
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c1e9a2a1da49a47b3fdacd836c88e6
+      internalID: 8461235653091666360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_19
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32fcefe77ae55c438d5495242f3b7ab
+      internalID: 1911640503129974843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_20
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be62e2a66db0f0745999009460405edd
+      internalID: 8759176317641591179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_21
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70dfc8ca16f639429d09fa991f6a6e1
+      internalID: 8241564144284298885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_22
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49923182d551dfe4bbef9c13def1f224
+      internalID: 3934242422226475644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_23
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9167cbac29e734081031b9f155a31d
+      internalID: 744588826897840733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_24
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f178c4a1e7de10c44b9e1b2d3bd869ea
+      internalID: 1283480482324341340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_25
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ea6c3525accb24ea50067617b5dc08
+      internalID: -1950740470695495469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_26
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecebe668fc04b6344a9445a97bb6a71a
+      internalID: -7765725958147542846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_27
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56014646c763384293319c4963f07fe
+      internalID: -3908969687318287268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_28
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4bfa1612b6d534794f31d9f0a167ab
+      internalID: -237092593119334199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_29
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef00292201c13be49a3275b00b6b67b4
+      internalID: 2421920983504907559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_30
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 856
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87067841bb318fb43a278e3de427762d
+      internalID: 7418897849463644072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 749
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d59ea7de123bb3d4bb378d9996447e67
+      internalID: -9049392234335871634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_32
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 749
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9116bfa64fb241c4c81ae05fce9318bb
+      internalID: 6004830845983467522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_33
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 749
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 536ea41d48045c14fa0b3d02475a2dd9
+      internalID: 1290957463805021199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_34
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 749
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c548a2c02e3004cb45b5c7dd184f7f
+      internalID: 7861271552067766939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_35
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 749
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1a054625630be448d9409648e46a74
+      internalID: 6016161862969021155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_36
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 749
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ea7fe2618a043449e4c07341a73403
+      internalID: -554599049438941990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_37
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 749
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9809874dcb94c4bbc54349cc0390cd
+      internalID: 1140991176945526226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_38
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 749
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d37c13df74910b409e9e976b5596eab
+      internalID: 4490764477284407609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30eb5cd662e09bc488adaa2e184767d2
+      internalID: -1819792898324022603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_40
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc7d729b2e39d546b8a4186675812df
+      internalID: -5648081052959753829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_41
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4235c062c3b03c1479555a39b00a2079
+      internalID: 1646500295869564740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_42
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a6ac898ac76a4429f2d060b768c080
+      internalID: 1242835930266053151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_43
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80330b50a67beb04b9bb99b95df76317
+      internalID: 1374248817600987685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_44
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aacb869884299364dbffafd9d9184623
+      internalID: -6987596577932205012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_45
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af00bd7f6596518488d2826f8bb3fa0c
+      internalID: 2913676886482804428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_46
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7295baf1c0c1aa243bf905464685f8e8
+      internalID: -8173909139789371014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_47
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec1eb50bfc781143b960b6fc3a49308
+      internalID: -7891978900626107591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_48
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ad217f4aa5dbc42822c6e8273f98cf
+      internalID: -4674940046653677851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_49
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d19557263b32543479e9f72fbe5897f4
+      internalID: 8150804723385854275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_50
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 642
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19db33eb69745e44f9358a6688eaedb3
+      internalID: 784293541592800459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4671bf34c2ec21a4da028d2a589a6a80
+      internalID: -6247460878970966211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_52
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ca2a3b0cb951e4f9ddbb5e20804edd
+      internalID: -3737776602296358682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_53
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f3cc29c91172241acb06bdef6121c2
+      internalID: 1138023354373520790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_54
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc461fefdfbdf5a4fac512e3847a952e
+      internalID: 1964724009039556441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_55
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9779bbdaf1ff80045828c861e18394fd
+      internalID: -4171221802997040972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_56
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734dc1cf4121221468f0a277e5725ab6
+      internalID: -5682983656757694678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_57
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13cb5f0f5f417fd4aa1a9ce54286464d
+      internalID: -6818721278316508634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_58
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f8e83929b89c244d819082083747d2f
+      internalID: 5445299090314168947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_59
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065ff56a6268bba4f991995256420d9b
+      internalID: -435491542197744091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_60
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 535
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcf9c69664bd604f83940491d1744bb
+      internalID: 6033164340489117934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 428
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8499f6a2c658ae0408d800015dc1c798
+      internalID: 7191977578971459983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_62
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 428
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640a362612c9914419ee0b5148246304
+      internalID: 5359771543571704858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_63
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 428
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f8dec5f442617d4caaa52fd694c7268
+      internalID: 7443889648260471945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_64
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 428
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76deaa3b68c302a4996840ca1cdd3c67
+      internalID: 5510662479858058201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_65
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 428
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315ea87d6054cb2459ca46ec1649d68f
+      internalID: 166871058604573386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_66
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 428
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbdf7c47b7bacc44b8be5a65e3097f18
+      internalID: -638196554565038780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5dc618f3b48554fa0e7b3348511b37
+      internalID: -4496365159944459366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_68
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2368b35306b49c45ae1cbf804720f33
+      internalID: 186173468125819512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_69
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b1651290038de4daaed3239df958cf
+      internalID: -5160240874121720277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_70
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875b31e98801e2846b9507afb8b84114
+      internalID: -3250709945787593374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_71
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba418950511aa434c8c72659dcc2a8a0
+      internalID: -1346803113743500959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_72
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c2576dd58a5f245984966ee055951f
+      internalID: -4087102100234844132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_73
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7645a1df90c4424488a9334712c7ad0f
+      internalID: 4006403846499620229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_74
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62aa5802f31357e4098fe10b36f831d5
+      internalID: -537667257587229846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_75
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 321
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee23422a8af675c4c88926a17a971c9b
+      internalID: -7607652468338058228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6808d38f0ebdf284d87ce3f8074b2da0
+      internalID: -3456919118985269213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_77
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45ab4093c8a9aab408fb34d786e828e0
+      internalID: 785969698077227339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_78
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c79e0d7710ce74ca75d825ec52aa44
+      internalID: 5082240365459807988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_79
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e88c015707dab43867a8c68d0a58e6
+      internalID: 3144147316835096510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_80
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e171fbdc721cc534cbe4b366f0377711
+      internalID: -8833655421406951849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_81
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 174b1b0eedfe6ed42823646c543a9c45
+      internalID: 3126387662444045361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_82
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ebb65decc2e73468b3e4a582344f4e
+      internalID: -3600750443324652659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_83
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b823dee69d9da41aa9e9110f627a79
+      internalID: -2506328567786945412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_84
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4fcce6e51ebf8459cf6b81e148edd4
+      internalID: 6195361626265901916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_85
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c058d36d28f19c4798d49fdf7806a50
+      internalID: -883662909460403803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_86
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841cbde03a234e3419efa1b557c4007c
+      internalID: 8184169508094070375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_87
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 214
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e873d56ba4c56341b4460b3c9442355
+      internalID: 8416948387299494038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 107
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 762741329d78eeb45bcf58ae5071964e
+      internalID: -1368435491491438442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_89
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 107
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd3309d6fa441b45868aa7cdcc31e6a
+      internalID: 2689693252220123609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_90
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 107
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6dec8971961194687250d5c6d6b386
+      internalID: -9015634066315146674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_91
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 107
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6843e3187c2ccab4486281bffb75c89d
+      internalID: -7925860388471603665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_92
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 107
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6487e95c30ae1c4a8e3c42a5620db8e
+      internalID: -2579258772498806608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_93
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 107
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4895c3f168932e4cacd6626a74b8d9d
+      internalID: 4345619566639300423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_94
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 0
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 516f4de263bf7684a8a405abd9ba7a2a
+      internalID: -7100710348176372189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prometheusFin_95
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813d751ec33ff1d418d3c52816e61f54
+      internalID: -318545088868854875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c3dc72ed373f13047a84b8111ac74c36
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
