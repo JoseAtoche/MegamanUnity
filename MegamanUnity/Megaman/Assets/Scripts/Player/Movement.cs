@@ -319,84 +319,93 @@ public class Movement : MonoBehaviour
     /// </summary>
     private void AtaqueGeneral()
     {
-        //Establezco el tiempo necesario para disparar
-        if (Time.time > nextFireTime && Input.GetButtonDown(botonDisparo) && ataque == 0)
-        {
-            shoot = true;
 
-            //Establezcola bala en el lugar adecuado segun a donde mire
-            vector = derecha ? new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z) : new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
-            //Audio del disparo
-            audioSource.PlayOneShot(disparo);
-            //Inizalizacion de la bala
-            Instantiate(bala, vector, quaterion);
-            nextFireTime = Time.time + cooldown;
-        }
-        //Ataque de espada fuerte, cuando pulso arriba (AUN NO FUNCIONAL)
-        if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") > 0 && rb.velocity.x == 0 && coll.onGround)
+        //Si no estás en la animacion del daño se permite golpear
+        if (!animacion.animacionDaño)
         {
-            upattack = true;
-            ataque = 1;
-            jumpForce = jumpForce * 1.2f;
-            audioSource.PlayOneShot(ataque1);
-            Jump(Vector2.up, false);
-            jumpForce = jumpForce / 1.2f;
-            tiempoEspecialArriba = Time.time + cooldown - 0.1f;
-        }
-
-        //combo de la espada, cada vez que pulso un ataque nuevo se ejecuta junto a su sonido
-        if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") == 0 && !upattack && Input.GetAxis("Horizontal") == 0 && (ataque == 0 || combo))
-        {
-            switch (ataque)
+            //Establezco el tiempo necesario para disparar
+            if (Time.time > nextFireTime && Input.GetButtonDown(botonDisparo) && ataque == 0)
             {
-                case 0:
-                    ataque = 1;
-                    audioSource.PlayOneShot(ataque1);
-                    combo = true;
+                shoot = true;
 
-                    break;
-
-                case 1:
-                    ataque = 2;
-                    audioSource.PlayOneShot(ataque2);
-                    combo = true;
-                    break;
-
-                case 2:
-                    ataque = 3;
-                    audioSource.PlayOneShot(ataque3);
-                    combo = true;
-
-                    break;
-
-                case 3:
-                    ataque = 0;
-                    combo = false;
-
-                    break;
+                //Establezcola bala en el lugar adecuado segun a donde mire
+                vector = derecha ? new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z) : new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
+                //Audio del disparo
+                audioSource.PlayOneShot(disparo);
+                //Inizalizacion de la bala
+                Instantiate(bala, vector, quaterion);
+                nextFireTime = Time.time + cooldown;
             }
-            tiempoEsperaEspada = Time.time + cooldown;
-        }
-        //Si llevo mas de este tiempo sin pulsar el botón mi ataque se pone en 0 de nuevo
-        else if (Time.time > tiempoEsperaEspada - 0.3 && combo == true)
-        {
-            ataque = 0;
-            combo = false;
-        }
-        else if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") == 0 && !upattack && Input.GetAxis("Horizontal") != 0 && !combo)
-        {
-            ataque = 1;
-            audioSource.PlayOneShot(ataque1);
-            combo = true;
-            tiempoEsperaEspada = Time.time + cooldown * 1.5f;
+            //Ataque de espada fuerte, cuando pulso arriba (AUN NO FUNCIONAL)
+            if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") > 0 && rb.velocity.x == 0 && coll.onGround)
+            {
+                upattack = true;
+                ataque = 1;
+                jumpForce = jumpForce * 1.2f;
+                audioSource.PlayOneShot(ataque1);
+                Jump(Vector2.up, false);
+                jumpForce = jumpForce / 1.2f;
+                tiempoEspecialArriba = Time.time + cooldown - 0.1f;
+            }
+
+            //combo de la espada, cada vez que pulso un ataque nuevo se ejecuta junto a su sonido
+            if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") == 0 && !upattack && !animacion.anim.GetCurrentAnimatorStateInfo(0).IsName("run") && !animacion.anim.GetCurrentAnimatorStateInfo(0).IsName("runattack") && Input.GetAxis("Horizontal") == 0 && (ataque == 0 || combo))
+            {
+                switch (ataque)
+                {
+                    case 0:
+                        ataque = 1;
+                        audioSource.PlayOneShot(ataque1);
+                        combo = true;
+
+                        break;
+
+                    case 1:
+                        ataque = 2;
+                        audioSource.PlayOneShot(ataque2);
+                        combo = true;
+                        break;
+
+                    case 2:
+                        ataque = 3;
+                        audioSource.PlayOneShot(ataque3);
+                        combo = true;
+
+                        break;
+
+                    case 3:
+                        ataque = 0;
+                        combo = false;
+
+                        break;
+                }
+                tiempoEsperaEspada = Time.time + cooldown;
+            }
+            //Si llevo mas de este tiempo sin pulsar el botón mi ataque se pone en 0 de nuevo
+            else if (Time.time > tiempoEsperaEspada - 0.3 && combo == true)
+            {
+                ataque = 0;
+                combo = false;
+            }
+            else if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") == 0 && !upattack && Input.GetAxis("Horizontal") != 0 && !combo)
+            {
+                ataque = 1;
+                audioSource.PlayOneShot(ataque1);
+                combo = true;
+                tiempoEsperaEspada = Time.time + cooldown * 1.5f;
+
+
+            }
+            if (upattack && (Time.time > tiempoEspecialArriba))
+            {
+                upattack = false;
+                ataque = 0;
+            }
 
 
         }
-        if (upattack && (Time.time > tiempoEspecialArriba))
-        {
-            upattack = false;
-            ataque = 0;
-        }
+
+
     }
 
     /// <summary>

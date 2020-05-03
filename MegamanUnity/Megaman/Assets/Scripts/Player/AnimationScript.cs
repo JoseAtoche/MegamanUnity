@@ -2,7 +2,7 @@
 
 public class AnimationScript : MonoBehaviour
 {
-    private Animator anim;
+    public Animator anim;
     private Movement move;
     private Collision coll;
 
@@ -11,6 +11,7 @@ public class AnimationScript : MonoBehaviour
 
     private float tiempoDeEspera;
     private float dañado;
+    public bool animacionDaño;
 
     private void Start()
     {
@@ -50,13 +51,22 @@ public class AnimationScript : MonoBehaviour
             anim.SetBool("dañado", false);
         }
 
-        if (GameObject.FindObjectOfType<PlayerController>().scriptVida.invulnerable == true && (Time.time > dañado))
+        //Controla que pueda atacar si no estoy haciendo la animacion de daño
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("damage"))
         {
-            anim.SetTrigger("recibodaño");
+            dañado = Time.time + 0.4f;
 
 
-            dañado = Time.time + 2f;
         }
+
+        if (Time.time > dañado)
+        {
+
+            animacionDaño = false;
+
+
+        }
+
 
 
 

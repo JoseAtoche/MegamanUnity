@@ -41,7 +41,7 @@ public class praire : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Input.GetButtonDown("Fire1") && !activado)
+        if (collision.tag == "Player" && Input.GetButtonDown("Fire3") && !activado && tutorial.active == false)
         {
             nube.ResetTrigger("grande");
 

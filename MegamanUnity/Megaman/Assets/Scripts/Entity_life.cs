@@ -93,10 +93,22 @@ public class Entity_life : MonoBehaviour
         {
             QuitarVida("espada");
         }
+        //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda respecto a la direcion disparada por el enemigo
+        else if (((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
+               GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+               !invulnerable && this.GetComponent<Escudo>() != null) ||
+
+               (((collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
+                     GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+                     !invulnerable && this.GetComponent<Escudo>() != null)))
+        {
+            QuitarVida("espada");
+        }
+
+
         //Colision del nuevo personaje
         //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
         //De esta forma le hará daño a el JUGADOR
-
         else if (colisionReal != null)
         {
             if (collision == colisionReal.GetComponent<BoxCollider2D>())
@@ -118,22 +130,8 @@ public class Entity_life : MonoBehaviour
             }
         }
 
-        //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda respecto a la direcion disparada por el enemigo
-        else
-        {
 
-            if (((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
-               GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-               !invulnerable && this.GetComponent<Escudo>() != null) ||
 
-               (((collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
-                     GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-                     !invulnerable && this.GetComponent<Escudo>() != null)))
-            {
-                QuitarVida("espada");
-            }
-
-        }
 
         ataqueAnterior = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque;
     }
@@ -163,6 +161,23 @@ public class Entity_life : MonoBehaviour
     /// <returns></returns>
     public IEnumerator FlashSprite()
     {
+        //Hace la animacion de daño
+        try
+        {
+            if (this.transform.GetChild(2).GetComponent<AnimationScript>() != null)
+            {
+
+                this.transform.GetChild(2).GetComponent<AnimationScript>().anim.SetTrigger("recibodaño");
+                this.transform.GetChild(2).GetComponent<AnimationScript>().animacionDaño = true;
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
         while (true)
         {
             spriteRenderer.enabled = false;
@@ -170,6 +185,8 @@ public class Entity_life : MonoBehaviour
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(.02f);
         }
+
+
     }
 
     /// <summary>
