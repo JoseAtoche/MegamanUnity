@@ -29,7 +29,7 @@ public class praire : MonoBehaviour
 
         if (activado)
         {
-            texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y + 400 + 108, 0);
+            texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y + 400 + 155, 0);
             activado = false;
             tutorial.SetActive(true);
         }
@@ -41,14 +41,14 @@ public class praire : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Input.GetButtonDown("Fire3") && !activado && tutorial.active == false)
+        if (collision.tag == "Player" && Input.GetButtonDown("Fire1") && !activado && tutorial.active == false)
         {
             nube.ResetTrigger("grande");
 
             nube.SetTrigger("pequeño");
             nube.SetTrigger("pequeño");
 
-            texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y - 400 - 108, 0);
+            texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y - 400 - 155, 0);
             nube.GetComponent<DialogueTrigger>().TriggerDialogue();
             activado = true;
         }

@@ -8,6 +8,7 @@ public class ControlCannonEnemy : MonoBehaviour
     public float tiempoInicia = 0;
     public float tiempoEspera = 2;
     public GameObject jugador;
+    public AudioClip disparo;
 
     /// <summary>
     /// Dispara al enemigo cada cierto tiempo si está en su campo de visión
@@ -36,6 +37,7 @@ public class ControlCannonEnemy : MonoBehaviour
             {
                 GameObject balacreada = Instantiate(bala, cannon.transform.position, cannon.transform.rotation);
                 balacreada.GetComponent<Rigidbody2D>().AddForce(cannon.transform.position);
+                GetComponent<AudioSource>().PlayOneShot(disparo);
                 balacreada.transform.SetParent(transform);
                 tiempoInicia = 0;
             }

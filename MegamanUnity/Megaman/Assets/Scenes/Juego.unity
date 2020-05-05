@@ -606,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213030893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130.51, y: -15.42, z: 0}
+  m_LocalPosition: {x: 116.77, y: -51.45, z: 0}
   m_LocalScale: {x: 0.57723635, y: 0.68132806, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -27645,21 +27645,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1850914602495992951, guid: a0b85a5ed3a509a4d95450af4639db08,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0056875274
-      objectReference: {fileID: 0}
-    - target: {fileID: 1850914602495992951, guid: a0b85a5ed3a509a4d95450af4639db08,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.0034559239
-      objectReference: {fileID: 0}
-    - target: {fileID: 1850914602495992951, guid: a0b85a5ed3a509a4d95450af4639db08,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.070690244
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0b85a5ed3a509a4d95450af4639db08, type: 3}
 --- !u!1001 &850394764
@@ -28791,7 +28776,7 @@ Transform:
   m_GameObject: {fileID: 1225889856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 124.19, y: -51.66, z: 0}
-  m_LocalScale: {x: 2.519, y: 3.15, z: 1}
+  m_LocalScale: {x: 2.519, y: 3.15, z: 3}
   m_Children:
   - {fileID: 1344020471}
   m_Father: {fileID: 0}
@@ -61733,6 +61718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8210bbf87f3876f4e966c853094080b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sonido: {fileID: 0}
 --- !u!1 &1262051312
 GameObject:
   m_ObjectHideFlags: 0
@@ -63450,34 +63436,9 @@ PrefabInstance:
       objectReference: {fileID: 213030893}
     - target: {fileID: 7968574785116547648, guid: b6f33e595be47474f970faab230d2955,
         type: 3}
-      propertyPath: colisionreal
-      value: 
-      objectReference: {fileID: 920598357}
-    - target: {fileID: 7968574785116547648, guid: b6f33e595be47474f970faab230d2955,
-        type: 3}
-      propertyPath: colisionespadaizquierda
-      value: 
-      objectReference: {fileID: 336452074}
-    - target: {fileID: 7968574785116547648, guid: b6f33e595be47474f970faab230d2955,
-        type: 3}
-      propertyPath: colisionespadaderecha
-      value: 
-      objectReference: {fileID: 1686977006}
-    - target: {fileID: 7968574785116547648, guid: b6f33e595be47474f970faab230d2955,
-        type: 3}
       propertyPath: colisionReal
       value: 
       objectReference: {fileID: 920598357}
-    - target: {fileID: 7968574785116547648, guid: b6f33e595be47474f970faab230d2955,
-        type: 3}
-      propertyPath: colisionEspadaIzquierda
-      value: 
-      objectReference: {fileID: 336452074}
-    - target: {fileID: 7968574785116547648, guid: b6f33e595be47474f970faab230d2955,
-        type: 3}
-      propertyPath: colisionEspadaDerecha
-      value: 
-      objectReference: {fileID: 1686977006}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f33e595be47474f970faab230d2955, type: 3}
 --- !u!1 &1939911070
@@ -74997,7 +74958,7 @@ PrefabInstance:
     - target: {fileID: 6563359751017498714, guid: 203564cfa3b4dff4c8db0288efe674d9,
         type: 3}
       propertyPath: vida
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
@@ -75059,12 +75020,12 @@ PrefabInstance:
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 130.51
+      value: 116.77
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.42
+      value: -51.45
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}

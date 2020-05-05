@@ -24,6 +24,13 @@ public class EnemyFollow : MonoBehaviour
     public Vector2 rightOffset, leftOffset;
     public float collisionRadius = 0.25f;
 
+    public AudioSource audioSource;
+
+    public AudioClip disparoSonido;
+    public AudioClip muerteSonido;
+    public AudioClip caminarSonido;
+
+
 
 
 
@@ -32,6 +39,7 @@ public class EnemyFollow : MonoBehaviour
     {
         posicioninicial = transform.position;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +51,7 @@ public class EnemyFollow : MonoBehaviour
             this.enabled = false;
 
             this.transform.GetComponent<Entity_life>().colisionReal = null;
+            audioSource.PlayOneShot(muerteSonido);
 
         }
         objetivo = posicioninicial;
@@ -67,6 +76,8 @@ public class EnemyFollow : MonoBehaviour
             else
             {
                 animator.SetBool("correr", true);
+                //     audioSource.PlayOneShot(caminarSonido);
+
                 animator.ResetTrigger("disparar");
             }
         }
@@ -78,6 +89,8 @@ public class EnemyFollow : MonoBehaviour
             transform.rotation = (posicioninicial.x > transform.position.x) ? new Quaternion(0, 180, 0, 0) : new Quaternion(0, 0, 0, 0);
 
             animator.SetBool("correr", true);
+            //    audioSource.PlayOneShot(caminarSonido);
+
             animator.ResetTrigger("disparar");
         }
 
@@ -178,6 +191,7 @@ public class EnemyFollow : MonoBehaviour
                 animator.SetBool("correr", false);
                 animator.SetTrigger("disparar");
                 GameObject balacreada = Instantiate(bala, this.transform.GetChild(0).gameObject.transform.position, this.transform.GetChild(0).gameObject.transform.rotation);
+                audioSource.PlayOneShot(disparoSonido);
 
                 //balacreada.GetComponent<Rigidbody2D>().AddForce(this.transform.GetChild(0).gameObject.transform.position * balacreada.GetComponent<BulletControl>().bulletSpeed);
                 tiempoInicia = 0;

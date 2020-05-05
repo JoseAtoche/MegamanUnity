@@ -2,6 +2,9 @@
 
 public class vida_item : MonoBehaviour
 {
+    public AudioClip sonido;
+
+
     /// <summary>
     /// Si se choca con el jugador y la vida es menor a 100 le suma 10 de vida, SIEMPRE EL OBJETO SE DESTRUYE
     /// </summary>
@@ -23,6 +26,8 @@ public class vida_item : MonoBehaviour
 
             //Destuyo este objeto
             Destroy(gameObject);
+            GetComponent<AudioSource>().PlayOneShot(sonido);
+
         }
     }
 }

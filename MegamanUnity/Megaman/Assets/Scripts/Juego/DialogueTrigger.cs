@@ -11,7 +11,11 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        controlador.enabled = false;
+        if (controlador != null)
+        {
+            controlador.enabled = false;
+        }
+
     }
 
     /// <summary>

@@ -16,7 +16,7 @@ public class tutorialControl : MonoBehaviour
         tutorial1.SetActive(true);
         flecha.SetActive(true);
 
-        if (Input.GetButtonDown("Fire3") && !primera)
+        if (Input.GetButtonDown("Fire1") && !primera)
         {
             if (!primera)
             {
@@ -26,7 +26,7 @@ public class tutorialControl : MonoBehaviour
             tutorial2.SetActive(true);
             flecha.SetActive(true);
         }
-        else if (Input.GetButtonDown("Fire3"))
+        else if (Input.GetButtonDown("Fire1"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = true;
             this.gameObject.SetActive(false);

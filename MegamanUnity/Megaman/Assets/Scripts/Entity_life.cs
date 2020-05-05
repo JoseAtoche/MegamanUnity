@@ -117,25 +117,23 @@ public class Entity_life : MonoBehaviour
         //Colision del nuevo personaje
         //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
         //De esta forma le hará daño a el JUGADOR
-        else if (colisionReal != null)
+        if (collision == colisionReal.GetComponent<BoxCollider2D>())
         {
-            if (collision == colisionReal.GetComponent<BoxCollider2D>())
+
+            Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
+            if (!entity_jugador.invulnerable)
             {
+                entity_jugador.StopAllCoroutines();
+                entity_jugador.invulnerable = true;
+                entity_jugador.Invoke("UndoInvincible", 2);
 
-                Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
-                if (!entity_jugador.invulnerable)
-                {
-                    entity_jugador.StopAllCoroutines();
-                    entity_jugador.invulnerable = true;
-                    entity_jugador.Invoke("UndoInvincible", 2);
+                //Resta vida al jugador segun la vida del enemigo, si es menor a 50 resta 6 si no 4
+                entity_jugador.vida -= (vida <= 50) ? 6 : 3;
 
-                    //Resta vida al jugador segun la vida del enemigo, si es menor a 50 resta 6 si no 4
-                    entity_jugador.vida -= (vida <= 50) ? 6 : 3;
-
-                    entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
-                }
-
+                entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
             }
+
+
         }
 
 
