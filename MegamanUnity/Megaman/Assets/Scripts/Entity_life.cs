@@ -93,17 +93,25 @@ public class Entity_life : MonoBehaviour
         {
             QuitarVida("espada");
         }
-        //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda respecto a la direcion disparada por el enemigo
-        else if (((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
-               GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-               !invulnerable && this.GetComponent<Escudo>() != null) ||
 
-               (((collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
-                     GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-                     !invulnerable && this.GetComponent<Escudo>() != null)))
+        //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda respecto a la direcion disparada por el enemigo
+        else if (this.GetComponent<Escudo>() != null)
         {
-            QuitarVida("espada");
+            if (((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
+                  GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+                  !invulnerable && this.GetComponent<Escudo>() != null) ||
+
+                  (((collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
+                        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
+                        !invulnerable && this.GetComponent<Escudo>() != null)))
+            {
+                QuitarVida("espada");
+            }
+
+
         }
+
+
 
 
         //Colision del nuevo personaje

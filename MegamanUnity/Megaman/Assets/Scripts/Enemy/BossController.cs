@@ -44,6 +44,12 @@ public class BossController : MonoBehaviour
     public GameObject carabela4;
     private AudioSource audioSource;
 
+
+    float tiempoDescanso = 0;
+
+
+
+
     public enum State
     {
         INTRO,
@@ -309,79 +315,115 @@ public class BossController : MonoBehaviour
     /// </summary>
     private void Aleatorio()
     {
-        primeraVez = false;
-
-        anim.SetBool("Finalizado", true);
-        anim.ResetTrigger("thornadus");
-        anim.ResetTrigger("guillotine");
-        anim.ResetTrigger("burst");
-        anim.ResetTrigger("scythe");
-        anim.ResetTrigger("waltz");
-        anim.ResetTrigger("nocturne");
-        time = 0;
-
-        if (!cortinaComenzada)
+        if (tiempoDescanso < Time.time)
         {
-            // StartCoroutine(EsperarUnSegundo());
-            switch (UnityEngine.Random.Range(0, 6))
+
+            if (tiempoDescanso == 0)
             {
-                case 0:
-                    if (state != State.BURST)
-                    {
-                        state = State.BURST;
-                    }
-                    else { Aleatorio(); }
+                tiempoDescanso = Time.time + 200;
 
-                    break;
+                Debug.Log("Descansando");
 
-                case 1:
-                    if (state != State.GUILLOTINE)
-                    {
-                        state = State.GUILLOTINE;
-                    }
-                    else { Aleatorio(); }
+                primeraVez = false;
 
-                    break;
+                anim.SetBool("Finalizado", true);
+                anim.ResetTrigger("thornadus");
+                anim.ResetTrigger("guillotine");
+                anim.ResetTrigger("burst");
+                anim.ResetTrigger("scythe");
+                anim.ResetTrigger("waltz");
+                anim.ResetTrigger("nocturne");
+                time = 0;
+                this.GetComponent<SpriteRenderer>().enabled = false;
+                BoxCollider2D[] boxes = this.GetComponents<BoxCollider2D>();
+                for (int i = 0; i < boxes.Length; i++)
+                {
 
-                case 2:
-                    if (state != State.NOCTURNE)
-                    {
-                        state = State.NOCTURNE;
-                    }
-                    else { Aleatorio(); }
+                    boxes[i].enabled = false;
 
-                    break;
 
-                case 3:
-                    //if (state != State.SCYTHE)
-                    //{
-                    //    state = State.SCYTHE;
-                    //}
-                    //else { Aleatorio(); }
-                    Aleatorio();
-
-                    break;
-
-                case 4:
-                    if (state != State.THORNADUS)
-                    {
-                        state = State.THORNADUS;
-                    }
-                    else { Aleatorio(); }
-
-                    break;
-
-                case 5:
-                    if (state != State.WALTZ)
-                    {
-                        state = State.WALTZ;
-                    }
-                    else { Aleatorio(); }
-
-                    break;
+                }
             }
         }
-        Debug.Log(state + " coords " + transform.position.x + " " + transform.position.y);
+        else
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
+            BoxCollider2D[] boxes = this.GetComponents<BoxCollider2D>();
+            for (int i = 0; i < boxes.Length; i++)
+            {
+
+                boxes[i].enabled = true;
+
+
+            }
+
+
+
+
+            tiempoDescanso = 0;
+            if (!cortinaComenzada)
+            {
+                // StartCoroutine(EsperarUnSegundo());
+                switch (UnityEngine.Random.Range(0, 6))
+                {
+                    case 0:
+                        if (state != State.BURST)
+                        {
+                            state = State.BURST;
+                        }
+                        else { Aleatorio(); }
+
+                        break;
+
+                    case 1:
+                        if (state != State.GUILLOTINE)
+                        {
+                            state = State.GUILLOTINE;
+                        }
+                        else { Aleatorio(); }
+
+                        break;
+
+                    case 2:
+                        if (state != State.NOCTURNE)
+                        {
+                            state = State.NOCTURNE;
+                        }
+                        else { Aleatorio(); }
+
+                        break;
+
+                    case 3:
+                        //if (state != State.SCYTHE)
+                        //{
+                        //    state = State.SCYTHE;
+                        //}
+                        //else { Aleatorio(); }
+                        Aleatorio();
+
+                        break;
+
+                    case 4:
+                        if (state != State.THORNADUS)
+                        {
+                            state = State.THORNADUS;
+                        }
+                        else { Aleatorio(); }
+
+                        break;
+
+                    case 5:
+                        if (state != State.WALTZ)
+                        {
+                            state = State.WALTZ;
+                        }
+                        else { Aleatorio(); }
+
+                        break;
+                }
+            }
+            // Debug.Log(state + " coords " + transform.position.x + " " + transform.position.y);
+        }
     }
 
     private void Power()

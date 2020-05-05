@@ -11,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        controlador.enabled = false;
     }
 
     /// <summary>
@@ -18,8 +19,15 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     public void PermitirMovimiento()
     {
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(6.18f, -0.49f, 0);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = true;
         controlador.enabled = true;
+    }
+
+    public void PermitirMovimientoJugador()
+    {
+
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(136.28f, -15.42f, 0);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = true;
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ModifyCanvas : MonoBehaviour
 {
@@ -40,16 +41,27 @@ public class ModifyCanvas : MonoBehaviour
     {
         if (collision.tag == "Player" && this.GetComponent<BoxCollider2D>().isTrigger == true)
         {
+
+
             prometheus.SetActive(true);
+            prometheus.transform.GetChild(0).GetComponent<BossController>().enabled = false;
 
             GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
             cutscene.SetActive(true);
-            GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().prohibidoGuardar = true;
-            barra.transform.position = new Vector3(barra.transform.position.x - 90, barra.transform.position.y, 0);
-            sonidoBoss.PlayOneShot(musicaBoss);
-            sonido.SetActive(false);
-            this.GetComponent<BoxCollider2D>().isTrigger = false;
-            permitirMovimiento = true;
+            try
+            {
+                GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().prohibidoGuardar = true;
+
+            }
+            catch (Exception e) { }
+            finally
+            {
+                barra.transform.position = new Vector3(barra.transform.position.x - 90, barra.transform.position.y, 0);
+                sonidoBoss.PlayOneShot(musicaBoss);
+                sonido.SetActive(false);
+                this.GetComponent<BoxCollider2D>().isTrigger = false;
+                permitirMovimiento = true;
+            }
         }
     }
 }

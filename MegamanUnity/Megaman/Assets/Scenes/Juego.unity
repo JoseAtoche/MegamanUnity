@@ -606,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213030893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 116.27, y: -51.63, z: 0}
+  m_LocalPosition: {x: 130.51, y: -15.42, z: 0}
   m_LocalScale: {x: 0.57723635, y: 0.68132806, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -6249,6 +6249,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 7f9038d5b6d81204ba3bb5f9210f269b, type: 2}
     - {fileID: 11400000, guid: 75cffc1fb410d6c4b92747e8c2df43ec, type: 2}
+    - {fileID: 11400000, guid: 94f96b9ac1211d746999f2aafc42213d, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6268,7 +6269,22 @@ MonoBehaviour:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 299554310}
-          m_MethodName: permitirMovimiento
+          m_MethodName: PermitirMovimiento
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 299554310}
+          m_MethodName: PermitirMovimientoJugador
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -28546,7 +28562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1209478248
 Animator:
   serializedVersion: 3
@@ -75043,12 +75059,12 @@ PrefabInstance:
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 116.27
+      value: 130.51
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -51.63
+      value: -15.42
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}

@@ -23,7 +23,7 @@ public class ControlCannonEnemy : MonoBehaviour
                 if (tiempoInicia >= tiempoEspera)
                 {
                     GameObject balacreada = Instantiate(bala, this.transform.position, this.transform.rotation);
-                    balacreada.GetComponent<Rigidbody2D>().AddForce(cannon.transform.right * bala.GetComponent<BulletControl>().bulletSpeed);
+                    balacreada.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 10));
                     balacreada.transform.SetParent(transform);
                     tiempoInicia = 0;
                 }

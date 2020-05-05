@@ -119,6 +119,10 @@ public class Movement : MonoBehaviour
     private Quaternion quaterion = new Quaternion(0, 0, 0, 0);
     private Vector3 vector = new Vector3();
 
+
+
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -429,6 +433,9 @@ public class Movement : MonoBehaviour
     /// <param name="y"></param>
     private void Dash(float x, float y)
     {
+
+
+
         Camera.main.transform.DOComplete();
         Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
@@ -443,6 +450,9 @@ public class Movement : MonoBehaviour
 
         rb.velocity += dir.normalized * dashSpeed;
         StartCoroutine(DashWait());
+
+
+
     }
     /// <summary>
     /// A la vez que se mueve realiza la cola roja
@@ -468,6 +478,7 @@ public class Movement : MonoBehaviour
         GetComponent<BetterJumping>().enabled = true;
         wallJumped = false;
         isDashing = false;
+
     }
 
     /// <summary>
