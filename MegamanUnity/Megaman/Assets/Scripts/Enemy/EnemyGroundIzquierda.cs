@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyGroundIzquierda : MonoBehaviour
 {
@@ -14,7 +12,6 @@ public class EnemyGroundIzquierda : MonoBehaviour
         //    {
         //        if (collision.tag != "Ground")
         //        {
-
         //            Debug.Log("NO TOCA GROUNDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
         //            follow.moverderecha = false;
 
@@ -27,23 +24,11 @@ public class EnemyGroundIzquierda : MonoBehaviour
         //        }
         //    }
 
-
-
-
         //    else
         //    {
-
-
-
-
-
         //        if (collision.tag != "Ground")
         //        {
-
         //            Debug.Log("NO TOCA GROUNDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-
-
-
 
         //            follow.moverizquierda = false;
 

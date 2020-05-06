@@ -11,7 +11,7 @@ public class AnimationScript : MonoBehaviour
 
     private float tiempoDeEspera;
     private float dañado;
-    public bool animacionDaño;
+    public bool animacionDaño = false;
 
     private void Start()
     {
@@ -52,26 +52,16 @@ public class AnimationScript : MonoBehaviour
         }
 
         //Controla que pueda atacar si no estoy haciendo la animacion de daño
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("damage"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("damage"))
         {
             dañado = Time.time + 0.4f;
-
-
+            animacionDaño = true;
         }
-
-        if (Time.time > dañado)
+        else if (Time.time > dañado)
         {
-
+            //   Debug.Log("Permito volver a atacar");
             animacionDaño = false;
-
-
         }
-
-
-
-
-
-
 
         //anim.SetBool("canMove", move.canMove);
         // anim.SetBool("onRightWall", coll.onRightWall);

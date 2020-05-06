@@ -21,15 +21,18 @@ public class Entity_life : MonoBehaviour
 
     private void Start()
     {
+        //Coge las hitboxes del Jugador
+
         colisionReal = GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().colisionReal;
         colisionEspadaIzquierda = GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().colisionEspadaIzquierda;
         colisionEspadaDerecha = GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().colisionEspadaDerecha;
     }
 
-
+    /// <summary>
+    /// Comprueba continuamente si an muerto o no
+    /// </summary>
     private void Update()
     {
-
         try
         {
             //Comprobacion de la vida, este método NO es para el boss
@@ -52,18 +55,13 @@ public class Entity_life : MonoBehaviour
                     StopAllCoroutines();
 
                     Invoke("Explode", 0.2f);
-
                 }
-
             }
         }
         catch (Exception e)
         {
-
             Debug.Log(e);
-
         }
-
     }
 
     /// <summary>
@@ -76,13 +74,10 @@ public class Entity_life : MonoBehaviour
         {
             permitirAtaque = true;
         }
-
         else
         {
             permitirAtaque = false;
         }
-
-
 
         //El enemigo detectará si ha entrado en el collider de las espadas del jugador
         //Y SI ESTÁ ATACANDO, RECIBIRÁ DAÑO
@@ -107,37 +102,29 @@ public class Entity_life : MonoBehaviour
             {
                 QuitarVida("espada");
             }
-
-
         }
-
-
-
 
         //Colision del nuevo personaje
         //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
         //De esta forma le hará daño a el JUGADOR
-        if (collision == colisionReal.GetComponent<BoxCollider2D>())
+        if (colisionReal != null)
         {
-
-            Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
-            if (!entity_jugador.invulnerable)
+            if (collision == colisionReal.GetComponent<BoxCollider2D>())
             {
-                entity_jugador.StopAllCoroutines();
-                entity_jugador.invulnerable = true;
-                entity_jugador.Invoke("UndoInvincible", 2);
+                Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();
+                if (!entity_jugador.invulnerable)
+                {
+                    entity_jugador.StopAllCoroutines();
+                    entity_jugador.invulnerable = true;
+                    entity_jugador.Invoke("UndoInvincible", 2);
 
-                //Resta vida al jugador segun la vida del enemigo, si es menor a 50 resta 6 si no 4
-                entity_jugador.vida -= (vida <= 50) ? 6 : 3;
+                    //Resta vida al jugador segun la vida del enemigo, si es menor a 50 resta 6 si no 4
+                    entity_jugador.vida -= (vida <= 50) ? 6 : 3;
 
-                entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
+                    entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
+                }
             }
-
-
         }
-
-
-
 
         ataqueAnterior = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque;
     }
@@ -172,12 +159,9 @@ public class Entity_life : MonoBehaviour
         {
             if (this.transform.GetChild(2).GetComponent<AnimationScript>() != null)
             {
-
                 this.transform.GetChild(2).GetComponent<AnimationScript>().anim.SetTrigger("recibodaño");
                 this.transform.GetChild(2).GetComponent<AnimationScript>().animacionDaño = true;
-
             }
-
         }
         catch (Exception e)
         {
@@ -191,8 +175,6 @@ public class Entity_life : MonoBehaviour
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(.02f);
         }
-
-
     }
 
     /// <summary>
@@ -221,7 +203,10 @@ public class Entity_life : MonoBehaviour
         }
     }
 
-    //reactiva la vida de la carabela antes de destruirla
+    /// <summary>
+    /// reactiva la vida de la carabela antes de destruirla
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator MorirCarabela()
     {
         yield return new WaitForSeconds(1f);

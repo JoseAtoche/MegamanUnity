@@ -6,7 +6,6 @@ public class cannonrotation : MonoBehaviour
 
     // Start is called before the first frame update
 
-
     /// <summary>
     /// Calcula en todo momento la rotacion del cañon
     /// </summary>

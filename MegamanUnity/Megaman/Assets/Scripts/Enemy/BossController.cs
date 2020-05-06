@@ -44,11 +44,7 @@ public class BossController : MonoBehaviour
     public GameObject carabela4;
     private AudioSource audioSource;
 
-
-    float tiempoDescanso = 0;
-
-
-
+    private float tiempoDescanso = 0;
 
     public enum State
     {
@@ -73,6 +69,7 @@ public class BossController : MonoBehaviour
     /// <summary>
     /// Pequeño  patron de estados
     /// </summary>
+    [System.Obsolete]
     private void Update()
     {
         //La barra de vida se establece a la vida actual del boss
@@ -218,6 +215,7 @@ public class BossController : MonoBehaviour
     /// <summary>
     /// Ataque que activa 4 carabelas que se mueven a las posiciones incicadas para atacar
     /// </summary>
+    [System.Obsolete]
     private void QuartetBurst()
     {
         if (time < quartetBurstDuration)
@@ -317,7 +315,6 @@ public class BossController : MonoBehaviour
     {
         if (tiempoDescanso < Time.time)
         {
-
             if (tiempoDescanso == 0)
             {
                 tiempoDescanso = Time.time + 200;
@@ -338,10 +335,7 @@ public class BossController : MonoBehaviour
                 BoxCollider2D[] boxes = this.GetComponents<BoxCollider2D>();
                 for (int i = 0; i < boxes.Length; i++)
                 {
-
                     boxes[i].enabled = false;
-
-
                 }
             }
         }
@@ -351,14 +345,8 @@ public class BossController : MonoBehaviour
             BoxCollider2D[] boxes = this.GetComponents<BoxCollider2D>();
             for (int i = 0; i < boxes.Length; i++)
             {
-
                 boxes[i].enabled = true;
-
-
             }
-
-
-
 
             tiempoDescanso = 0;
             if (!cortinaComenzada)

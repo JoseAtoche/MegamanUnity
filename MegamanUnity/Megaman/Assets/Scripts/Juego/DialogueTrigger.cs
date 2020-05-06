@@ -15,7 +15,6 @@ public class DialogueTrigger : MonoBehaviour
         {
             controlador.enabled = false;
         }
-
     }
 
     /// <summary>
@@ -28,10 +27,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void PermitirMovimientoJugador()
     {
-
         GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(136.28f, -15.42f, 0);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = true;
-
-
     }
 }

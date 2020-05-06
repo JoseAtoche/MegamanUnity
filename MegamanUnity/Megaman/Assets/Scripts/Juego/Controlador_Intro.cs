@@ -14,11 +14,8 @@ public class Controlador_Intro : MonoBehaviour
         }
     }
 
-    public void PasarEscena() {
-
-
-
+    public void PasarEscena()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
     }
 }

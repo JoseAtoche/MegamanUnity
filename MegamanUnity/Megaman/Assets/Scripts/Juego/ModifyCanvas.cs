@@ -41,8 +41,6 @@ public class ModifyCanvas : MonoBehaviour
     {
         if (collision.tag == "Player" && this.GetComponent<BoxCollider2D>().isTrigger == true)
         {
-
-
             prometheus.SetActive(true);
             prometheus.transform.GetChild(0).GetComponent<BossController>().enabled = false;
 
@@ -51,9 +49,12 @@ public class ModifyCanvas : MonoBehaviour
             try
             {
                 GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().prohibidoGuardar = true;
-
             }
-            catch (Exception e) { }
+            catch (Exception e)
+            {
+
+                Debug.Log(e);
+            }
             finally
             {
                 barra.transform.position = new Vector3(barra.transform.position.x - 90, barra.transform.position.y, 0);

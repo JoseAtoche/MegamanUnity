@@ -39,9 +39,10 @@ public class praire : MonoBehaviour
     /// Mientras estés en la zona del personaje, si pulsas el botón correcto y siempre que posteriormente no le hayas dado anteriormente aparecerá el texto de personaje por pantalla
     /// </summary>
     /// <param name="collision"></param>
+    [System.Obsolete]
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Input.GetButtonDown("Fire1") && !activado && tutorial.active == false)
+        if (collision.tag == "Player" && Input.GetButtonDown("Fire3") && !activado && tutorial.active == false)
         {
             nube.ResetTrigger("grande");
 

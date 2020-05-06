@@ -19,7 +19,6 @@ public class EnemyFollow : MonoBehaviour
 
     public bool moverizquierda = true;
 
-
     public LayerMask groundLayer;
     public Vector2 rightOffset, leftOffset;
     public float collisionRadius = 0.25f;
@@ -29,10 +28,6 @@ public class EnemyFollow : MonoBehaviour
     public AudioClip disparoSonido;
     public AudioClip muerteSonido;
     public AudioClip caminarSonido;
-
-
-
-
 
     // Start is called before the first frame update
     private void Start()
@@ -47,12 +42,10 @@ public class EnemyFollow : MonoBehaviour
     {
         if (this.transform.GetComponent<Entity_life>().vida <= 0)
         {
-
             this.enabled = false;
 
             this.transform.GetComponent<Entity_life>().colisionReal = null;
             audioSource.PlayOneShot(muerteSonido);
-
         }
         objetivo = posicioninicial;
 
@@ -114,9 +107,6 @@ public class EnemyFollow : MonoBehaviour
 
     private void ComprobarPosicionJugadorParaMoverse()
     {
-
-
-
         //Aqui debemos comprobar distancia hasta el borde
         if (jugador.transform.position.x > transform.position.x)
         {
@@ -124,17 +114,13 @@ public class EnemyFollow : MonoBehaviour
             {
                 objetivo = new Vector3(jugador.transform.position.x - (radioDeVision / 1.8f), transform.position.y, jugador.transform.position.z);
             }
-
-
         }
         else
         {
             if (moverderecha)
             {
                 objetivo = new Vector3(jugador.transform.position.x + (radioDeVision / 1.8f), transform.position.y, jugador.transform.position.z);
-
             }
-
         }
     }
 
@@ -207,27 +193,15 @@ public class EnemyFollow : MonoBehaviour
 
     private void CalcularMovimiento()
     {
-
         if (jugador.transform.position.x > transform.position.x)
         {
             moverderecha = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
             moverizquierda = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
-
-
         }
         else
         {
             moverizquierda = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
             moverderecha = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
         }
-
-
-
-
-
-
     }
 }
-
-
-
