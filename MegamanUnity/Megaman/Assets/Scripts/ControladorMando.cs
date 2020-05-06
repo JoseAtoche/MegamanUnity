@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ControlMando : MonoBehaviour
+public class ControladorMando : MonoBehaviour
 {
     //Por defecto no hay mando conectado
     public bool conectado = false;
