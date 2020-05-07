@@ -21,7 +21,7 @@ public class Collision : MonoBehaviour
     private Color debugCollisionColor = Color.red;
 
     /// <summary>
-    /// Calcula las colisiones del jugador en todo momento
+    /// Calcula las colisiones del jugador en todo momento, para saber si está contra el suelo, pared o como.
     /// </summary>
     private void Update()
     {

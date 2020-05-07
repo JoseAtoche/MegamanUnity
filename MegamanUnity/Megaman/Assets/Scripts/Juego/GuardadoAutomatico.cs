@@ -32,7 +32,9 @@ public class GuardadoAutomatico : MonoBehaviour
         }
     }
 
-    //Permite cargar la partida siempre que no se haya pulsado nueva partida
+    /// <summary>
+    /// Permite cargar la partida siempre que no se haya pulsado nueva partida
+    /// </summary>
     public void Load()
     {
         if (!nuevaPartida)
@@ -47,7 +49,10 @@ public class GuardadoAutomatico : MonoBehaviour
         }
     }
 
-    //Activa la animacion del circulo de guardado girando
+    /// <summary>
+    /// Activa la animacion del circulo de guardado girando
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator Guardado()
     {
         GameObject.Find("ObjetosNecesarios").GetComponent<objetosNecesarios>().guardado.SetActive(true);

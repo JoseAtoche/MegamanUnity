@@ -44,8 +44,6 @@ public class BossController : MonoBehaviour
     public GameObject carabela4;
     private AudioSource audioSource;
 
-    private float tiempoDescanso = 0;
-
     public enum State
     {
         INTRO,
@@ -313,42 +311,20 @@ public class BossController : MonoBehaviour
     /// </summary>
     private void Aleatorio()
     {
-        if (tiempoDescanso < Time.time)
+        primeraVez = false;
+
+        anim.SetBool("Finalizado", true);
+        anim.ResetTrigger("thornadus");
+        anim.ResetTrigger("guillotine");
+        anim.ResetTrigger("burst");
+        anim.ResetTrigger("scythe");
+        anim.ResetTrigger("waltz");
+        anim.ResetTrigger("nocturne");
+        objetoPadre.transform.position = new Vector3(1000, 1000, 0);
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Acabado"))
         {
-            if (tiempoDescanso == 0)
-            {
-                tiempoDescanso = Time.time + 200;
-
-                Debug.Log("Descansando");
-
-                primeraVez = false;
-
-                anim.SetBool("Finalizado", true);
-                anim.ResetTrigger("thornadus");
-                anim.ResetTrigger("guillotine");
-                anim.ResetTrigger("burst");
-                anim.ResetTrigger("scythe");
-                anim.ResetTrigger("waltz");
-                anim.ResetTrigger("nocturne");
-                time = 0;
-                this.GetComponent<SpriteRenderer>().enabled = false;
-                BoxCollider2D[] boxes = this.GetComponents<BoxCollider2D>();
-                for (int i = 0; i < boxes.Length; i++)
-                {
-                    boxes[i].enabled = false;
-                }
-            }
-        }
-        else
-        {
-            this.GetComponent<SpriteRenderer>().enabled = true;
-            BoxCollider2D[] boxes = this.GetComponents<BoxCollider2D>();
-            for (int i = 0; i < boxes.Length; i++)
-            {
-                boxes[i].enabled = true;
-            }
-
-            tiempoDescanso = 0;
+            time = 0;
             if (!cortinaComenzada)
             {
                 // StartCoroutine(EsperarUnSegundo());
@@ -359,7 +335,10 @@ public class BossController : MonoBehaviour
                         {
                             state = State.BURST;
                         }
-                        else { Aleatorio(); }
+                        else
+                        {
+                            Aleatorio();
+                        }
 
                         break;
 
@@ -368,7 +347,10 @@ public class BossController : MonoBehaviour
                         {
                             state = State.GUILLOTINE;
                         }
-                        else { Aleatorio(); }
+                        else
+                        {
+                            Aleatorio();
+                        }
 
                         break;
 
@@ -377,7 +359,10 @@ public class BossController : MonoBehaviour
                         {
                             state = State.NOCTURNE;
                         }
-                        else { Aleatorio(); }
+                        else
+                        {
+                            Aleatorio();
+                        }
 
                         break;
 
@@ -396,7 +381,10 @@ public class BossController : MonoBehaviour
                         {
                             state = State.THORNADUS;
                         }
-                        else { Aleatorio(); }
+                        else
+                        {
+                            Aleatorio();
+                        }
 
                         break;
 
@@ -405,12 +393,14 @@ public class BossController : MonoBehaviour
                         {
                             state = State.WALTZ;
                         }
-                        else { Aleatorio(); }
+                        else
+                        {
+                            Aleatorio();
+                        }
 
                         break;
                 }
             }
-            // Debug.Log(state + " coords " + transform.position.x + " " + transform.position.y);
         }
     }
 

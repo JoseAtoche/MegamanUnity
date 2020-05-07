@@ -606,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213030893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 116.77, y: -51.45, z: 0}
+  m_LocalPosition: {x: 114.83, y: -51.76, z: 0}
   m_LocalScale: {x: 0.57723635, y: 0.68132806, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -11734,7 +11734,7 @@ PrefabInstance:
       objectReference: {fileID: 213030893}
     - target: {fileID: 947718819, guid: 38c092615abbba3488b9269321c90825, type: 3}
       propertyPath: radioDeVision
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38c092615abbba3488b9269321c90825, type: 3}
@@ -27374,7 +27374,7 @@ PrefabInstance:
       objectReference: {fileID: 213030893}
     - target: {fileID: 947718819, guid: 38c092615abbba3488b9269321c90825, type: 3}
       propertyPath: radioDeVision
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38c092615abbba3488b9269321c90825, type: 3}
@@ -27776,7 +27776,7 @@ PrefabInstance:
       objectReference: {fileID: 213030893}
     - target: {fileID: 947718819, guid: 38c092615abbba3488b9269321c90825, type: 3}
       propertyPath: radioDeVision
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38c092615abbba3488b9269321c90825, type: 3}
@@ -75143,13 +75143,50 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 469327388}
     - target: {fileID: 291283438, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 291283438, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 205110262}
+    - target: {fileID: 291283438, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].key
+      value: 
+      objectReference: {fileID: 1161606175972238996, guid: 8381120661177fc418b893430adf5eda,
+        type: 2}
     - target: {fileID: 6563359751017498714, guid: 203564cfa3b4dff4c8db0288efe674d9,
         type: 3}
       propertyPath: vida
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706679778, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706679778, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706679778, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 291283436, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706679777, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082534217, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: fadeColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082534217, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
+      propertyPath: fadeColor.g
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
@@ -75186,7 +75223,7 @@ PrefabInstance:
     - target: {fileID: 8134289488532645520, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488532645520, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
@@ -75211,12 +75248,12 @@ PrefabInstance:
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 116.77
+      value: 114.83
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -51.45
+      value: -51.76
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
@@ -75413,11 +75450,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carabela 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5995703239770933467, guid: 38c092615abbba3488b9269321c90825,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -75475,41 +75507,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6785516244310437953, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
-      propertyPath: colisionreal
-      value: 
-      objectReference: {fileID: 920598357}
-    - target: {fileID: 6785516244310437953, guid: 38c092615abbba3488b9269321c90825,
-        type: 3}
-      propertyPath: colisionespadaizquierda
-      value: 
-      objectReference: {fileID: 336452074}
-    - target: {fileID: 6785516244310437953, guid: 38c092615abbba3488b9269321c90825,
-        type: 3}
-      propertyPath: colisionespadaderecha
-      value: 
-      objectReference: {fileID: 1686977006}
-    - target: {fileID: 6785516244310437953, guid: 38c092615abbba3488b9269321c90825,
-        type: 3}
       propertyPath: colisionReal
       value: 
       objectReference: {fileID: 920598357}
-    - target: {fileID: 6785516244310437953, guid: 38c092615abbba3488b9269321c90825,
-        type: 3}
-      propertyPath: colisionEspadaDerecha
-      value: 
-      objectReference: {fileID: 1686977006}
-    - target: {fileID: 6785516244310437953, guid: 38c092615abbba3488b9269321c90825,
-        type: 3}
-      propertyPath: colisionEspadaIzquierda
-      value: 
-      objectReference: {fileID: 336452074}
     - target: {fileID: 947718819, guid: 38c092615abbba3488b9269321c90825, type: 3}
       propertyPath: jugador
       value: 
       objectReference: {fileID: 213030893}
     - target: {fileID: 947718819, guid: 38c092615abbba3488b9269321c90825, type: 3}
       propertyPath: radioDeVision
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38c092615abbba3488b9269321c90825, type: 3}

@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     private AnimationScript animacion;
 
     [Space]
-    [Header("Stadísticas")]
+    [Header("Estadísticas")]
     public float speed = 10;
 
     public float jumpForce = 50;
@@ -111,9 +111,8 @@ public class Movement : MonoBehaviour
 
     [Space]
     [Header("Botones")]
-    //Signacion de botones
+    //Asignacion de botones
     public string botonDash = "Fire1";
-
     public string botonDisparo = "Fire2";
     public string botonSaltar = "Jump";
     public string botonEspada = "Fire3";

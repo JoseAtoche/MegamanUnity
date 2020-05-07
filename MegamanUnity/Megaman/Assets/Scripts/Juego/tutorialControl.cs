@@ -8,7 +8,7 @@ public class tutorialControl : MonoBehaviour
     public GameObject tutorial2;
 
     /// <summary>
-    /// Si tocas el botón cambia al siguiente tutorial
+    /// Si tocas el botón de confirmar cambia al siguiente tutorial
     /// </summary>
     private void Update()
     {

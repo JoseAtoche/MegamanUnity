@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletRB: {fileID: 1224266200906901515}
-  bulletSpeed: 0.08
-  bulletLife: 2
+  bulletSpeed: 0.15
+  bulletLife: 4
 --- !u!50 &1224266200906901515
 Rigidbody2D:
   serializedVersion: 4

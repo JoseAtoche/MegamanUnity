@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5728134286461255115
 Transform:
   m_ObjectHideFlags: 0
@@ -118,9 +118,10 @@ MonoBehaviour:
   vida: 1
   invulnerable: 0
   spriteRenderer: {fileID: 2391012775422960605}
-  colisionreal: {fileID: 0}
-  colisionespadaizquierda: {fileID: 0}
-  colisionespadaderecha: {fileID: 0}
+  colisionReal: {fileID: 0}
+  permitirAtaque: 1
+  ataqueAnterior: 0
+  finalCutscene: {fileID: 0}
 --- !u!114 &947718819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,12 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1229f9a1b8f2f4988e9dea16014380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiodevision: 20
+  radioDeVision: 8
   bala: {fileID: 7422661418535957881, guid: 250ff4d679dca4d4bbc3d4c0c5a37b4a, type: 3}
   cannon: {fileID: 0}
-  tiempoinicia: 0
-  tiempoespera: 2
+  tiempoInicia: 0
+  tiempoEspera: 2
   jugador: {fileID: 0}
+  disparo: {fileID: 0}
 --- !u!61 &8252154512892526707
 BoxCollider2D:
   m_ObjectHideFlags: 0

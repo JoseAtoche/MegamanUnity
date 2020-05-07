@@ -12,8 +12,9 @@ public class respawn : MonoBehaviour
     private Vector3 posicionDash3;
 
     private float time;
-
-    // Start is called before the first frame update
+    /// <summary>
+    /// Posiciones de los objetos
+    /// </summary>
     private void Start()
     {
         posicionDash1 = dash1.transform.position;
@@ -22,7 +23,7 @@ public class respawn : MonoBehaviour
     }
 
     /// <summary>
-    /// Si detecta que alguna de las fresas ha desaparecido a los 5 segundos pone otra en la misma ubicacion
+    /// Si detecta que alguna de los tanques ha desaparecido a los 5 segundos pone otra en la misma ubicacion
     /// </summary>
     private void Update()
     {

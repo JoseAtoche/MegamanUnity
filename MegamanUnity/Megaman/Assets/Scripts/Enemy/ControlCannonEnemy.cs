@@ -16,6 +16,8 @@ public class ControlCannonEnemy : MonoBehaviour
     private void Update()
     {
         float dist = Vector3.Distance(jugador.transform.position, transform.position);
+
+        //Si es la carabela del boss
         if (cannon == null)
         {
             if (dist < radioDeVision)
@@ -24,12 +26,13 @@ public class ControlCannonEnemy : MonoBehaviour
                 if (tiempoInicia >= tiempoEspera)
                 {
                     GameObject balacreada = Instantiate(bala, this.transform.position, this.transform.rotation);
-                    balacreada.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 10));
+                    balacreada.GetComponent<Rigidbody2D>().AddForce(new Vector2(20, 20));
                     balacreada.transform.SetParent(transform);
                     tiempoInicia = 0;
                 }
             }
         }
+        //Si es el cañon
         else if (dist < radioDeVision)
         {
             tiempoInicia += Time.deltaTime;

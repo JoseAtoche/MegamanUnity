@@ -20,7 +20,7 @@ public class GhostTrail : MonoBehaviour
     }
 
     /// <summary>
-    /// Pone un efecto tras el personaje para formar el dash
+    /// Pone un efecto tras el personaje para formar el dash, son 3 sombras que van trás de si
     /// </summary>
     public void ShowGhost()
     {

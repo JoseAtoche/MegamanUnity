@@ -63,10 +63,6 @@ public class AnimationScript : MonoBehaviour
             animacionDaño = false;
         }
 
-        //anim.SetBool("canMove", move.canMove);
-        // anim.SetBool("onRightWall", coll.onRightWall);
-        //anim.SetBool("wallGrab", move.wallGrab);
-        /// anim.SetBool("OnLeader", move.onleader);
     }
 
     //Establece las animaciones respecto al movimiento

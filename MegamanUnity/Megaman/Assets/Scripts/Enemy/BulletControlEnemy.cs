@@ -34,21 +34,17 @@ public class BulletControlEnemy : MonoBehaviour
             posiciondeseada = new Vector3(2000, (m * 2000) + (GameObject.FindGameObjectWithTag("Player").transform.position.x), GameObject.FindGameObjectWithTag("Player").transform.position.z);
         }
     }
-
-    private void Start()
-    {
-        //  this.GetComponent<Rigidbody2D>().AddForce(this.transform.right * bulletSpeed);
-    }
+ 
 
     // Update is called once per frame
     private void Update()
     {
-        // transform.position += transform.forward * bulletSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, posiciondeseada, bulletSpeed);
         //este comando me obliga a poner 1. donde estoy 2. donde voy 3. la velocidad
-
+        transform.position = Vector3.MoveTowards(transform.position, posiciondeseada, bulletSpeed);
+       
+   //y este me dice cuanto tiempo vivo
         Destroy(gameObject, bulletLife);
-        //y este me dice cuanto tiempo vivo
+     
     }
 
     /// <summary>

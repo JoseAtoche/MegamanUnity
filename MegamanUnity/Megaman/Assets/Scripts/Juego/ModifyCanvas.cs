@@ -52,7 +52,6 @@ public class ModifyCanvas : MonoBehaviour
             }
             catch (Exception e)
             {
-
                 Debug.Log(e);
             }
             finally

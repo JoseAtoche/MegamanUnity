@@ -179,7 +179,6 @@ public class EnemyFollow : MonoBehaviour
                 GameObject balacreada = Instantiate(bala, this.transform.GetChild(0).gameObject.transform.position, this.transform.GetChild(0).gameObject.transform.rotation);
                 audioSource.PlayOneShot(disparoSonido);
 
-                //balacreada.GetComponent<Rigidbody2D>().AddForce(this.transform.GetChild(0).gameObject.transform.position * balacreada.GetComponent<BulletControl>().bulletSpeed);
                 tiempoInicia = 0;
             }
         }

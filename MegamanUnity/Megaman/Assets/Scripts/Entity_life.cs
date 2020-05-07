@@ -45,7 +45,12 @@ public class Entity_life : MonoBehaviour
             //Si la vida del BOSS es menor a 0
             else if (vida <= 0 && this.name == "prometheusBoss")
             {
+                this.transform.GetComponent<BossController>().enabled = false;
+                this.transform.GetComponent<BossController>().objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + 3, GameObject.FindGameObjectWithTag("Player").transform.position.y + 1, this.transform.GetComponent<BossController>().objetoPadre.transform.position.z);
+                this.transform.position = new Vector3(0, 0, 0);
+
                 this.transform.GetChild(1).gameObject.SetActive(true);
+
                 this.transform.GetChild(2).gameObject.SetActive(true);
             }
             else if (this.transform.GetComponent<EnemyFollow>() != null)
@@ -237,5 +242,11 @@ public class Entity_life : MonoBehaviour
         }
 
         StartCoroutine(FlashSprite());
+    }
+
+    //Método para esperar unos segundos
+    public IEnumerator Wait(float delayInSecs)
+    {
+        yield return new WaitForSeconds(delayInSecs);
     }
 }
