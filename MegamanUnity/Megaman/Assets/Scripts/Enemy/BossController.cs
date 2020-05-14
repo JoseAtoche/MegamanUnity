@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
@@ -20,12 +19,10 @@ public class BossController : MonoBehaviour
     public AudioClip ataque5;
     public AudioClip ataque6;
 
-
     public GameObject objetoPadre;
     private Vector3 posicionPrincipal;
 
     private bool primeraVez = false;
-
 
     public GameObject carabela1;
     public GameObject carabela2;
@@ -207,10 +204,8 @@ public class BossController : MonoBehaviour
         }
     }
 
-
     private void Power()
     {
         GetComponentInChildren<GhostBoss>().ShowGhost();
     }
-
 }

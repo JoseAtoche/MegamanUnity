@@ -74,22 +74,12 @@ public class Entity_life : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque - 1 == ataqueAnterior)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque - 1 == ataqueAnterior && collision.name != "MegamanMap" && collision.name != "Hitbox")
         {
-            Debug.Log(collision + " " + this.transform.name);
-
-            if (collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>())
-            {
-                Debug.Log("Derecha");
-            }
-            if (collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>())
-            {
-                Debug.Log("Izquierda");
-            }
 
             //El enemigo detectará si ha entrado en el collider de las espadas del jugador
             //Y SI ESTÁ ATACANDO, RECIBIRÁ DAÑO
-            if ((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() || collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>()) && !invulnerable && this.GetComponent<Escudo>() == null)
+            if ((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() || collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>()) && this.GetComponent<Escudo>() == null)
             {
                 QuitarVida("espada");
             }
@@ -105,7 +95,7 @@ public class Entity_life : MonoBehaviour
         }
 
         if (colisionReal != null)
-        {   //Colision del nuevo personaje
+        {   //Colision del personaje
             //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
             //De esta forma le hará daño a el JUGADOR
             if (collision == colisionReal.GetComponent<BoxCollider2D>())
