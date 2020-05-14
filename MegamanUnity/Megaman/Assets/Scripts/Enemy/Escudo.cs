@@ -17,7 +17,7 @@ public class Escudo : MonoBehaviour
         posicionfinal = new Vector3(posicioninicial.x - 3, posicioninicial.y, posicioninicial.z);
     }
 
-     private void Update()
+    private void Update()
     {
         //Si ha llegado a la posicion incial da la vuelta
         if (transform.position == posicioninicial)

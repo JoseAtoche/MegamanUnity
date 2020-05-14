@@ -113,6 +113,7 @@ public class Movement : MonoBehaviour
     [Header("Botones")]
     //Asignacion de botones
     public string botonDash = "Fire1";
+
     public string botonDisparo = "Fire2";
     public string botonSaltar = "Jump";
     public string botonEspada = "Fire3";

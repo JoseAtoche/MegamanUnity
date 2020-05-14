@@ -5,23 +5,25 @@ public class EnemyFollow : MonoBehaviour
     public float radioDeVision;
     public float velocidad;
     public GameObject jugador;
-    private Vector3 posicioninicial;
+    private Vector3 posicionInicial;
     private Animator animator;
     public GameObject bala;
     public float tiempoEspera = 2;
     public float tiempoInicia = 0;
 
-    public Quaternion rotacion;
     public Vector3 objetivo;
     private float dist;
 
-    public bool moverderecha = true;
-
-    public bool moverizquierda = true;
+    public bool moverDerecha = true;
+    public bool moverIzquierda = true;
+    public bool muroDerecha = true;
+    public bool muroIzquierda = true;
+    public bool moverDerechaObjetivo = true;
+    public bool moverIzquierdaObjetivo = true;
 
     public LayerMask groundLayer;
-    public Vector2 rightOffset, leftOffset;
-    public float collisionRadius = 0.25f;
+    public Vector2 rightOffset, leftOffset, derechaMuroOffset, izquierdaMurOffset, bordeDerecha, bordeIzquierda;
+    public float collisionRadius = 0.02f;
 
     public AudioSource audioSource;
 
@@ -32,7 +34,7 @@ public class EnemyFollow : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        posicioninicial = transform.position;
+        posicionInicial = transform.position;
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -47,7 +49,7 @@ public class EnemyFollow : MonoBehaviour
             this.transform.GetComponent<Entity_life>().colisionReal = null;
             audioSource.PlayOneShot(muerteSonido);
         }
-        objetivo = posicioninicial;
+        objetivo = posicionInicial;
 
         dist = Vector3.Distance(jugador.transform.position, transform.position);
 
@@ -79,7 +81,7 @@ public class EnemyFollow : MonoBehaviour
         {
             //rota al enemigo para hacer que vaya a su lugar predefinido
 
-            transform.rotation = (posicioninicial.x > transform.position.x) ? new Quaternion(0, 180, 0, 0) : new Quaternion(0, 0, 0, 0);
+            this.GetComponent<SpriteRenderer>().flipX = (posicionInicial.x > transform.position.x) ? true : false;
 
             animator.SetBool("correr", true);
             //    audioSource.PlayOneShot(caminarSonido);
@@ -88,7 +90,7 @@ public class EnemyFollow : MonoBehaviour
         }
 
         //Si la posicion es la misma que la incial dejamos de correr
-        if (transform.position.x == posicioninicial.x)
+        if (transform.position.x == posicionInicial.x)
         {
             animator.SetBool("correr", false);
         }
@@ -96,7 +98,7 @@ public class EnemyFollow : MonoBehaviour
         float fixedSpeed = velocidad * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, objetivo, fixedSpeed);
 
-        transform.position = new Vector3(transform.position.x, posicioninicial.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, posicionInicial.y, transform.position.z);
 
         Debug.DrawLine(transform.position, objetivo, Color.green);
     }
@@ -110,16 +112,38 @@ public class EnemyFollow : MonoBehaviour
         //Aqui debemos comprobar distancia hasta el borde
         if (jugador.transform.position.x > transform.position.x)
         {
-            if (moverizquierda)
+            if (moverIzquierda)//&& !muroIzquierda)
             {
-                objetivo = new Vector3(jugador.transform.position.x - (radioDeVision / 1.8f), transform.position.y, jugador.transform.position.z);
+                if (moverIzquierdaObjetivo)
+                {
+                    objetivo = new Vector3(jugador.transform.position.x - (radioDeVision / 1.8f), transform.position.y, jugador.transform.position.z);
+                }
+                else
+                {
+                    objetivo = this.transform.position;
+                }
+            }
+            else
+            {
+                objetivo = this.transform.position;
             }
         }
         else
         {
-            if (moverderecha)
+            if (moverDerecha)//&& !muroDerecha)
             {
-                objetivo = new Vector3(jugador.transform.position.x + (radioDeVision / 1.8f), transform.position.y, jugador.transform.position.z);
+                if (moverDerechaObjetivo)
+                {
+                    objetivo = new Vector3(jugador.transform.position.x + (radioDeVision / 1.8f), transform.position.y, jugador.transform.position.z);
+                }
+                else
+                {
+                    objetivo = this.transform.position;
+                }
+            }
+            else
+            {
+                objetivo = this.transform.position;
             }
         }
     }
@@ -134,11 +158,11 @@ public class EnemyFollow : MonoBehaviour
         {
             if (jugador.transform.position.x > transform.position.x)
             {
-                rotacion = new Quaternion(0, 180, 0, 0);
+                this.GetComponent<SpriteRenderer>().flipX = true;
             }
             else
             {
-                rotacion = new Quaternion(0, 0, 0, 0);
+                this.GetComponent<SpriteRenderer>().flipX = false;
             }
         }
         else
@@ -146,22 +170,20 @@ public class EnemyFollow : MonoBehaviour
             //Si no ha llegado al punto calculado mira al punto para dar la sensacion de que anda
             if (objetivo.x < transform.position.x)
             {
-                if (moverizquierda)
+                if (moverIzquierda)//&& !muroIzquierda)
                 {
-                    rotacion = new Quaternion(0, 0, 0, 0);
+                    this.GetComponent<SpriteRenderer>().flipX = false;
                 }
             }
             else
             {
-                if (moverderecha)
+                if (moverDerecha)//&& !muroDerecha)
                 {
-                    rotacion = new Quaternion(0, 180, 0, 0);
+                    this.GetComponent<SpriteRenderer>().flipX = true;
                 }
             }
             animator.ResetTrigger("disparar");
         }
-
-        transform.rotation = rotacion;
     }
 
     /// <summary>
@@ -188,19 +210,25 @@ public class EnemyFollow : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radioDeVision);
+
+        Gizmos.DrawWireSphere(transform.position, radioDeVision / 1.9f);
+        Gizmos.DrawWireSphere(jugador.transform.position, radioDeVision / 1.8f);
+
+        Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
+        Gizmos.DrawWireSphere((Vector2)jugador.transform.position + bordeDerecha, collisionRadius);
+        Gizmos.DrawWireSphere((Vector2)jugador.transform.position + bordeIzquierda, collisionRadius);
     }
 
     private void CalcularMovimiento()
     {
-        if (jugador.transform.position.x > transform.position.x)
-        {
-            moverderecha = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
-            moverizquierda = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
-        }
-        else
-        {
-            moverizquierda = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
-            moverderecha = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
-        }
+        moverDerecha = !Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
+        moverIzquierda = !Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+
+        moverDerechaObjetivo = !Physics2D.OverlapCircle((Vector2)jugador.transform.position + bordeDerecha, collisionRadius, groundLayer);
+        moverIzquierdaObjetivo = !Physics2D.OverlapCircle((Vector2)jugador.transform.position + bordeIzquierda, collisionRadius, groundLayer);
+
+        //muroDerecha = Physics2D.OverlapCircle((Vector2)transform.position + derechaMuroOffset, collisionRadius, groundLayer);
+        //muroIzquierda = Physics2D.OverlapCircle((Vector2)transform.position + izquierdaMurOffset, collisionRadius, groundLayer);
     }
 }

@@ -206,16 +206,23 @@ MonoBehaviour:
   bala: {fileID: 1814441324575866633, guid: 2fb49adce9c8b0549826d80d077ef7a6, type: 3}
   tiempoEspera: 2
   tiempoInicia: 0
-  rotacion: {x: 0, y: 0, z: 0, w: 0}
   objetivo: {x: 0, y: 0, z: 0}
-  moverderecha: 0
-  moverizquierda: 0
+  moverDerecha: 1
+  moverIzquierda: 1
+  muroDerecha: 1
+  muroIzquierda: 1
+  moverDerechaObjetivo: 1
+  moverIzquierdaObjetivo: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  rightOffset: {x: 0.5, y: -0.5}
-  leftOffset: {x: -0.5, y: -0.5}
-  collisionRadius: 0.25
+  rightOffset: {x: 0.5, y: -1}
+  leftOffset: {x: -0.5, y: -1}
+  derechaMuroOffset: {x: 1, y: 0}
+  izquierdaMurOffset: {x: -1, y: 0}
+  bordeDerecha: {x: 2.7, y: -0.8}
+  bordeIzquierda: {x: -2.7, y: -0.8}
+  collisionRadius: 0.05
   audioSource: {fileID: 0}
   disparoSonido: {fileID: 8300000, guid: 8914e98e337d81e4b8bb432574b285a8, type: 3}
   muerteSonido: {fileID: 8300000, guid: 6ae7dededa1b5df4eb1e13236acf7fd9, type: 3}
@@ -305,11 +312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c0d4c717850584b9b707f5bacd6a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 3
+  vida: 50
   invulnerable: 0
   spriteRenderer: {fileID: 7968574785116547663}
   colisionReal: {fileID: 0}
-  permitirAtaque: 1
+  colisionEspadaIzquierda: {fileID: 0}
+  colisionEspadaDerecha: {fileID: 0}
   ataqueAnterior: 0
   finalCutscene: {fileID: 0}
 --- !u!95 &7968574785116547649

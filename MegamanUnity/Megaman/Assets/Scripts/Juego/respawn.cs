@@ -12,6 +12,7 @@ public class respawn : MonoBehaviour
     private Vector3 posicionDash3;
 
     private float time;
+
     /// <summary>
     /// Posiciones de los objetos
     /// </summary>

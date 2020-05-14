@@ -6,15 +6,14 @@ using UnityEngine;
 public class Entity_life : MonoBehaviour
 {
     public int vida = 100;
-    public bool invulnerable;
+    public bool invulnerable = false;
     public SpriteRenderer spriteRenderer;
 
     public Collider2D colisionReal;
-    private Collider2D colisionEspadaIzquierda;
-    private Collider2D colisionEspadaDerecha;
+    public Collider2D colisionEspadaIzquierda;
+    public Collider2D colisionEspadaDerecha;
     private bool primeraVez = false;
 
-    public bool permitirAtaque = true;
     public int ataqueAnterior = 0;
 
     public GameObject finalCutscene;
@@ -29,7 +28,7 @@ public class Entity_life : MonoBehaviour
     }
 
     /// <summary>
-    /// Comprueba continuamente si an muerto o no
+    /// Comprueba continuamente si han muerto o no
     /// </summary>
     private void Update()
     {
@@ -75,45 +74,40 @@ public class Entity_life : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque == 0 || GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque == ataqueAnterior + 1)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque - 1 == ataqueAnterior)
         {
-            permitirAtaque = true;
-        }
-        else
-        {
-            permitirAtaque = false;
-        }
+            Debug.Log(collision + " " + this.transform.name);
 
-        //El enemigo detectará si ha entrado en el collider de las espadas del jugador
-        //Y SI ESTÁ ATACANDO, RECIBIRÁ DAÑO
-        if ((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() ||
-         collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>()) &&
-         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-         (!invulnerable || GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().combo) && this.GetComponent<Escudo>() == null)
-        {
-            QuitarVida("espada");
-        }
+            if (collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>())
+            {
+                Debug.Log("Derecha");
+            }
+            if (collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>())
+            {
+                Debug.Log("Izquierda");
+            }
 
-        //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda respecto a la direcion disparada por el enemigo
-        else if (this.GetComponent<Escudo>() != null)
-        {
-            if (((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha) &&
-                  GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-                  !invulnerable && this.GetComponent<Escudo>() != null) ||
-
-                  (((collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) &&
-                        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0 &&
-                        !invulnerable && this.GetComponent<Escudo>() != null)))
+            //El enemigo detectará si ha entrado en el collider de las espadas del jugador
+            //Y SI ESTÁ ATACANDO, RECIBIRÁ DAÑO
+            if ((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() || collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>()) && !invulnerable && this.GetComponent<Escudo>() == null)
             {
                 QuitarVida("espada");
             }
+            else
+            {
+                //Esto comprueba la colisión con el enemigo del escudo y sabe si está a la derecha o a la izquierda respecto a la direcion disparada por el enemigo
+                if ((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() && this.GetComponent<Escudo>().derecha ||
+                       collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>() && !this.GetComponent<Escudo>().derecha) && !invulnerable)
+                {
+                    QuitarVida("espada");
+                }
+            }
         }
 
-        //Colision del nuevo personaje
-        //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
-        //De esta forma le hará daño a el JUGADOR
         if (colisionReal != null)
-        {
+        {   //Colision del nuevo personaje
+            //El enemigo va a detectar si está colisionando con la hitbox correcta del jugador
+            //De esta forma le hará daño a el JUGADOR
             if (collision == colisionReal.GetComponent<BoxCollider2D>())
             {
                 Entity_life entity_jugador = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>();

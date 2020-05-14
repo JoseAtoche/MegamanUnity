@@ -723,6 +723,7 @@ MonoBehaviour:
   vida: 2
   invulnerable: 0
   spriteRenderer: {fileID: 6563359751405468145}
+  colisionReal: {fileID: 0}
   permitirAtaque: 1
   ataqueAnterior: 0
   finalCutscene: {fileID: 291283436}

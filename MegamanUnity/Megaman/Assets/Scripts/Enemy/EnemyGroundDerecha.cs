@@ -7,6 +7,5 @@ public class EnemyGroundDerecha : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         follow = transform.GetComponentInParent<EnemyFollow>();
-
     }
 }

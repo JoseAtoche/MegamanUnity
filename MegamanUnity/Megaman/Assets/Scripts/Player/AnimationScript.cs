@@ -62,7 +62,6 @@ public class AnimationScript : MonoBehaviour
             //   Debug.Log("Permito volver a atacar");
             animacionDaño = false;
         }
-
     }
 
     //Establece las animaciones respecto al movimiento
