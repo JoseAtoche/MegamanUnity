@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 7968574785116547654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 123.27, y: -44.11, z: 0}
-  m_LocalScale: {x: 3.25198, y: 3.628966, z: 1}
+  m_LocalScale: {x: 3.25198, y: 3.628966, z: 0}
   m_Children:
   - {fileID: 7968574786188047534}
   - {fileID: 607857128}
@@ -204,7 +204,7 @@ MonoBehaviour:
   velocidad: 2
   jugador: {fileID: 0}
   bala: {fileID: 1814441324575866633, guid: 2fb49adce9c8b0549826d80d077ef7a6, type: 3}
-  tiempoEspera: 2
+  tiempoEspera: 3
   tiempoInicia: 0
   objetivo: {x: 0, y: 0, z: 0}
   moverDerecha: 1
@@ -261,7 +261,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004454896, y: 0.014741018}
+  m_Offset: {x: 0.01137162, y: 0.008544743}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -272,7 +272,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29765376, y: 0.40051797}
+  m_Size: {x: 0.24925183, y: 0.38812542}
   m_EdgeRadius: 0
 --- !u!61 &7968574785116547651
 BoxCollider2D:
@@ -287,7 +287,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0030340776, y: 0}
+  m_Offset: {x: 0.0066067353, y: 0.014903992}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -298,7 +298,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34787858, y: 0.43}
+  m_Size: {x: 0.28399724, y: 0.37939715}
   m_EdgeRadius: 0
 --- !u!114 &7968574785116547648
 MonoBehaviour:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c0d4c717850584b9b707f5bacd6a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 50
+  vida: 6
   invulnerable: 0
   spriteRenderer: {fileID: 7968574785116547663}
   colisionReal: {fileID: 0}
@@ -359,7 +359,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.86857224
   MaxDistance: 3
   Pan2D: 0
   rolloffMode: 0
@@ -459,7 +459,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7968574786188047535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.158, y: 0.023, z: 0}
+  m_LocalPosition: {x: 0.034, y: 0.023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7968574785116547662}

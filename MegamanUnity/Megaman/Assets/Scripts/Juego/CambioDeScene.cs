@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CambioDeScene : MonoBehaviour
@@ -8,6 +9,21 @@ public class CambioDeScene : MonoBehaviour
     /// </summary>
     public void SiguienteScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        try
+        {
+            PantallaDeCarga.Instancia.CargarEscena(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        catch (Exception e)
+        {
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        finally
+        {
+
+            GameObject.Find("Boss").SetActive(false);
+
+        }
+
     }
 }

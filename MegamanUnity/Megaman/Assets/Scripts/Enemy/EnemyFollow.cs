@@ -109,11 +109,12 @@ public class EnemyFollow : MonoBehaviour
 
     private void ComprobarPosicionJugadorParaMoverse()
     {
-        //Aqui debemos comprobar distancia hasta el borde
+        //Aqui debemos comprobar distancia hasta el borde, si no puede moverse se quedará en el mismo sitio
         if (jugador.transform.position.x > transform.position.x)
         {
             if (moverIzquierda)//&& !muroIzquierda)
             {
+                //si se puede mover a la izquierda  lo hará
                 if (moverIzquierdaObjetivo)
                 {
                     objetivo = new Vector3(jugador.transform.position.x - (radioDeVision / 1.8f), transform.position.y, jugador.transform.position.z);
@@ -131,7 +132,7 @@ public class EnemyFollow : MonoBehaviour
         else
         {
             if (moverDerecha)//&& !muroDerecha)
-            {
+            {//si se puede mover a la derecha  lo hará
                 if (moverDerechaObjetivo)
                 {
                     objetivo = new Vector3(jugador.transform.position.x + (radioDeVision / 1.8f), transform.position.y, jugador.transform.position.z);
@@ -205,7 +206,7 @@ public class EnemyFollow : MonoBehaviour
             }
         }
     }
-
+    //Esto es para dibujar lass diversas lineas, para hacer un control visual de todo
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -225,10 +226,11 @@ public class EnemyFollow : MonoBehaviour
         moverDerecha = !Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
         moverIzquierda = !Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
+
+        //Comprueba que el punto a donde debería moverse no es aire
         moverDerechaObjetivo = !Physics2D.OverlapCircle((Vector2)jugador.transform.position + bordeDerecha, collisionRadius, groundLayer);
         moverIzquierdaObjetivo = !Physics2D.OverlapCircle((Vector2)jugador.transform.position + bordeIzquierda, collisionRadius, groundLayer);
 
-        //muroDerecha = Physics2D.OverlapCircle((Vector2)transform.position + derechaMuroOffset, collisionRadius, groundLayer);
-        //muroIzquierda = Physics2D.OverlapCircle((Vector2)transform.position + izquierdaMurOffset, collisionRadius, groundLayer);
+
     }
 }

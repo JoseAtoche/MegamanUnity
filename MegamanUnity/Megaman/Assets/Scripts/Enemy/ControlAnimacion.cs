@@ -5,6 +5,8 @@ public class ControlAnimacion : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.SetBool("burstbool", false);
+
         switch (UnityEngine.Random.Range(0, 4))
         {
             case 0:
@@ -20,6 +22,7 @@ public class ControlAnimacion : StateMachineBehaviour
 
             case 2:
                 animator.SetTrigger("burst");
+                animator.SetBool("burstbool", true);
 
                 break;
 

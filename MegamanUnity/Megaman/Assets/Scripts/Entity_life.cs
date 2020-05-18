@@ -45,7 +45,8 @@ public class Entity_life : MonoBehaviour
             else if (vida <= 0 && this.name == "prometheusBoss")
             {
                 this.transform.GetComponent<BossController>().enabled = false;
-                this.transform.GetComponent<BossController>().objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + 3, GameObject.FindGameObjectWithTag("Player").transform.position.y + 1, this.transform.GetComponent<BossController>().objetoPadre.transform.position.z);
+                this.transform.GetComponent<BossController>().objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + 3,
+                    GameObject.FindGameObjectWithTag("Player").transform.position.y + 1, this.transform.GetComponent<BossController>().objetoPadre.transform.position.z);
                 this.transform.position = new Vector3(0, 0, 0);
 
                 this.transform.GetChild(1).gameObject.SetActive(true);
@@ -126,7 +127,8 @@ public class Entity_life : MonoBehaviour
     {
         try
         {
-            if (this.GetComponent<Escudo>().derecha && !invulnerable && x < this.transform.position.x || !this.GetComponent<Escudo>().derecha && !invulnerable && x > this.transform.position.x)
+            if (this.GetComponent<Escudo>().derecha && !invulnerable && x < this.transform.position.x ||
+                !this.GetComponent<Escudo>().derecha && !invulnerable && x > this.transform.position.x)
             {
                 QuitarVida("pistola");
             }
@@ -188,7 +190,8 @@ public class Entity_life : MonoBehaviour
         if (UnityEngine.Random.Range(0, 7) == 0 && !primeraVez)
         {
             primeraVez = true;
-            Instantiate(GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().fuerza, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), new Quaternion(0, 0, 0, 0));
+            Instantiate(GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().fuerza,
+                new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), new Quaternion(0, 0, 0, 0));
         }
     }
 
@@ -222,7 +225,9 @@ public class Entity_life : MonoBehaviour
         else if (arma == "pistola")
         {
             //Resta vida al enemigo segun la vida del jugador, y su potenciador
-            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ? (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().disparoPotenciado) ? 3 * 2 : 3 : (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().disparoPotenciado) ? 2 * 2 : 2;
+            vida -= (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Entity_life>().vida <= 50) ?
+                (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().disparoPotenciado) ? 3 * 2 : 3 :
+                (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().disparoPotenciado) ? 2 * 2 : 2;
         }
 
         StartCoroutine(FlashSprite());

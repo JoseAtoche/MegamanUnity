@@ -54,7 +54,7 @@ public class BossController : MonoBehaviour
 
         //Si la animacion es la llamada acabada
         //se teletransporta unos segundos lejos, para poder permitir tiempo de reaccion al jugador
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Acabado"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Acabado") || anim.GetCurrentAnimatorStateInfo(0).IsName("EsperarUnMomento"))
         {
             objetoPadre.transform.position = new Vector3(objetoPadre.transform.position.x + 200, objetoPadre.transform.position.y + 200, objetoPadre.transform.position.z);
             primeraVez = false;
@@ -65,7 +65,7 @@ public class BossController : MonoBehaviour
         }
 
         //Si acaba la animacion de Acabado vuelve a su posicion original
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Fin"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Fin") && anim.GetBool("burstbool") != true)
         {
             objetoPadre.transform.position = posicionPrincipal;
         }
@@ -148,6 +148,7 @@ public class BossController : MonoBehaviour
             objetoPadre.transform.position = posicionPrincipal;
 
             primeraVez = true;
+
         }
     }
 
@@ -161,6 +162,7 @@ public class BossController : MonoBehaviour
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
 
             primeraVez = true;
+
         }
     }
 
@@ -172,7 +174,7 @@ public class BossController : MonoBehaviour
     {
         if (!primeraVez)
         {
-            objetoPadre.transform.position = posicionPrincipal;
+            objetoPadre.transform.position = new Vector3(posicionPrincipal.x, posicionPrincipal.y - 2, posicionPrincipal.z);
 
             primeraVez = true;
 
@@ -201,6 +203,8 @@ public class BossController : MonoBehaviour
         {
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
             primeraVez = true;
+            audioSource.PlayOneShot(ataque2);
+
         }
     }
 
@@ -208,4 +212,11 @@ public class BossController : MonoBehaviour
     {
         GetComponentInChildren<GhostBoss>().ShowGhost();
     }
+
+
+
+    public void SonidoGuillotine() { audioSource.PlayOneShot(ataque2); }
+    public void SonidoAtaqueCarabela() { audioSource.PlayOneShot(ataque1); }
+
+
 }

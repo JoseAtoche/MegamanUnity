@@ -10,12 +10,16 @@ public class Controlador_Intro : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameObject.Find("Cutscene").SetActive(false);
+
+            PantallaDeCarga.Instancia.CargarEscena(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
     public void PasarEscena()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameObject.Find("Cutscene").SetActive(false);
+
+        PantallaDeCarga.Instancia.CargarEscena(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

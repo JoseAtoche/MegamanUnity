@@ -215,7 +215,8 @@ public class Movement : MonoBehaviour
 
                 //Controlador para saber donde disparar cuando estoy cogiendome a un muro
 
-                vector = derecha ? new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z) : new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
+                vector = derecha ? new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z) :
+                    new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
 
                 audioSource.PlayOneShot(disparo);
 
@@ -330,14 +331,15 @@ public class Movement : MonoBehaviour
             shoot = true;
 
             //Establezcola bala en el lugar adecuado segun a donde mire
-            vector = derecha ? new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z) : new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
+            vector = derecha ? new Vector3(transform.position.x + 0.9f, transform.position.y + 0.3f, transform.position.z) :
+            new Vector3(transform.position.x - 0.9f, transform.position.y + 0.3f, transform.position.z);
             //Audio del disparo
             audioSource.PlayOneShot(disparo);
             //Inizalizacion de la bala
             Instantiate(bala, vector, quaterion);
             nextFireTime = Time.time + cooldown;
         }
-        //Ataque de espada fuerte, cuando pulso arriba (AUN NO FUNCIONAL)
+        //Ataque de espada fuerte, cuando pulso arriba  
         if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") > 0 && rb.velocity.x == 0 && coll.onGround)
         {
             upattack = true;
@@ -350,7 +352,8 @@ public class Movement : MonoBehaviour
         }
 
         //combo de la espada, cada vez que pulso un ataque nuevo se ejecuta junto a su sonido
-        if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") == 0 && !upattack && !animacion.anim.GetCurrentAnimatorStateInfo(0).IsName("run") && !animacion.anim.GetCurrentAnimatorStateInfo(0).IsName("runattack") && Input.GetAxis("Horizontal") == 0 && (ataque == 0 || combo))
+        if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") == 0 && !upattack && !animacion.anim.GetCurrentAnimatorStateInfo(0).IsName("run") &&
+            !animacion.anim.GetCurrentAnimatorStateInfo(0).IsName("runattack") && Input.GetAxis("Horizontal") == 0 && (ataque == 0 || combo))
         {
             switch (ataque)
             {
