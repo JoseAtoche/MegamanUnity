@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class CinematicaFinal : MonoBehaviour
 {
     private bool permiteSaltar = false;
+
+    public GameObject video;
 
     public void PermitirSaltar()
     {
@@ -22,5 +25,12 @@ public class CinematicaFinal : MonoBehaviour
     public void Final()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void MostrarVideo()
+    {
+        video.SetActive(true);
+
+
     }
 }
