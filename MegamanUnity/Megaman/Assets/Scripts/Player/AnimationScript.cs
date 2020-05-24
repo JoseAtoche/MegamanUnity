@@ -64,7 +64,12 @@ public class AnimationScript : MonoBehaviour
         }
     }
 
-    //Establece las animaciones respecto al movimiento
+    /// <summary>
+    /// Establece las animaciones respecto al movimiento
+    /// </summary>
+    /// <param name="x">posicion x</param>
+    /// <param name="y"> posicion y</param>
+    /// <param name="yVel"> velocidad </param>
     public void SetHorizontalMovement(float x, float y, float yVel)
     {
         anim.SetFloat("HorizontalAxis", x);

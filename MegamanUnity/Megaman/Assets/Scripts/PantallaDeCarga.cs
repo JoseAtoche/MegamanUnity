@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class PantallaDeCarga : MonoBehaviour
 {
-
     public static PantallaDeCarga Instancia { get; private set; }
 
     public Image imageDeCarga;
 
-    void Awake()
+    private void Awake()
     {
         DefinirSingleton();
     }
@@ -23,7 +21,6 @@ public class PantallaDeCarga : MonoBehaviour
             Instancia = this;
             DontDestroyOnLoad(this);
             imageDeCarga.gameObject.SetActive(false);
-
         }
         else
         {
@@ -36,15 +33,11 @@ public class PantallaDeCarga : MonoBehaviour
         StartCoroutine(MostrarPantallaDeCarga(nombreEscena));
     }
 
-
     private IEnumerator MostrarPantallaDeCarga(int nombreEscena)
     {
-
         imageDeCarga.gameObject.SetActive(true);
         imageDeCarga.GetComponent<Animator>().SetTrigger("Load");
         imageDeCarga.GetComponent<Animator>().ResetTrigger("Load");
-
-
 
         //Si aun está en marcha la imagen de carga no carga el escenario siguiuente
         while (imageDeCarga.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("load") ||
@@ -59,26 +52,15 @@ public class PantallaDeCarga : MonoBehaviour
         //Espera a que haya cargado la nueva escena
         while (operacion.isDone == false)
         {
-
             yield return null;
         }
-
 
         //Si está cargada y la animacion ha finalizado oculta el canvas
         if (operacion.isDone == true)
         {
-            if (imageDeCarga.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("end"))
-            {
 
-
-                imageDeCarga.gameObject.SetActive(false);
-            }
-
+            imageDeCarga.gameObject.SetActive(false);
 
         }
     }
-
-
-
 }
-

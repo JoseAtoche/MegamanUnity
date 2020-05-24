@@ -10,4 +10,7 @@ public class objetosNecesarios : MonoBehaviour
     public Collider2D colisionReal;
     public Collider2D colisionEspadaIzquierda;
     public Collider2D colisionEspadaDerecha;
+    public AudioClip ataque1;
+    public AudioClip ataque2;
+
 }

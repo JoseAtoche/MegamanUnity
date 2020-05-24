@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 
     public Slider heartBar;
     public bool invulnerable;
-    private Color color;
 
     /// <summary>
     /// Establezco el máximo de la barra de vida a valor asignado al jugador

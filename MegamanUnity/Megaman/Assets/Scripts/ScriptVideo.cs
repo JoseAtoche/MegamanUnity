@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScriptVideo : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         // Will attach a VideoPlayer to the main camera.
         GameObject camera = GameObject.Find("Main Camera");
@@ -44,9 +42,8 @@ public class ScriptVideo : MonoBehaviour
         videoPlayer.Play();
     }
 
-    void EndReached(UnityEngine.Video.VideoPlayer vp)
+    private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         vp.playbackSpeed = vp.playbackSpeed / 10.0F;
     }
-
 }

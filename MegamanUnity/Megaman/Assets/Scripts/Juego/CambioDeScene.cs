@@ -15,15 +15,11 @@ public class CambioDeScene : MonoBehaviour
         }
         catch (Exception e)
         {
-
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         finally
         {
-
             GameObject.Find("Boss").SetActive(false);
-
         }
-
     }
 }

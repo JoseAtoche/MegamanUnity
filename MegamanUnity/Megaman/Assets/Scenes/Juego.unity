@@ -606,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213030893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 140.95, y: -15.14, z: 0}
+  m_LocalPosition: {x: 141.96, y: -14.98, z: 0}
   m_LocalScale: {x: 0.57723635, y: 0.68132806, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -775,7 +775,6 @@ MonoBehaviour:
   colisionEspadaIzquierda: {fileID: 0}
   colisionEspadaDerecha: {fileID: 0}
   ataqueAnterior: 0
-  finalCutscene: {fileID: 0}
 --- !u!1 &217462933
 GameObject:
   m_ObjectHideFlags: 0
@@ -5997,7 +5996,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &274694166
 GameObject:
@@ -6198,7 +6197,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &299554310
 MonoBehaviour:
@@ -11657,7 +11656,7 @@ PrefabInstance:
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
@@ -27297,7 +27296,7 @@ PrefabInstance:
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
@@ -27699,7 +27698,7 @@ PrefabInstance:
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
@@ -28301,7 +28300,7 @@ Transform:
   m_Children:
   - {fileID: 1284094161}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1065264268
 BoxCollider2D:
@@ -28731,12 +28730,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209478247}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 138.87, y: -13.154, z: 0}
-  m_LocalScale: {x: 9.576, y: 8.5609865, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01, y: -0.236, z: 0}
+  m_LocalScale: {x: 2.6538408, y: 2.4452364, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_Father: {fileID: 197081333}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1210193578
 GameObject:
@@ -28772,6 +28771,8 @@ MonoBehaviour:
   colisionReal: {fileID: 920598357}
   colisionEspadaIzquierda: {fileID: 336452074}
   colisionEspadaDerecha: {fileID: 1686977006}
+  ataque1: {fileID: 0}
+  ataque2: {fileID: 0}
 --- !u!4 &1210193580
 Transform:
   m_ObjectHideFlags: 0
@@ -28784,7 +28785,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1225889856
 GameObject:
@@ -28923,7 +28924,6 @@ MonoBehaviour:
   colisionEspadaIzquierda: {fileID: 0}
   colisionEspadaDerecha: {fileID: 0}
   ataqueAnterior: 0
-  finalCutscene: {fileID: 0}
 --- !u!61 &1225889862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62019,8 +62019,8 @@ MonoBehaviour:
     name: MensajePraire
     sentences:
     - 'Debes rescatar a mi hermana por favor....                                       '
-    - "Recuerda puedes atacar con tu click izquierdo y hacer un dash con el derecho,
-      ademas tu espada est\xE1 en el bot\xF3n central.                                       "
+    - "Recuerda que est\xE1s solo en esta mision, ten cuidado, ven a hablarme si quieres
+      que cure tu vida                                                                                             "
     - "Tendr\xE1s solo una oportunidad.... ten cuidado.                                   "
   controlador: {fileID: 0}
 --- !u!114 &1284094165
@@ -63301,7 +63301,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1756550905
 PrefabInstance:
@@ -63380,6 +63380,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 213030893}
+    - target: {fileID: 4958733111599793980, guid: 63d15607939d4324c807c0c0aadd733b,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.102
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d15607939d4324c807c0c0aadd733b, type: 3}
 --- !u!1 &1888167562
@@ -74892,7 +74897,7 @@ PrefabInstance:
     - target: {fileID: 2080857348095493106, guid: 9e4e66c5a04fc1749bf15dac9c3ed5e8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2080857348095493106, guid: 9e4e66c5a04fc1749bf15dac9c3ed5e8,
         type: 3}
@@ -75040,6 +75045,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 213030893}
+    - target: {fileID: 4958733111599793980, guid: 63d15607939d4324c807c0c0aadd733b,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.102
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d15607939d4324c807c0c0aadd733b, type: 3}
 --- !u!1001 &6563359751017498712
@@ -75155,7 +75165,7 @@ PrefabInstance:
     - target: {fileID: 6563359751017498714, guid: 203564cfa3b4dff4c8db0288efe674d9,
         type: 3}
       propertyPath: vida
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1706679778, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -75275,12 +75285,12 @@ PrefabInstance:
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 140.95
+      value: 141.96
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.14
+      value: -14.98
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
@@ -75515,7 +75525,7 @@ PrefabInstance:
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5728134286461255115, guid: 38c092615abbba3488b9269321c90825,
         type: 3}

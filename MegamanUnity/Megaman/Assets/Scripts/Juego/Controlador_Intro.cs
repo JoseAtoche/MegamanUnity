@@ -16,6 +16,10 @@ public class Controlador_Intro : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Se salta la escena para hacer más rápido todo
+    /// </summary>
     public void PasarEscena()
     {
         GameObject.Find("Cutscene").SetActive(false);

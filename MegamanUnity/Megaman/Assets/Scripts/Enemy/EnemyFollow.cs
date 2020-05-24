@@ -206,6 +206,7 @@ public class EnemyFollow : MonoBehaviour
             }
         }
     }
+
     //Esto es para dibujar lass diversas lineas, para hacer un control visual de todo
     private void OnDrawGizmos()
     {
@@ -226,11 +227,8 @@ public class EnemyFollow : MonoBehaviour
         moverDerecha = !Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
         moverIzquierda = !Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
-
         //Comprueba que el punto a donde debería moverse no es aire
         moverDerechaObjetivo = !Physics2D.OverlapCircle((Vector2)jugador.transform.position + bordeDerecha, collisionRadius, groundLayer);
         moverIzquierdaObjetivo = !Physics2D.OverlapCircle((Vector2)jugador.transform.position + bordeIzquierda, collisionRadius, groundLayer);
-
-
     }
 }

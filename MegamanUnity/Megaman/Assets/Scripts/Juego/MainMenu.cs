@@ -21,7 +21,6 @@ public class MainMenu : MonoBehaviour
         GameObject.Find("Cutscene").SetActive(false);
         GameObject.FindGameObjectWithTag("Guardar").GetComponent<GuardadoAutomatico>().nuevaPartida = false;
         PantallaDeCarga.Instancia.CargarEscena(SceneManager.GetActiveScene().buildIndex + 2);
-
     }
 
     /// <summary>

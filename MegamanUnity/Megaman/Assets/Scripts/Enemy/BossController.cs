@@ -35,6 +35,7 @@ public class BossController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         posicionPrincipal = objetoPadre.transform.position;
+        heartBar.maxValue = scriptVida.vida;
     }
 
     /// <summary>
@@ -47,7 +48,7 @@ public class BossController : MonoBehaviour
         heartBar.value = scriptVida.vida;
 
         //Si la vida es menor a 50 le pongo una animacion y fuerza
-        if (scriptVida.vida < 25)
+        if (scriptVida.vida < 10)
         {
             Power();
         }
@@ -62,6 +63,7 @@ public class BossController : MonoBehaviour
             carabela2.SetActive(false);
             carabela3.SetActive(false);
             carabela4.SetActive(false);
+            this.transform.GetChild(3).gameObject.SetActive(false);
         }
 
         //Si acaba la animacion de Acabado vuelve a su posicion original
@@ -148,7 +150,6 @@ public class BossController : MonoBehaviour
             objetoPadre.transform.position = posicionPrincipal;
 
             primeraVez = true;
-
         }
     }
 
@@ -162,7 +163,6 @@ public class BossController : MonoBehaviour
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
 
             primeraVez = true;
-
         }
     }
 
@@ -182,6 +182,7 @@ public class BossController : MonoBehaviour
             carabela2.SetActive(true);
             carabela3.SetActive(true);
             carabela4.SetActive(true);
+            this.transform.GetChild(3).gameObject.SetActive(true);
         }
     }
 
@@ -197,6 +198,9 @@ public class BossController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Se acerca ak jugador y suena el ataque
+    /// </summary>
     private void Guillotine()
     {
         if (!primeraVez)
@@ -204,19 +208,49 @@ public class BossController : MonoBehaviour
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
             primeraVez = true;
             audioSource.PlayOneShot(ataque2);
-
         }
     }
 
+    /// <summary>
+    /// Se pone en rojo para mostrar la vida
+    /// </summary>
     private void Power()
     {
         GetComponentInChildren<GhostBoss>().ShowGhost();
     }
 
+    /// <summary>
+    /// Hace sonar el sonido de la Guillotina
+    /// </summary>
+    public void SonidoGuillotine()
+    {
+        if (ataque2 == null)
+        {
+            audioSource.PlayOneShot(GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().ataque2);
+        }
+        else
+        {
+            audioSource.PlayOneShot(ataque2);
+        }
 
 
-    public void SonidoGuillotine() { audioSource.PlayOneShot(ataque2); }
-    public void SonidoAtaqueCarabela() { audioSource.PlayOneShot(ataque1); }
 
 
+    }
+
+    /// <summary>
+    /// Hace sonar el sonido del ataque de la carabela
+    /// </summary>
+
+    public void SonidoAtaqueCarabela()
+    {
+        if (ataque2 == null)
+        {
+            audioSource.PlayOneShot(GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().ataque1);
+        }
+        else
+        {
+            audioSource.PlayOneShot(ataque1);
+        }
+    }
 }

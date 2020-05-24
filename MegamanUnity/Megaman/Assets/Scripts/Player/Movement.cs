@@ -339,7 +339,7 @@ public class Movement : MonoBehaviour
             Instantiate(bala, vector, quaterion);
             nextFireTime = Time.time + cooldown;
         }
-        //Ataque de espada fuerte, cuando pulso arriba  
+        //Ataque de espada fuerte, cuando pulso arriba
         if (Input.GetButtonDown(botonEspada) && Input.GetAxis("Vertical") > 0 && rb.velocity.x == 0 && coll.onGround)
         {
             upattack = true;
@@ -625,8 +625,9 @@ public class Movement : MonoBehaviour
         Destroy(GameObject.Find("Visual"));
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
-        yield return new WaitForSeconds(5f);
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+
+
+
     }
 }

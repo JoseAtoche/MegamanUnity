@@ -52,6 +52,7 @@ public class praire : MonoBehaviour
             texto.transform.position = new Vector3(texto.transform.position.x, texto.transform.position.y - 400 - 155, 0);
             nube.GetComponent<DialogueTrigger>().TriggerDialogue();
             activado = true;
+            GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<Entity_life>().vida = (int)FindObjectOfType<PlayerController>().heartBar.maxValue;
         }
     }
 }

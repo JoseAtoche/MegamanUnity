@@ -16,7 +16,6 @@ public class Entity_life : MonoBehaviour
 
     public int ataqueAnterior = 0;
 
-    public GameObject finalCutscene;
 
     private void Start()
     {
@@ -77,7 +76,6 @@ public class Entity_life : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque - 1 == ataqueAnterior && collision.name != "MegamanMap" && collision.name != "Hitbox")
         {
-
             //El enemigo detectará si ha entrado en el collider de las espadas del jugador
             //Y SI ESTÁ ATACANDO, RECIBIRÁ DAÑO
             if ((collision == colisionEspadaDerecha.GetComponent<PolygonCollider2D>() || collision == colisionEspadaIzquierda.GetComponent<PolygonCollider2D>()) && this.GetComponent<Escudo>() == null)
