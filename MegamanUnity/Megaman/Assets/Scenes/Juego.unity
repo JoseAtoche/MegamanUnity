@@ -606,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213030893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.96, y: -14.98, z: 0}
+  m_LocalPosition: {x: 115.11, y: -51.78, z: 0}
   m_LocalScale: {x: 0.57723635, y: 0.68132806, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -74699,7 +74699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2058566860
 Transform:
   m_ObjectHideFlags: 0
@@ -74983,7 +74983,7 @@ PrefabInstance:
     - target: {fileID: 6284080316190647540, guid: 63d15607939d4324c807c0c0aadd733b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 151.98
+      value: 152.18
       objectReference: {fileID: 0}
     - target: {fileID: 6284080316190647540, guid: 63d15607939d4324c807c0c0aadd733b,
         type: 3}
@@ -74993,7 +74993,7 @@ PrefabInstance:
     - target: {fileID: 6284080316190647540, guid: 63d15607939d4324c807c0c0aadd733b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 6284080316190647540, guid: 63d15607939d4324c807c0c0aadd733b,
         type: 3}
@@ -75063,6 +75063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: prometheusBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563359751405468159, guid: 203564cfa3b4dff4c8db0288efe674d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6563359751405468146, guid: 203564cfa3b4dff4c8db0288efe674d9,
         type: 3}
@@ -75149,6 +75154,11 @@ PrefabInstance:
       propertyPath: carabela4
       value: 
       objectReference: {fileID: 469327388}
+    - target: {fileID: 6563359751405468147, guid: 203564cfa3b4dff4c8db0288efe674d9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 291283438, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 5
@@ -75165,7 +75175,7 @@ PrefabInstance:
     - target: {fileID: 6563359751017498714, guid: 203564cfa3b4dff4c8db0288efe674d9,
         type: 3}
       propertyPath: vida
-      value: 2
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1706679778, guid: 203564cfa3b4dff4c8db0288efe674d9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -75221,6 +75231,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1131028505889191690, guid: 203564cfa3b4dff4c8db0288efe674d9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563359751405468144, guid: 203564cfa3b4dff4c8db0288efe674d9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563359751405468145, guid: 203564cfa3b4dff4c8db0288efe674d9,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -75285,12 +75305,12 @@ PrefabInstance:
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 141.96
+      value: 115.11
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.98
+      value: -51.78
       objectReference: {fileID: 0}
     - target: {fileID: 8134289488540437140, guid: c98580ce199b34844ab7401f3a6e3610,
         type: 3}

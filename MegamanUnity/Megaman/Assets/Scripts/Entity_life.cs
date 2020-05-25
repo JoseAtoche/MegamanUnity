@@ -43,14 +43,19 @@ public class Entity_life : MonoBehaviour
             //Si la vida del BOSS es menor a 0
             else if (vida <= 0 && this.name == "prometheusBoss")
             {
+                this.transform.GetChild(3).gameObject.SetActive(false);
+
                 this.transform.GetComponent<BossController>().enabled = false;
                 this.transform.GetComponent<BossController>().objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + 3,
                     GameObject.FindGameObjectWithTag("Player").transform.position.y + 1, this.transform.GetComponent<BossController>().objetoPadre.transform.position.z);
+                this.transform.GetComponent<Animator>().enabled = false;
                 this.transform.position = new Vector3(0, 0, 0);
 
                 this.transform.GetChild(1).gameObject.SetActive(true);
 
                 this.transform.GetChild(2).gameObject.SetActive(true);
+                this.transform.GetChild(3).gameObject.SetActive(false);
+
             }
             else if (this.transform.GetComponent<EnemyFollow>() != null)
             {

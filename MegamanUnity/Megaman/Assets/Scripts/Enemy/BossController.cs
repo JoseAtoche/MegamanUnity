@@ -63,6 +63,11 @@ public class BossController : MonoBehaviour
             carabela2.SetActive(false);
             carabela3.SetActive(false);
             carabela4.SetActive(false);
+            carabela1.transform.position = posicionPrincipal;
+            carabela2.transform.position = posicionPrincipal;
+            carabela3.transform.position = posicionPrincipal;
+            carabela4.transform.position = posicionPrincipal;
+
             this.transform.GetChild(3).gameObject.SetActive(false);
         }
 
