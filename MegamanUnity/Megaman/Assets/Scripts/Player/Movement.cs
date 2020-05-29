@@ -50,6 +50,7 @@ public class Movement : MonoBehaviour
 
     [Space]
     [Header("Boleanos")]
+    //booleanos de movimiento
     public bool canMove;
 
     public bool wallGrab;

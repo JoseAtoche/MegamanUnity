@@ -46,6 +46,7 @@ public class Entity_life : MonoBehaviour
                 this.transform.GetChild(3).gameObject.SetActive(false);
 
                 this.transform.GetComponent<BossController>().enabled = false;
+                this.transform.GetComponent<Animator>().enabled = false;
                 this.transform.GetComponent<BossController>().objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + 3,
                     GameObject.FindGameObjectWithTag("Player").transform.position.y + 1, this.transform.GetComponent<BossController>().objetoPadre.transform.position.z);
                 this.transform.GetComponent<Animator>().enabled = false;

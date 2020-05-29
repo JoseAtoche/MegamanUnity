@@ -212,7 +212,7 @@ public class BossController : MonoBehaviour
         {
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
             primeraVez = true;
-            audioSource.PlayOneShot(ataque2);
+            //audioSource.PlayOneShot(ataque2);
         }
     }
 

@@ -13,9 +13,11 @@ public class PantallaDeCarga : MonoBehaviour
     {
         DefinirSingleton();
     }
-
+    /// <summary>
+    /// Establece el objeto como no destruible y en falso
+    /// </summary>
     private void DefinirSingleton()
-    {
+    {//Hace que no se destruya al pasar de escena y la pone a false para que no se vea al iniciar el juego
         if (Instancia == null)
         {
             Instancia = this;
@@ -27,14 +29,17 @@ public class PantallaDeCarga : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    /// <summary>
+    /// Carga la siguiente escena
+    /// </summary>
+    /// <param name="nombreEscena"></param>
     public void CargarEscena(int nombreEscena)
     {
         StartCoroutine(MostrarPantallaDeCarga(nombreEscena));
     }
 
     private IEnumerator MostrarPantallaDeCarga(int nombreEscena)
-    {
+    {//muestra la imagen por pantalla e inicia la animacion
         imageDeCarga.gameObject.SetActive(true);
         imageDeCarga.GetComponent<Animator>().SetTrigger("Load");
         imageDeCarga.GetComponent<Animator>().ResetTrigger("Load");
