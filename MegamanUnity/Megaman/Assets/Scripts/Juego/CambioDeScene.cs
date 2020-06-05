@@ -2,6 +2,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+/// <summary>
+/// Cambia la escena, esto es solo para el boss final
+/// </summary>
 public class CambioDeScene : MonoBehaviour
 {
     /// <summary>

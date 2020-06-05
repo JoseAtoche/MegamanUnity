@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Es el item encargado de dar el doble de fuerza al personaje
+/// </summary>
 public class FuerzaItem : MonoBehaviour
 {
     /// <summary>

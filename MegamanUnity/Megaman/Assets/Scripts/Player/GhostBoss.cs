@@ -1,6 +1,8 @@
 ﻿using DG.Tweening;
 using UnityEngine;
-
+/// <summary>
+/// Pone al boss en rojo para que parezca una nueva fase
+/// </summary>
 public class GhostBoss : MonoBehaviour
 {
     private readonly Transform move;

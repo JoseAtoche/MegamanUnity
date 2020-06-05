@@ -1,6 +1,11 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
+
+
+/// <summary>
+/// El camino que dibuja el jugador al hacer el dash
+/// </summary>
 public class GhostTrail : MonoBehaviour
 {
     private Movement move;

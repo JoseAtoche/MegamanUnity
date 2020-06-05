@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Se encarga de rotar al cañon para mirar al jugador
+/// </summary>
 public class cannonrotation : MonoBehaviour
 {
     public GameObject player;

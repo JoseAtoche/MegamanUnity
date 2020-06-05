@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Se encarga de hacer respawn a todos los objetos que falten
+/// </summary>
 public class respawn : MonoBehaviour
 {
     public GameObject dash1;
@@ -31,7 +35,7 @@ public class respawn : MonoBehaviour
         if (dash1 == null || dash2 == null || dash3 == null)
         {
             time += Time.deltaTime;
-
+            //Si han pasado más de 5 segundos
             if (time >= 5)
             {
                 if (dash1 == null)

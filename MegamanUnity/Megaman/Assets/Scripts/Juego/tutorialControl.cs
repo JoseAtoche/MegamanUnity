@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Controla al tutorial, a los paneles
+/// </summary>
 public class tutorialControl : MonoBehaviour
 {
     private bool primera = false;

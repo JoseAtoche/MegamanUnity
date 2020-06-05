@@ -12,7 +12,7 @@ public class BetterJumping : MonoBehaviour
     }
 
     /// <summary>
-    /// Mejora del salto permitiendo poder pulsar el espacio más tiempo para llegar a mas altura
+    /// Mejora del salto permitiendo poder pulsar el boton de saltar más tiempo para coger más altura
     /// </summary>
     private void Update()
     {

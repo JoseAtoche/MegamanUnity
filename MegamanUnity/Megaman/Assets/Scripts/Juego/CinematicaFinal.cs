@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Se ocupa de controlar la cinemática final
+/// </summary>
 public class CinematicaFinal : MonoBehaviour
 {
+    //Booleano que controla si puedes saltar la escena
     private bool permiteSaltar = false;
 
     public GameObject video;
 
-    // Update is called once per frame
+    /// <summary>
+    /// espera continuamente a que pulses el boton para saltar
+    /// </summary>
     private void Update()
     {
         if (Input.GetButtonDown("Fire3") && permiteSaltar)
@@ -31,8 +37,6 @@ public class CinematicaFinal : MonoBehaviour
     {
         video.SetActive(true);
     }
-
-
 
     /// <summary>
     /// Permite saltar la escena

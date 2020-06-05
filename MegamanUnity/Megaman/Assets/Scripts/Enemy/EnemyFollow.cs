@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+
+
+/// <summary>
+/// Este es el Disidente, se encarga de todo su control
+/// </summary>
 public class EnemyFollow : MonoBehaviour
 {
     public float radioDeVision;

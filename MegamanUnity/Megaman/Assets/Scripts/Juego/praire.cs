@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Se encarga de controlar al personaje que aparece al principio
+/// </summary>
 public class praire : MonoBehaviour
 {
     public GameObject bocadillo;

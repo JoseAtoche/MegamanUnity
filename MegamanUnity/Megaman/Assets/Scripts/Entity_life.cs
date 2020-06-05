@@ -2,6 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
+
+/// <summary>
+/// Controla la vida de todos los personajes
+/// </summary>
 [System.Serializable]
 public class Entity_life : MonoBehaviour
 {
@@ -15,7 +19,6 @@ public class Entity_life : MonoBehaviour
     private bool primeraVez = false;
 
     public int ataqueAnterior = 0;
-
 
     private void Start()
     {
@@ -56,7 +59,6 @@ public class Entity_life : MonoBehaviour
 
                 this.transform.GetChild(2).gameObject.SetActive(true);
                 this.transform.GetChild(3).gameObject.SetActive(false);
-
             }
             else if (this.transform.GetComponent<EnemyFollow>() != null)
             {

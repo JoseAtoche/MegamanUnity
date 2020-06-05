@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+
+/// <summary>
+/// Se encarga de guardar partida y tambien de cargarla si es necesario
+/// </summary>
 public class GuardadoAutomatico : MonoBehaviour
 {
     private float tiempoDeEspera = 0;

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+
+//Se encarga de que la camara siempre siga al jugador
 public class CamaraFollow : MonoBehaviour
 {
     public GameObject jugador;

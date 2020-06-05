@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+
+
+/// <summary>
+/// Se encarga del control de la bala enemiga
+/// </summary>
 public class BulletControlEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -61,6 +66,16 @@ public class BulletControlEnemy : MonoBehaviour
                 entity_jugador.Invoke("UndoInvincible", 2);
                 entity_jugador.vida -= 1;
                 entity_jugador.StartCoroutine(entity_jugador.FlashSprite());
+                Destroy(gameObject);
+            }
+        }
+
+        //Si la espada ataca a la bala la bala se corta y evitas el ataque
+        if (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().ataque > 0)
+        {
+            if ((hitInfo == GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().colisionEspadaDerecha.GetComponent<PolygonCollider2D>() ||
+                hitInfo == GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().colisionEspadaIzquierda.GetComponent<PolygonCollider2D>()))
+            {
                 Destroy(gameObject);
             }
         }

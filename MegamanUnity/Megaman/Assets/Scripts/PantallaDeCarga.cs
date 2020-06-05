@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// Controla la pantalla de carga
+/// </summary>
 public class PantallaDeCarga : MonoBehaviour
 {
     public static PantallaDeCarga Instancia { get; private set; }
@@ -13,8 +17,9 @@ public class PantallaDeCarga : MonoBehaviour
     {
         DefinirSingleton();
     }
+
     /// <summary>
-    /// Establece el objeto como no destruible y en falso
+    /// Establece el objeto como no destruible y en falso para que no aparezca
     /// </summary>
     private void DefinirSingleton()
     {//Hace que no se destruya al pasar de escena y la pone a false para que no se vea al iniciar el juego
@@ -29,6 +34,7 @@ public class PantallaDeCarga : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     /// <summary>
     /// Carga la siguiente escena
     /// </summary>
@@ -38,6 +44,12 @@ public class PantallaDeCarga : MonoBehaviour
         StartCoroutine(MostrarPantallaDeCarga(nombreEscena));
     }
 
+
+    /// <summary>
+    /// Hilo a parte que carga la escena deseada por detras
+    /// </summary>
+    /// <param name="nombreEscena"></param>
+    /// <returns></returns>
     private IEnumerator MostrarPantallaDeCarga(int nombreEscena)
     {//muestra la imagen por pantalla e inicia la animacion
         imageDeCarga.gameObject.SetActive(true);
@@ -63,9 +75,7 @@ public class PantallaDeCarga : MonoBehaviour
         //Si está cargada y la animacion ha finalizado oculta el canvas
         if (operacion.isDone == true)
         {
-
             imageDeCarga.gameObject.SetActive(false);
-
         }
     }
 }

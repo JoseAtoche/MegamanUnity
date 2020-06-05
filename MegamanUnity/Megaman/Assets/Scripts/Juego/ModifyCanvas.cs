@@ -43,6 +43,7 @@ public class ModifyCanvas : MonoBehaviour
         {
             prometheus.SetActive(true);
             prometheus.transform.GetChild(0).GetComponent<BossController>().enabled = false;
+            // prometheus.transform.GetChild(0).GetComponent<Animator>().enabled = false;
 
             GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
             cutscene.SetActive(true);

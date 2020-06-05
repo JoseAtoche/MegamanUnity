@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Eenemigo con escudo
+/// </summary>
 public class Escudo : MonoBehaviour
 {
     public float velocidad;

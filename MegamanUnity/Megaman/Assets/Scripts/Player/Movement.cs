@@ -4,6 +4,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+/// <summary>
+/// Se encarga del movimiento del personaje
+/// </summary>
 public class Movement : MonoBehaviour
 {
     [Space]
@@ -85,6 +89,8 @@ public class Movement : MonoBehaviour
     public bool disparoPotenciado = false;
     private float tiempoEsperaEspada = 0;
     public float tiempoEspecialArriba = 0;
+    public float recoverTime = 0;
+
     public int saltos = 0;
     public Boolean combo;
 
@@ -149,6 +155,12 @@ public class Movement : MonoBehaviour
         //Esto es un potenciador cuando mi vida es menor a 50
         if (GameObject.FindObjectOfType<PlayerController>().scriptVida.vida < 50)
         {
+            if (GameObject.FindObjectOfType<PlayerController>().scriptVida.vida < 49 && Time.time > recoverTime)
+            {
+                GameObject.FindObjectOfType<PlayerController>().scriptVida.vida++;
+
+                recoverTime = Time.time + (cooldown * 2);
+            }
             ghostFueza.SetActive(true);
             Fuerza();
         }
@@ -627,8 +639,5 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
-
-
-
     }
 }

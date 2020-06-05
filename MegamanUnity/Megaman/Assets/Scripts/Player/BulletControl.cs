@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Se encarga de controlar la bala del JUGADOR
+/// </summary>
 public class BulletControl : MonoBehaviour
 {
     public Rigidbody2D bulletRB;
@@ -16,10 +20,11 @@ public class BulletControl : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Movement movimiento = player.GetComponent<Movement>();
+        //Esto hace que la bala vaya a la direccion que mira y controla tanto sobre el suelo como si está contra la pared
         if ((movimiento.side == -1 && !movimiento.wallSlide) || (movimiento.side == 1 && movimiento.wallSlide))
         {
             bulletRB.velocity = new Vector2(-bulletSpeed, bulletRB.velocity.y);
-        }
+        }else 
         if ((movimiento.side == 1 && !movimiento.wallSlide) || (movimiento.side == -1 && movimiento.wallSlide))
         {
             bulletRB.velocity = new Vector2(bulletSpeed, bulletRB.velocity.y);
@@ -69,7 +74,7 @@ public class BulletControl : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Movement>().disparoPotenciado = false;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().DesactivarBiometal();
             }
-            //Sea cuak sea destruye la bala
+            //Sea cual sea destruye la bala
             Destroy(gameObject);
         }
 

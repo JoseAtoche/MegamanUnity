@@ -2,6 +2,10 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+
+/// <summary>
+/// Se encarga de guardar y cargar la partida del jugador, para mantener ciertos datos
+/// </summary>
 public static class GuardarPartida
 {
     /// <summary>

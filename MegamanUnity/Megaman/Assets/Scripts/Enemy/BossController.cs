@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controla el movimiento del  Boss, sus ataques y sonidos
+/// </summary>
 public class BossController : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     private Animator anim;
 
     public Slider heartBar;
@@ -12,6 +15,11 @@ public class BossController : MonoBehaviour
 
     public Entity_life scriptVida;
 
+
+    public GameObject objetoPadre;
+
+    [Space]
+    [Header("Sonidos")]
     public AudioClip ataque1;
     public AudioClip ataque2;
     public AudioClip ataque3;
@@ -19,11 +27,13 @@ public class BossController : MonoBehaviour
     public AudioClip ataque5;
     public AudioClip ataque6;
 
-    public GameObject objetoPadre;
+
     private Vector3 posicionPrincipal;
 
     private bool primeraVez = false;
 
+    [Space]
+    [Header("Carableas")]
     public GameObject carabela1;
     public GameObject carabela2;
     public GameObject carabela3;
@@ -63,48 +73,55 @@ public class BossController : MonoBehaviour
             carabela2.SetActive(false);
             carabela3.SetActive(false);
             carabela4.SetActive(false);
-            carabela1.transform.position = posicionPrincipal;
-            carabela2.transform.position = posicionPrincipal;
-            carabela3.transform.position = posicionPrincipal;
-            carabela4.transform.position = posicionPrincipal;
 
             this.transform.GetChild(3).gameObject.SetActive(false);
         }
+        
 
         //Si acaba la animacion de Acabado vuelve a su posicion original
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Fin") && anim.GetBool("burstbool") != true)
         {
             objetoPadre.transform.position = posicionPrincipal;
         }
+        else
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Intro"))
         {
             Intro();
         }
+        else
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("ScytheThornadus"))
         {
             Thornadus();
         }
+        else
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Evil Waltz"))
         {
             EvilWaltz();
         }
+        else
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("scytheFall"))
         {
             Scythe();
         }
+        else
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Quartet BurstIntro"))
         {
             QuartetBurst();
         }
+        else
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hail Nocturne"))
         {
             HailNocturne();
         }
+        else
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Guillotine"))
         {
             Guillotine();
         }
+        
+
+
         if (carabela1.active == true)
         {
             carabela1.transform.position = Vector3.MoveTowards(carabela1.transform.position, new Vector3(137.46f, -8.13f, 0), 0.5f);
@@ -168,6 +185,7 @@ public class BossController : MonoBehaviour
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
 
             primeraVez = true;
+            SonidoGuillotine();
         }
     }
 
@@ -183,6 +201,10 @@ public class BossController : MonoBehaviour
 
             primeraVez = true;
 
+            //carabela1.transform.position = this.transform.position;
+            //carabela2.transform.position = this.transform.position;
+            //carabela3.transform.position = this.transform.position;
+            //carabela4.transform.position = this.transform.position;
             carabela1.SetActive(true);
             carabela2.SetActive(true);
             carabela3.SetActive(true);
@@ -204,7 +226,7 @@ public class BossController : MonoBehaviour
     }
 
     /// <summary>
-    /// Se acerca ak jugador y suena el ataque
+    /// Se acerca al jugador y suena el ataque
     /// </summary>
     private void Guillotine()
     {
@@ -212,7 +234,7 @@ public class BossController : MonoBehaviour
         {
             objetoPadre.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, objetoPadre.transform.position.y, objetoPadre.transform.position.z);
             primeraVez = true;
-            //audioSource.PlayOneShot(ataque2);
+            SonidoGuillotine();
         }
     }
 
@@ -237,10 +259,6 @@ public class BossController : MonoBehaviour
         {
             audioSource.PlayOneShot(ataque2);
         }
-
-
-
-
     }
 
     /// <summary>
@@ -249,7 +267,7 @@ public class BossController : MonoBehaviour
 
     public void SonidoAtaqueCarabela()
     {
-        if (ataque2 == null)
+        if (ataque1 == null)
         {
             audioSource.PlayOneShot(GameObject.FindGameObjectWithTag("objetos").GetComponent<objetosNecesarios>().ataque1);
         }

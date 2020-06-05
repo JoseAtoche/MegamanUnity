@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Se encarga de controlar la vida del personaje principal
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     public Entity_life scriptVida;
